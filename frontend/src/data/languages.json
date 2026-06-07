@@ -1,0 +1,8 @@
+[
+  { "code": "ne", "label": "Nepali" },
+  { "code": "hi", "label": "Hindi" },
+  { "code": "bn", "label": "Bengali" },
+  { "code": "ur", "label": "Urdu" },
+  { "code": "pa", "label": "Punjabi" },
+  { "code": "ta", "label": "Tamil" }
+]

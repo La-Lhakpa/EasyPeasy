@@ -1,0 +1,18 @@
+{
+  "name": "Shila",
+  "language": "Nepali",
+  "speechSpeed": "Slow and gentle",
+  "voice": "Warm female voice",
+  "continuePractice": {
+    "recipeId": "making-dal",
+    "title": "Making Dal",
+    "step": "Step 3 of 8",
+    "progress": 38
+  },
+  "recentActivity": [
+    "Practiced: I am washing the lentils.",
+    "Saved: My child has a fever.",
+    "Finished: Grocery Store warm-up"
+  ],
+  "savedPhraseCount": 10
+}

@@ -1,0 +1,12 @@
+[
+  { "id": 1, "category": "Cooking", "text": "I am washing the lentils.", "translation": "Use while preparing dal." },
+  { "id": 2, "category": "Cooking", "text": "I am cutting onions.", "translation": "A gentle correction for chopping." },
+  { "id": 3, "category": "Doctor", "text": "My child has a fever.", "translation": "Useful at a clinic or doctor visit." },
+  { "id": 4, "category": "Doctor", "text": "Can you explain that again?", "translation": "Use when instructions are unclear." },
+  { "id": 5, "category": "School", "text": "How is my child doing?", "translation": "For parent teacher meetings." },
+  { "id": 6, "category": "School", "text": "Does my child have homework?", "translation": "Ask about school work." },
+  { "id": 7, "category": "Grocery", "text": "How much does this cost?", "translation": "Ask about price." },
+  { "id": 8, "category": "Grocery", "text": "Can I pay by card?", "translation": "Ask about payment." },
+  { "id": 9, "category": "Emergency", "text": "I need help.", "translation": "Quick phrase for urgent moments." },
+  { "id": 10, "category": "Emergency", "text": "Please speak slowly.", "translation": "Ask someone to slow down." }
+]

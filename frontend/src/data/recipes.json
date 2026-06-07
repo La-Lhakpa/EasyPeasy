@@ -1,0 +1,85 @@
+[
+  {
+    "id": "making-dal",
+    "name": "Making Dal",
+    "description": "Gentle practice for washing, boiling, and seasoning lentils.",
+    "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=900&q=80",
+    "progress": 38,
+    "progressLabel": "Step 3 of 8",
+    "steps": [
+      { "instruction": "Wash the lentils.", "phrase": "I am washing the lentils." },
+      { "instruction": "Add water to the pot.", "phrase": "I am adding water to the pot." },
+      { "instruction": "Boil the lentils.", "phrase": "The lentils are boiling." },
+      { "instruction": "Cut the onion.", "phrase": "I am cutting onions." },
+      { "instruction": "Add turmeric and salt.", "phrase": "I am adding turmeric and salt." },
+      { "instruction": "Stir the dal slowly.", "phrase": "I am stirring the dal slowly." },
+      { "instruction": "Make the tempering.", "phrase": "I am heating oil for the tempering." },
+      { "instruction": "Serve the dal warm.", "phrase": "The dal is ready to serve." }
+    ]
+  },
+  {
+    "id": "chicken-curry",
+    "name": "Chicken Curry",
+    "description": "Practice everyday cooking verbs while making curry.",
+    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=900&q=80",
+    "progress": 20,
+    "progressLabel": "Step 2 of 7",
+    "steps": [
+      { "instruction": "Wash the chicken.", "phrase": "I am washing the chicken." },
+      { "instruction": "Cut the tomatoes.", "phrase": "I am cutting tomatoes." },
+      { "instruction": "Cook the spices.", "phrase": "The spices smell good." }
+    ]
+  },
+  {
+    "id": "roti",
+    "name": "Roti",
+    "description": "Learn words for kneading, rolling, and cooking flatbread.",
+    "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=900&q=80",
+    "progress": 12,
+    "progressLabel": "Step 1 of 6",
+    "steps": [
+      { "instruction": "Mix flour and water.", "phrase": "I am mixing flour and water." },
+      { "instruction": "Knead the dough.", "phrase": "I am kneading the dough." },
+      { "instruction": "Roll the roti.", "phrase": "I am rolling the roti." }
+    ]
+  },
+  {
+    "id": "momos",
+    "name": "Momos",
+    "description": "Practice filling, folding, steaming, and serving.",
+    "image": "https://images.unsplash.com/photo-1625398407796-82650a8c135f?auto=format&fit=crop&w=900&q=80",
+    "progress": 0,
+    "progressLabel": "Not started",
+    "steps": [
+      { "instruction": "Prepare the filling.", "phrase": "I am preparing the filling." },
+      { "instruction": "Fold the momos.", "phrase": "I am folding the momos." },
+      { "instruction": "Steam the momos.", "phrase": "The momos are steaming." }
+    ]
+  },
+  {
+    "id": "mixed-vegetables",
+    "name": "Mixed Vegetables",
+    "description": "Simple phrases for cutting, seasoning, and sauteing vegetables.",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80",
+    "progress": 55,
+    "progressLabel": "Step 4 of 7",
+    "steps": [
+      { "instruction": "Wash the vegetables.", "phrase": "I am washing the vegetables." },
+      { "instruction": "Cut the carrots.", "phrase": "I am cutting carrots." },
+      { "instruction": "Add the vegetables.", "phrase": "I am adding the vegetables." }
+    ]
+  },
+  {
+    "id": "rice",
+    "name": "Rice",
+    "description": "Practice short phrases for rinsing, boiling, and serving rice.",
+    "image": "https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&w=900&q=80",
+    "progress": 80,
+    "progressLabel": "Step 5 of 6",
+    "steps": [
+      { "instruction": "Rinse the rice.", "phrase": "I am rinsing the rice." },
+      { "instruction": "Add water.", "phrase": "I am adding water." },
+      { "instruction": "Cover the pot.", "phrase": "I am covering the pot." }
+    ]
+  }
+]

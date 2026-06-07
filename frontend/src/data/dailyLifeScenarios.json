@@ -1,0 +1,62 @@
+[
+  {
+    "id": "doctor-visit",
+    "title": "Doctor Visit",
+    "description": "Say what is wrong and ask for help.",
+    "path": "/daily-life/doctor-visit",
+    "iconName": "Stethoscope",
+    "opening": "Hello. How can I help you today?",
+    "targetPhrase": "My child has a fever.",
+    "phrases": ["My child has a fever.", "She has a cough.", "Can you explain that again?"]
+  },
+  {
+    "id": "parent-teacher-meeting",
+    "title": "Parent Teacher Meeting",
+    "description": "Ask about school, homework, and your child.",
+    "path": "/daily-life/parent-teacher-meeting",
+    "iconName": "School",
+    "opening": "It is nice to meet you. What would you like to ask?",
+    "targetPhrase": "How is my child doing?",
+    "phrases": ["How is my child doing?", "Does my child have homework?", "Can you explain that again?"]
+  },
+  {
+    "id": "grocery-store",
+    "title": "Grocery Store",
+    "description": "Ask about prices, sizes, and payment.",
+    "path": "/daily-life/grocery-store",
+    "iconName": "ShoppingBasket",
+    "opening": "Hi there. Do you need help finding anything?",
+    "targetPhrase": "How much does this cost?",
+    "phrases": ["How much does this cost?", "Can I pay by card?", "Do you have a smaller size?"]
+  },
+  {
+    "id": "pharmacy",
+    "title": "Pharmacy",
+    "description": "Ask for medicine and understand directions.",
+    "path": "/daily-life/pharmacy",
+    "iconName": "Pill",
+    "opening": "How can I help you at the pharmacy?",
+    "targetPhrase": "I need cough medicine.",
+    "phrases": ["I need cough medicine.", "How often should I take this?", "Is this for children?"]
+  },
+  {
+    "id": "transportation",
+    "title": "Transportation",
+    "description": "Ask where to go and how to get there.",
+    "path": "/daily-life/transportation",
+    "iconName": "Bus",
+    "opening": "Where are you trying to go?",
+    "targetPhrase": "Which bus goes downtown?",
+    "phrases": ["Which bus goes downtown?", "Where is the train station?", "How much is the fare?"]
+  },
+  {
+    "id": "emergency",
+    "title": "Emergency",
+    "description": "Quick phrases for urgent moments.",
+    "path": "/daily-life/emergency",
+    "iconName": "Siren",
+    "opening": "Are you safe right now?",
+    "targetPhrase": "I need help.",
+    "phrases": ["I need help.", "Call my family.", "I need a doctor.", "Please speak slowly.", "I do not understand."]
+  }
+]
