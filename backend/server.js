@@ -202,9 +202,34 @@ app.post("/api/tts", async (req, res) => {
   }
 });
 
+const CULINARY_GLOSSARY = {
+  turmeric: "हल्दी", mustard: "सरसों", ginger: "अदरक", dal: "दाल",
+  cumin: "जीरा", coriander: "धनिया", coconut: "नारियल", masala: "मसाला",
+  garlic: "लहसुन", chenna: "छेना", aloo: "आलू", cardamom: "इलायची",
+  momo: "मोमो", dum: "दम", sesame: "तिल", achar: "आचार", luchi: "लुची",
+  roti: "रोटी", ghee: "घी", jaggery: "गुड़", gundruk: "गुन्ड्रुक",
+  sadeko: "सदेको", chana: "चना", begun: "बेगुन", tama: "तामा",
+  yomari: "योमारी", kheer: "खीर", sandesh: "सन्देश", rasgulla: "रसगुल्ला",
+  labra: "लब्रा", jeera: "जीरा", haldi: "हल्दी", thukpa: "थुक्पा",
+};
+
+function transliterateIndic(text) {
+  let result = text;
+  // Case-insensitive word-boundary replacement
+  for (const [romanized, devanagari] of Object.entries(CULINARY_GLOSSARY)) {
+    const regex = new RegExp(`\\b${romanized}\\b`, "gi");
+    result = result.replace(regex, devanagari);
+  }
+  return result;
+}
+
 async function sarvamTts(text) {
   if (!SARVAM_KEY || !text?.trim()) return null;
   try {
+    const trimmed = text.trim();
+    const transliterated = transliterateIndic(trimmed);
+    const hasDevangari = /[ऀ-ॿ]/.test(transliterated);
+
     const res = await fetch("https://api.sarvam.ai/text-to-speech", {
       method: "POST",
       headers: {
@@ -212,11 +237,12 @@ async function sarvamTts(text) {
         "Authorization": `Bearer ${SARVAM_KEY}`,
       },
       body: JSON.stringify({
-        text: text.trim(),
-        target_language_code: "en-IN",
+        text: transliterated,
+        target_language_code: hasDevangari ? "hi-IN" : "en-IN",
         speaker: SARVAM_VOICE,
         model: SARVAM_MODEL,
         pace: 0.9,
+        enable_preprocessing: true,
       }),
     });
 
