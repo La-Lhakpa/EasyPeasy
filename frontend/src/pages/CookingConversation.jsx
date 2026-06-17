@@ -7,6 +7,18 @@ import recipes from "../data/easypeasy_recipes.json";
 import userProgress from "../data/userProgress.json";
 import { cook } from "../lib/api.js";
 
+// Accidental taps produce a near-empty blob (~1 KB of header) that chokes the
+// voice worker and 502s. Anything below this is treated as "didn't catch that".
+const MIN_AUDIO_BYTES = 4000;
+
+const blobToBase64 = (blob) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(String(reader.result).split(",")[1]);
+    reader.onerror = () => reject(reader.error || new Error("Could not read the recording."));
+    reader.readAsDataURL(blob);
+  });
+
 export default function CookingConversation() {
   const { recipeId } = useParams();
   const recipe = recipes.find((item) => item.name && item.name.toLowerCase().replace(/\s+/g, "-") === recipeId) || recipes[0];
@@ -21,6 +33,7 @@ export default function CookingConversation() {
   const streamRef = useRef(null);
   const chunksRef = useRef([]);
   const audioRef = useRef(null);
+  const wantRecordingRef = useRef(false);
 
   const steps = recipe.steps || [];
   const totalSteps = steps.length;
@@ -67,27 +80,23 @@ export default function CookingConversation() {
     setStatus("thinking");
     try {
       console.log(`[Cook] Audio blob: ${blob.size} bytes, type: ${blob.type || "unknown"}`);
-      const reader = new FileReader();
-      reader.onloadend = async () => {
-        const audio = String(reader.result).split(",")[1];
-        console.log(`[Cook] Sending base64 audio: ${audio?.length || 0} chars, MIME: ${blob.type}`);
-        const data = await cook({
-          audio,
-          mimeType: blob.type,
-          recipe: { name: recipe.name, steps: recipe.steps },
-          stepIndex,
-          messages: messages.slice(-8),
-          nativeLanguage: userProgress.language,
-        });
+      const audio = await blobToBase64(blob);
+      console.log(`[Cook] Sending base64 audio: ${audio?.length || 0} chars, MIME: ${blob.type}`);
+      const data = await cook({
+        audio,
+        mimeType: blob.type,
+        recipe: { name: recipe.name, steps: recipe.steps },
+        stepIndex,
+        messages: messages.slice(-8),
+        nativeLanguage: userProgress.language,
+      });
 
-        const next = [...messages];
-        if (data.transcribed) next.push({ role: "user", content: data.transcribed });
-        if (data.response) next.push({ role: "assistant", content: data.response });
-        setMessages(next);
+      const next = [...messages];
+      if (data.transcribed) next.push({ role: "user", content: data.transcribed });
+      if (data.response) next.push({ role: "assistant", content: data.response });
+      setMessages(next);
 
-        speak(data.response, data.audioBase64);
-      };
-      reader.readAsDataURL(blob);
+      speak(data.response, data.audioBase64);
     } catch (err) {
       setError(err?.message || "NaanSense had trouble. Please try again.");
       setStatus("idle");
@@ -98,6 +107,7 @@ export default function CookingConversation() {
     if (status === "recording" || status === "thinking") return;
     setError("");
     stopAudio();
+    wantRecordingRef.current = true;
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -128,13 +138,20 @@ export default function CookingConversation() {
         streamRef.current?.getTracks().forEach((t) => t.stop());
         const blob = new Blob(chunksRef.current, { type: recorder.mimeType || "audio/webm" });
         chunksRef.current = [];
-        if (blob.size) sendTurn(blob);
-        else setStatus("idle");
+        if (blob.size >= MIN_AUDIO_BYTES) {
+          sendTurn(blob);
+        } else {
+          setStatus("idle");
+          setError("I didn't quite catch that — hold the button and speak a little longer.");
+        }
       };
 
       recorder.start();
       setRecording(true);
       setStatus("recording");
+
+      // The user may have released during the getUserMedia await; honor it now.
+      if (!wantRecordingRef.current) stopRecording();
     } catch (err) {
       setError("I need the microphone to hear you. Please allow it and try again.");
       setStatus("error");
@@ -142,6 +159,7 @@ export default function CookingConversation() {
   };
 
   const stopRecording = () => {
+    wantRecordingRef.current = false;
     if (recorderRef.current && recorderRef.current.state !== "inactive") {
       recorderRef.current.stop();
       setRecording(false);
@@ -161,6 +179,7 @@ export default function CookingConversation() {
   };
 
   const handleRelease = () => {
+    wantRecordingRef.current = false;
     if (recording) stopRecording();
   };
 
@@ -253,7 +272,6 @@ export default function CookingConversation() {
           className={`action-button full ${recording ? "danger" : "primary"}`}
           onPointerDown={handlePress}
           onPointerUp={handleRelease}
-          onPointerLeave={handleRelease}
           onPointerCancel={handleRelease}
           disabled={status === "thinking"}
           aria-label="Hold to talk with NaanSense"

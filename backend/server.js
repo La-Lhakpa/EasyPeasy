@@ -10,9 +10,9 @@ const PORT = process.env.PORT || 8787;
 const MODEL = "gemini-2.0-flash-lite";
 const API_KEY = process.env.GEMINI_API_KEY;
 
-const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY;
-const ELEVEN_VOICE = process.env.ELEVENLABS_VOICE_ID;
-const ELEVEN_MODEL = process.env.ELEVENLABS_MODEL || "eleven_multilingual_v2";
+// const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY;
+// const ELEVEN_VOICE = process.env.ELEVENLABS_VOICE_ID;
+// const ELEVEN_MODEL = process.env.ELEVENLABS_MODEL || "eleven_multilingual_v2";
 
 const GROQ_KEY = process.env.GROQ_API_KEY;
 const groq = GROQ_KEY ? new Groq({ apiKey: GROQ_KEY }) : null;
@@ -93,7 +93,7 @@ async function geminiGenerate({ system, contents, generationConfig }) {
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "25mb" }));
 
 app.post("/api/recipes/search", async (req, res) => {
   if (!API_KEY) return res.status(503).json({ error: "Recipe search is not configured (missing GEMINI_API_KEY)." });
@@ -312,7 +312,7 @@ function buildNaanSenseSystem({ recipe, stepIndex = 0, nativeLanguage } = {}) {
   return NAANSENSE_TEMPLATE.replace(/\{(\w+)\}/g, (m, key) => (key in fills ? fills[key] : m));
 }
 
-app.post("/api/cook", express.json({ limit: "25mb" }), async (req, res) => {
+app.post("/api/cook", async (req, res) => {
   if (!groq) {
     return res.status(503).json({ error: "Voice is not configured (missing GROQ_API_KEY)." });
   }
@@ -325,13 +325,12 @@ app.post("/api/cook", express.json({ limit: "25mb" }), async (req, res) => {
     const type = typeof mimeType === "string" && mimeType ? mimeType : "audio/webm";
 
     let ext = "wav";
-    if (type.includes("mp4") || type.includes("mpeg4")) ext = "mp4";
-    else if (type.includes("mpeg") || type.includes("mpga")) ext = "mpga";
+    if (type.includes("webm")) ext = "webm";
+    else if (type.includes("mp4") || type.includes("mpeg4")) ext = "mp4";
     else if (type.includes("ogg")) ext = "ogg";
-    else if (type.includes("opus")) ext = "opus";
+    else if (type.includes("mpeg") || type.includes("mpga")) ext = "mpga";
     else if (type.includes("wav")) ext = "wav";
     else if (type.includes("mp3")) ext = "mp3";
-    else if (type.includes("webm")) ext = "webm";
 
     console.log(`[cook] Audio received: ${buf.length} bytes, MIME: ${type}, ext: ${ext}`);
     const file = await toFile(buf, `turn.${ext}`, { type });
@@ -372,7 +371,7 @@ app.post("/api/cook", express.json({ limit: "25mb" }), async (req, res) => {
 
     res.json({ transcribed, response, audioBase64 });
   } catch (err) {
-    console.error("cook turn failed:", err.message);
+    console.error("cook turn failed:", err?.message, err?.response?.data ?? err);
     res.status(502).json({ error: "NaanSense had trouble. Please try again." });
   }
 });
