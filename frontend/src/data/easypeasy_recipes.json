@@ -1,0 +1,2646 @@
+[
+  {
+    "name": "Dal Bhat",
+    "description": "The heart of every Nepali kitchen: warm lentil soup served over steamed rice. Comforting, wholesome, and made fresh almost every day.",
+    "image": "https://source.unsplash.com/600x400/?dal",
+    "cuisine": "Nepali",
+    "tags": [
+      "beginner",
+      "vegetarian",
+      "comfort-food",
+      "everyday",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Rinse 1 cup of rice until the water runs clear, then cook it with 2 cups of water until soft.",
+        "phrase": "Great start, clean rice cooks up beautifully fluffy."
+      },
+      {
+        "instruction": "Rinse 1 cup of lentils and add them to a pot with 3 cups of water, a pinch of turmeric, and salt.",
+        "phrase": "Take your time, the lentils just need a gentle simmer."
+      },
+      {
+        "instruction": "Simmer the lentils for about 20 minutes until they turn soft and creamy.",
+        "phrase": "You're doing great, keep stirring now and then."
+      },
+      {
+        "instruction": "In a small pan, heat 1 tablespoon of oil or ghee and fry cumin seeds, garlic, and dried chili.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Pour the sizzling tempering over the cooked lentils and stir gently.",
+        "phrase": "Nicely done, that aroma means flavour is locking in."
+      },
+      {
+        "instruction": "Serve the warm dal over rice with a side of vegetables or pickle.",
+        "phrase": "Almost there, your homemade dal bhat is ready to enjoy."
+      }
+    ]
+  },
+  {
+    "name": "Vegetable Momo",
+    "description": "Soft steamed dumplings filled with spiced cabbage and carrots, a beloved Nepali street snack you can make at home.",
+    "image": "https://source.unsplash.com/600x400/?dumpling",
+    "cuisine": "Nepali",
+    "tags": [
+      "snack",
+      "vegetarian",
+      "steamed",
+      "party-food",
+      "popular"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Mix 2 cups of flour with a little water and knead into a smooth, soft dough. Let it rest for 20 minutes.",
+        "phrase": "Great job, resting the dough makes it easy to roll."
+      },
+      {
+        "instruction": "Finely chop cabbage, carrot, and onion, then mix with ginger, garlic, salt, and a little oil.",
+        "phrase": "Nicely done, the colourful filling looks fresh and lovely."
+      },
+      {
+        "instruction": "Roll the dough into small circles, keeping the edges thinner than the center.",
+        "phrase": "Take your time, even rounds make pretty momos."
+      },
+      {
+        "instruction": "Place a spoon of filling in the middle and pleat the edges to seal each dumpling.",
+        "phrase": "You're doing great, your folds are getting neater each time."
+      },
+      {
+        "instruction": "Arrange the momos in a greased steamer, leaving space between them.",
+        "phrase": "Almost there, give them a little room to breathe."
+      },
+      {
+        "instruction": "Steam for 10 to 12 minutes until the wrappers turn glossy.",
+        "phrase": "Your kitchen smells wonderful, the momos are nearly ready."
+      },
+      {
+        "instruction": "Serve hot with tomato achar or chili sauce.",
+        "phrase": "Beautifully done, enjoy your warm homemade momos."
+      }
+    ]
+  },
+  {
+    "name": "Chicken Momo",
+    "description": "Juicy minced chicken dumplings flavoured with ginger, garlic, and coriander. A festive favourite in Nepali homes.",
+    "image": "https://source.unsplash.com/600x400/?momo",
+    "cuisine": "Nepali",
+    "tags": [
+      "snack",
+      "meat",
+      "steamed",
+      "party-food",
+      "popular"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Knead 2 cups of flour with water into a soft dough and let it rest for 20 minutes.",
+        "phrase": "Great start, a rested dough is a happy dough."
+      },
+      {
+        "instruction": "Mix minced chicken with chopped onion, ginger, garlic, coriander, salt, and a little oil.",
+        "phrase": "Take your time, gentle mixing keeps the filling tender."
+      },
+      {
+        "instruction": "Roll the dough into thin circles with slightly thicker centers.",
+        "phrase": "You're doing great, your circles are coming along nicely."
+      },
+      {
+        "instruction": "Add a spoon of chicken filling and pleat the edges to seal tightly.",
+        "phrase": "Nicely done, sealed momos hold all that tasty juice."
+      },
+      {
+        "instruction": "Place the momos in a greased steamer with space around each one.",
+        "phrase": "Almost there, they just need a warm steam bath."
+      },
+      {
+        "instruction": "Steam for 14 to 16 minutes until the chicken is fully cooked.",
+        "phrase": "Your kitchen smells amazing, the momos are nearly done."
+      },
+      {
+        "instruction": "Serve hot with spicy tomato achar.",
+        "phrase": "Wonderful work, enjoy these juicy momos warm."
+      }
+    ]
+  },
+  {
+    "name": "Thukpa",
+    "description": "A hearty Himalayan noodle soup loaded with vegetables and warm spices, perfect for chilly evenings.",
+    "image": "https://source.unsplash.com/600x400/?noodle-soup",
+    "cuisine": "Nepali",
+    "tags": [
+      "soup",
+      "comfort-food",
+      "noodles",
+      "warm",
+      "beginner"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Heat 1 tablespoon of oil and saute chopped onion, garlic, and ginger until soft.",
+        "phrase": "Great start, that base will make the soup sing."
+      },
+      {
+        "instruction": "Add chopped tomatoes, turmeric, and a little chili powder, then cook into a soft masala.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Stir in sliced carrots, beans, and cabbage and cook for a few minutes.",
+        "phrase": "Nicely done, the vegetables look perfect."
+      },
+      {
+        "instruction": "Pour in 4 cups of water or broth and bring it to a boil.",
+        "phrase": "You're doing great, the soup is taking shape."
+      },
+      {
+        "instruction": "Add noodles and let them cook until soft, about 5 minutes.",
+        "phrase": "Take your time, soft noodles make a cozy bowl."
+      },
+      {
+        "instruction": "Season with salt and finish with fresh coriander.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Ladle into bowls and serve piping hot.",
+        "phrase": "Wonderful, your warming thukpa is ready to enjoy."
+      }
+    ]
+  },
+  {
+    "name": "Sel Roti",
+    "description": "A sweet, ring-shaped rice bread fried until golden and crispy. A must-have during Tihar and other Nepali festivals.",
+    "image": "https://source.unsplash.com/600x400/?fried-bread",
+    "cuisine": "Nepali",
+    "tags": [
+      "bread",
+      "festival",
+      "vegetarian",
+      "sweet",
+      "traditional"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak 2 cups of rice for 4 to 6 hours, then drain well.",
+        "phrase": "Great start, patient soaking makes a smooth batter."
+      },
+      {
+        "instruction": "Grind the rice with sugar, a little milk, and a pinch of cardamom into a thick, smooth batter.",
+        "phrase": "You're doing great, aim for a pourable but thick mix."
+      },
+      {
+        "instruction": "Let the batter rest for 30 minutes so it settles nicely.",
+        "phrase": "Take your time, resting builds lovely flavour."
+      },
+      {
+        "instruction": "Heat oil in a deep pan until hot but not smoking.",
+        "phrase": "Nicely done, steady heat gives a golden ring."
+      },
+      {
+        "instruction": "Pour the batter in a circular motion to form a ring shape.",
+        "phrase": "You're doing wonderfully, your rings are taking form."
+      },
+      {
+        "instruction": "Fry until golden brown on both sides, then lift out to drain.",
+        "phrase": "Your kitchen smells amazing, these look beautiful."
+      },
+      {
+        "instruction": "Cool slightly and serve.",
+        "phrase": "Beautifully done, enjoy your crispy sel roti."
+      }
+    ]
+  },
+  {
+    "name": "Aloo Tama",
+    "description": "A tangy, comforting curry of potatoes and fermented bamboo shoots with black-eyed peas. Hearty and full of flavour.",
+    "image": "https://source.unsplash.com/600x400/?potato-curry",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "curry",
+      "comfort-food",
+      "traditional",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak a handful of black-eyed peas overnight, then boil until tender.",
+        "phrase": "Great start, soft beans cook into the curry beautifully."
+      },
+      {
+        "instruction": "Heat oil and fry cumin seeds, onion, garlic, and ginger until golden.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add turmeric, chili powder, and chopped tomato, then cook into a soft masala.",
+        "phrase": "Nicely done, that masala base looks rich."
+      },
+      {
+        "instruction": "Stir in cubed potatoes and the bamboo shoots and mix well.",
+        "phrase": "You're doing great, the flavours are joining up."
+      },
+      {
+        "instruction": "Add the boiled beans and enough water to make a thick gravy.",
+        "phrase": "Take your time, let everything get cozy together."
+      },
+      {
+        "instruction": "Simmer for 15 minutes until the potatoes are soft and tangy.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Garnish with coriander and serve with rice.",
+        "phrase": "Wonderful work, your aloo tama is ready."
+      }
+    ]
+  },
+  {
+    "name": "Gundruk ko Jhol",
+    "description": "A tangy, soulful soup made from fermented leafy greens. A traditional Nepali comfort dish full of probiotic goodness.",
+    "image": "https://source.unsplash.com/600x400/?green-soup",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "soup",
+      "traditional",
+      "tangy",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak a cup of gundruk in warm water for 10 minutes, then squeeze out the water.",
+        "phrase": "Great start, soaking softens the greens nicely."
+      },
+      {
+        "instruction": "Heat oil and fry fenugreek seeds, garlic, and dried chili until fragrant.",
+        "phrase": "Your kitchen is starting to smell wonderfully earthy."
+      },
+      {
+        "instruction": "Add the soaked gundruk and saute for a few minutes.",
+        "phrase": "Nicely done, the greens are waking up with flavour."
+      },
+      {
+        "instruction": "Stir in turmeric, a chopped tomato, and a few cubed potatoes.",
+        "phrase": "You're doing great, the soup is building beautifully."
+      },
+      {
+        "instruction": "Pour in 4 cups of water and bring to a gentle boil.",
+        "phrase": "Take your time, let the tang develop slowly."
+      },
+      {
+        "instruction": "Simmer for 15 minutes until the potatoes are soft.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Season with salt and serve hot with rice.",
+        "phrase": "Lovely work, enjoy your warming gundruk soup."
+      }
+    ]
+  },
+  {
+    "name": "Chatamari",
+    "description": "Often called the Newari pizza, this thin rice-flour crepe is topped with egg, minced meat, or vegetables.",
+    "image": "https://source.unsplash.com/600x400/?rice-crepe",
+    "cuisine": "Nepali",
+    "tags": [
+      "snack",
+      "newari",
+      "vegetarian-option",
+      "traditional",
+      "savory"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Whisk rice flour with water and a pinch of salt into a smooth, pourable batter.",
+        "phrase": "Great start, a lump-free batter makes a tidy crepe."
+      },
+      {
+        "instruction": "Heat a flat pan and lightly grease it with oil.",
+        "phrase": "Nicely done, a warm pan is ready for action."
+      },
+      {
+        "instruction": "Pour a ladle of batter and spread it into a thin round.",
+        "phrase": "You're doing great, gentle spreading keeps it even."
+      },
+      {
+        "instruction": "Sprinkle chopped onion, tomato, and your choice of topping over the batter.",
+        "phrase": "Take your time, arrange the toppings just how you like."
+      },
+      {
+        "instruction": "Crack an egg on top if you wish and cover the pan to cook.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Cook until the base is crisp and the topping is set.",
+        "phrase": "Almost there, the chatamari is coming together beautifully."
+      },
+      {
+        "instruction": "Slide onto a plate and serve warm.",
+        "phrase": "Wonderful, enjoy your homemade Newari treat."
+      }
+    ]
+  },
+  {
+    "name": "Chicken Choila",
+    "description": "Smoky, spicy grilled chicken tossed with mustard oil, garlic, and fiery spices. A celebrated Newari favourite.",
+    "image": "https://source.unsplash.com/600x400/?grilled-chicken",
+    "cuisine": "Nepali",
+    "tags": [
+      "meat",
+      "spicy",
+      "newari",
+      "appetizer",
+      "grilled"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil or grill chicken pieces until fully cooked, then shred into bite-sized strips.",
+        "phrase": "Great start, smoky char adds wonderful flavour."
+      },
+      {
+        "instruction": "Heat mustard oil until it smokes lightly, then let it cool a little.",
+        "phrase": "Nicely done, warm mustard oil is the secret here."
+      },
+      {
+        "instruction": "Mix the chicken with chili powder, turmeric, salt, garlic, and ginger.",
+        "phrase": "You're doing great, those spices look vibrant."
+      },
+      {
+        "instruction": "Pour the warm mustard oil over the chicken and toss well.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add chopped onion, green chili, and fresh coriander.",
+        "phrase": "Take your time, fold everything in gently."
+      },
+      {
+        "instruction": "Squeeze in a little lemon juice and mix once more.",
+        "phrase": "Almost there, that tang lifts the whole dish."
+      },
+      {
+        "instruction": "Serve with beaten rice or as a spicy snack.",
+        "phrase": "Beautifully done, your choila is ready to enjoy."
+      }
+    ]
+  },
+  {
+    "name": "Chicken Sekuwa",
+    "description": "Marinated chicken skewers grilled to smoky perfection, bursting with Himalayan spices. A popular street-style favourite.",
+    "image": "https://source.unsplash.com/600x400/?grilled-skewers",
+    "cuisine": "Nepali",
+    "tags": [
+      "meat",
+      "grilled",
+      "spicy",
+      "party-food",
+      "skewers"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Cut chicken into bite-sized cubes and pat them dry.",
+        "phrase": "Great start, even pieces grill nice and evenly."
+      },
+      {
+        "instruction": "Mix yogurt, ginger, garlic, cumin, chili, and mustard oil into a marinade.",
+        "phrase": "Nicely done, that marinade smells incredible already."
+      },
+      {
+        "instruction": "Coat the chicken in the marinade and rest it for at least 1 hour.",
+        "phrase": "Take your time, marinating deepens the flavour."
+      },
+      {
+        "instruction": "Thread the chicken onto skewers.",
+        "phrase": "You're doing great, your skewers look fantastic."
+      },
+      {
+        "instruction": "Grill over charcoal or on a hot pan, turning often.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Cook until lightly charred and fully done inside.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Serve hot with onion rings and lemon.",
+        "phrase": "Wonderful work, enjoy your smoky sekuwa."
+      }
+    ]
+  },
+  {
+    "name": "Kwati",
+    "description": "A nourishing soup of nine sprouted beans, traditionally eaten during the Janai Purnima festival for strength and health.",
+    "image": "https://source.unsplash.com/600x400/?bean-soup",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "soup",
+      "festival",
+      "protein-rich",
+      "traditional"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak a mix of nine beans overnight, then keep them covered for a day to sprout.",
+        "phrase": "Great start, sprouting brings out gentle goodness."
+      },
+      {
+        "instruction": "Boil the sprouted beans with a little salt until soft.",
+        "phrase": "Take your time, tender beans make a creamy soup."
+      },
+      {
+        "instruction": "Heat oil and fry cumin, ajwain, garlic, and ginger until fragrant.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add turmeric and chopped tomato and cook into a soft masala.",
+        "phrase": "Nicely done, that base looks rich and warm."
+      },
+      {
+        "instruction": "Stir in the boiled beans and add enough water for a soup.",
+        "phrase": "You're doing great, everything is coming together."
+      },
+      {
+        "instruction": "Simmer for 15 to 20 minutes to blend the flavours.",
+        "phrase": "Almost there, the soup is getting wonderfully hearty."
+      },
+      {
+        "instruction": "Garnish with coriander and serve hot with rice.",
+        "phrase": "Beautifully done, enjoy your nourishing kwati."
+      }
+    ]
+  },
+  {
+    "name": "Dhido",
+    "description": "A traditional thick porridge made from buckwheat or millet flour, served with curry and greens. Simple, rustic, and filling.",
+    "image": "https://source.unsplash.com/600x400/?porridge",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "traditional",
+      "gluten-free-option",
+      "rustic",
+      "comfort-food"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil 3 cups of water in a heavy pot.",
+        "phrase": "Great start, a steady boil makes mixing easier."
+      },
+      {
+        "instruction": "Slowly add buckwheat or millet flour while stirring continuously.",
+        "phrase": "Take your time, slow stirring keeps it smooth."
+      },
+      {
+        "instruction": "Keep mixing firmly with a wooden spoon as it thickens.",
+        "phrase": "You're doing great, this takes a little arm work."
+      },
+      {
+        "instruction": "Cook until the dhido pulls away from the sides into a soft dough.",
+        "phrase": "Nicely done, the texture is looking just right."
+      },
+      {
+        "instruction": "Shape it gently with a spoon and place on a plate.",
+        "phrase": "Almost there, it is coming together beautifully."
+      },
+      {
+        "instruction": "Serve hot with gundruk soup, dal, or a vegetable curry.",
+        "phrase": "Wonderful, enjoy this hearty traditional meal."
+      }
+    ]
+  },
+  {
+    "name": "Kheer",
+    "description": "A creamy rice pudding gently simmered with milk, sugar, and cardamom, finished with nuts. A festive Nepali sweet.",
+    "image": "https://source.unsplash.com/600x400/?rice-pudding",
+    "cuisine": "Nepali",
+    "tags": [
+      "dessert",
+      "vegetarian",
+      "festival",
+      "sweet",
+      "creamy"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Rinse a quarter cup of rice and soak it for 15 minutes.",
+        "phrase": "Great start, soaked rice cooks soft and creamy."
+      },
+      {
+        "instruction": "Bring 4 cups of milk to a gentle boil in a heavy pot.",
+        "phrase": "Take your time, slow heat stops the milk from sticking."
+      },
+      {
+        "instruction": "Add the rice and simmer on low, stirring often.",
+        "phrase": "You're doing great, keep that gentle stir going."
+      },
+      {
+        "instruction": "Cook until the rice is soft and the milk thickens.",
+        "phrase": "Your kitchen is starting to smell wonderfully sweet."
+      },
+      {
+        "instruction": "Stir in sugar, cardamom, and chopped nuts.",
+        "phrase": "Nicely done, the kheer is turning rich and creamy."
+      },
+      {
+        "instruction": "Simmer a few more minutes until thick and luscious.",
+        "phrase": "Almost there, the dessert is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm or chilled.",
+        "phrase": "Beautifully done, enjoy your homemade kheer."
+      }
+    ]
+  },
+  {
+    "name": "Chicken Chowmein",
+    "description": "Stir-fried noodles with chicken and crunchy vegetables in savoury sauces. A beloved everyday Nepali favourite.",
+    "image": "https://source.unsplash.com/600x400/?chow-mein",
+    "cuisine": "Nepali",
+    "tags": [
+      "meat",
+      "noodles",
+      "stir-fry",
+      "quick",
+      "popular"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil the noodles until just soft, drain, and toss with a little oil.",
+        "phrase": "Great start, oiled noodles wont stick together."
+      },
+      {
+        "instruction": "Heat oil and stir-fry thin chicken strips until cooked.",
+        "phrase": "Nicely done, the chicken looks golden and tasty."
+      },
+      {
+        "instruction": "Add sliced onion, carrot, cabbage, and beans and toss on high heat.",
+        "phrase": "You're doing great, keep the veggies crisp and bright."
+      },
+      {
+        "instruction": "Pour in soy sauce, a little chili sauce, and salt.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add the noodles and toss everything together quickly.",
+        "phrase": "Take your time tossing so the sauce coats evenly."
+      },
+      {
+        "instruction": "Stir-fry for a couple more minutes to mix the flavours.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Garnish with spring onion and serve hot.",
+        "phrase": "Wonderful work, enjoy your homemade chowmein."
+      }
+    ]
+  },
+  {
+    "name": "Aloo ko Achar",
+    "description": "A zesty potato salad tossed with sesame, lemon, and spices. A refreshing side that brightens any Nepali meal.",
+    "image": "https://source.unsplash.com/600x400/?potato-salad",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "side-dish",
+      "tangy",
+      "quick",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil potatoes until soft, peel them, and cut into bite-sized cubes.",
+        "phrase": "Great start, soft potatoes soak up flavour beautifully."
+      },
+      {
+        "instruction": "Dry-roast sesame seeds and grind them into a coarse powder.",
+        "phrase": "Nicely done, fresh sesame adds a nutty richness."
+      },
+      {
+        "instruction": "Mix the potatoes with the sesame powder, turmeric, and chili powder.",
+        "phrase": "You're doing great, the colours look lovely."
+      },
+      {
+        "instruction": "Add lemon juice, salt, chopped green chili, and coriander.",
+        "phrase": "Take your time, taste and adjust the tang."
+      },
+      {
+        "instruction": "Temper fenugreek seeds in hot oil and pour over the mix.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Toss everything well and let it rest a few minutes.",
+        "phrase": "Almost there, resting lets the flavours mingle."
+      },
+      {
+        "instruction": "Serve as a side or a light snack.",
+        "phrase": "Beautifully done, enjoy your tangy aloo achar."
+      }
+    ]
+  },
+  {
+    "name": "Bhatmas Sadeko",
+    "description": "Crunchy fried soybeans tossed with onion, chili, and spices. A protein-rich snack often served with drinks or tea.",
+    "image": "https://source.unsplash.com/600x400/?roasted-soybeans",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "snack",
+      "crunchy",
+      "protein-rich",
+      "quick"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Fry or roast soybeans until golden and crunchy.",
+        "phrase": "Great start, that crunch is what makes this snack."
+      },
+      {
+        "instruction": "Let the soybeans cool slightly in a mixing bowl.",
+        "phrase": "Take your time, cooling keeps them nice and crisp."
+      },
+      {
+        "instruction": "Add chopped onion, green chili, ginger, and coriander.",
+        "phrase": "Nicely done, the mix is looking fresh and lively."
+      },
+      {
+        "instruction": "Season with chili powder, salt, and a squeeze of lemon.",
+        "phrase": "You're doing great, that tang brings it alive."
+      },
+      {
+        "instruction": "Drizzle a little mustard oil and toss everything together.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Serve right away while crunchy.",
+        "phrase": "Wonderful, enjoy your zesty bhatmas sadeko."
+      }
+    ]
+  },
+  {
+    "name": "Rayo ko Saag",
+    "description": "Tender mustard greens stir-fried with garlic and a hint of chili. A simple, healthy side loved in Nepali homes.",
+    "image": "https://source.unsplash.com/600x400/?mustard-greens",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "side-dish",
+      "healthy",
+      "quick",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Wash mustard greens well and chop them roughly.",
+        "phrase": "Great start, clean greens make a fresh dish."
+      },
+      {
+        "instruction": "Heat mustard oil until lightly smoking, then lower the heat.",
+        "phrase": "Nicely done, mustard oil gives that classic taste."
+      },
+      {
+        "instruction": "Add fenugreek seeds, garlic, and dried chili and fry briefly.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Toss in the chopped greens and stir on high heat.",
+        "phrase": "You're doing great, the greens look vibrant."
+      },
+      {
+        "instruction": "Add a pinch of turmeric and salt and cook until just wilted.",
+        "phrase": "Take your time, soft but bright greens are perfect."
+      },
+      {
+        "instruction": "Serve hot with rice and dal.",
+        "phrase": "Beautifully done, enjoy your simple saag."
+      }
+    ]
+  },
+  {
+    "name": "Khasi ko Masu",
+    "description": "A rich, slow-cooked goat curry simmered with onions and warm Himalayan spices. A celebratory dish for special occasions.",
+    "image": "https://source.unsplash.com/600x400/?goat-curry",
+    "cuisine": "Nepali",
+    "tags": [
+      "meat",
+      "curry",
+      "festival",
+      "spicy",
+      "traditional"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Wash goat pieces and marinate with turmeric, salt, and a little yogurt.",
+        "phrase": "Great start, marinating tenderises the meat."
+      },
+      {
+        "instruction": "Heat oil and fry sliced onion until deep golden.",
+        "phrase": "Take your time, golden onions build deep flavour."
+      },
+      {
+        "instruction": "Add ginger, garlic, and the marinated meat and sear well.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Stir in chili powder, cumin, coriander, and chopped tomato.",
+        "phrase": "Nicely done, the masala is looking rich."
+      },
+      {
+        "instruction": "Add water, cover, and simmer on low heat.",
+        "phrase": "You're doing great, slow cooking works its magic."
+      },
+      {
+        "instruction": "Cook until the meat is fork-tender, about 45 minutes.",
+        "phrase": "Almost there, the curry is coming together beautifully."
+      },
+      {
+        "instruction": "Garnish with coriander and serve with rice.",
+        "phrase": "Wonderful work, enjoy this hearty goat curry."
+      }
+    ]
+  },
+  {
+    "name": "Bara",
+    "description": "Savoury lentil patties pan-fried until golden, a cherished Newari snack often topped with egg or minced meat.",
+    "image": "https://source.unsplash.com/600x400/?lentil-patty",
+    "cuisine": "Nepali",
+    "tags": [
+      "snack",
+      "newari",
+      "vegetarian-option",
+      "protein-rich",
+      "traditional"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak black lentils for a few hours, then grind into a thick, smooth batter.",
+        "phrase": "Great start, a smooth batter fries up fluffy."
+      },
+      {
+        "instruction": "Season the batter with salt, ginger, and a pinch of cumin.",
+        "phrase": "Nicely done, gentle seasoning lets the lentils shine."
+      },
+      {
+        "instruction": "Heat a flat pan and grease it lightly with oil.",
+        "phrase": "Take your time, a warm pan helps it set."
+      },
+      {
+        "instruction": "Spread a ladle of batter into a thick round.",
+        "phrase": "You're doing great, your rounds look neat."
+      },
+      {
+        "instruction": "Cook until the base is golden, then flip carefully.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Crack an egg on top if you like and cook through.",
+        "phrase": "Almost there, it is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm with pickle or chutney.",
+        "phrase": "Beautifully done, enjoy your homemade bara."
+      }
+    ]
+  },
+  {
+    "name": "Yomari",
+    "description": "A steamed sweet dumpling shaped like a fig and filled with molasses and sesame. A festive Newari treat for Yomari Punhi.",
+    "image": "https://source.unsplash.com/600x400/?sweet-dumpling",
+    "cuisine": "Nepali",
+    "tags": [
+      "dessert",
+      "festival",
+      "newari",
+      "steamed",
+      "sweet"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Knead rice flour with warm water into a soft, pliable dough.",
+        "phrase": "Great start, a soft dough shapes easily."
+      },
+      {
+        "instruction": "Warm chaku or molasses with sesame and coconut into a thick filling.",
+        "phrase": "Your kitchen is starting to smell sweet and lovely."
+      },
+      {
+        "instruction": "Take a ball of dough and shape it into a small cup.",
+        "phrase": "Take your time, gentle hands make pretty shapes."
+      },
+      {
+        "instruction": "Fill the cup with the molasses mix and seal into a fig shape.",
+        "phrase": "You're doing great, those shapes look charming."
+      },
+      {
+        "instruction": "Place the yomari in a greased steamer.",
+        "phrase": "Nicely done, they are ready for a warm steam."
+      },
+      {
+        "instruction": "Steam for 15 minutes until the dough turns glossy.",
+        "phrase": "Almost there, the dumplings are coming together beautifully."
+      },
+      {
+        "instruction": "Cool slightly and enjoy warm.",
+        "phrase": "Wonderful work, enjoy your festive yomari."
+      }
+    ]
+  },
+  {
+    "name": "Anda ko Tarkari",
+    "description": "A comforting egg curry simmered in a spiced onion-tomato gravy. Quick, satisfying, and perfect with rice or roti.",
+    "image": "https://source.unsplash.com/600x400/?egg-curry",
+    "cuisine": "Nepali",
+    "tags": [
+      "egg",
+      "curry",
+      "quick",
+      "comfort-food",
+      "everyday"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil the eggs, peel them, and lightly prick the surface.",
+        "phrase": "Great start, little pricks help the gravy soak in."
+      },
+      {
+        "instruction": "Heat oil and fry the eggs until lightly golden, then set aside.",
+        "phrase": "Nicely done, golden eggs add lovely texture."
+      },
+      {
+        "instruction": "In the same pan, saute onion, ginger, and garlic until soft.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add turmeric, chili, cumin, and chopped tomato and cook into a masala.",
+        "phrase": "You're doing great, the gravy base looks rich."
+      },
+      {
+        "instruction": "Pour in water for a light gravy and bring to a simmer.",
+        "phrase": "Take your time, let the flavours blend."
+      },
+      {
+        "instruction": "Add the eggs back and simmer for 10 minutes.",
+        "phrase": "Almost there, the curry is coming together beautifully."
+      },
+      {
+        "instruction": "Garnish with coriander and serve with rice.",
+        "phrase": "Beautifully done, enjoy your egg curry."
+      }
+    ]
+  },
+  {
+    "name": "Golbheda ko Achar",
+    "description": "A smoky-sweet tomato pickle blended with sesame and spices. A tangy condiment that pairs perfectly with momos and rice.",
+    "image": "https://source.unsplash.com/600x400/?tomato-chutney",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "pickle",
+      "tangy",
+      "condiment",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Roast tomatoes over a flame or in a pan until the skin chars.",
+        "phrase": "Great start, that smoky char adds magic."
+      },
+      {
+        "instruction": "Peel the charred skin and mash the soft tomatoes.",
+        "phrase": "Take your time, peeling is easier when warm."
+      },
+      {
+        "instruction": "Dry-roast sesame seeds and grind into a coarse powder.",
+        "phrase": "Nicely done, sesame gives a lovely nutty depth."
+      },
+      {
+        "instruction": "Mix the mashed tomato with sesame, chili, garlic, and salt.",
+        "phrase": "You're doing great, the colours look vibrant."
+      },
+      {
+        "instruction": "Add a little lemon juice and fresh coriander.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Stir well and let it rest a few minutes.",
+        "phrase": "Almost there, the achar is coming together beautifully."
+      },
+      {
+        "instruction": "Serve as a dip or side.",
+        "phrase": "Wonderful, enjoy your tangy tomato achar."
+      }
+    ]
+  },
+  {
+    "name": "Vegetable Pakora",
+    "description": "Crispy fritters of mixed vegetables coated in spiced gram-flour batter. A favourite rainy-day tea-time snack.",
+    "image": "https://source.unsplash.com/600x400/?fritters",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegetarian",
+      "snack",
+      "fried",
+      "tea-time",
+      "quick"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Slice onion, potato, and spinach into thin pieces.",
+        "phrase": "Great start, thin slices fry up extra crispy."
+      },
+      {
+        "instruction": "Mix gram flour with turmeric, chili powder, salt, and water into a thick batter.",
+        "phrase": "Nicely done, a thick batter clings beautifully."
+      },
+      {
+        "instruction": "Add the vegetables to the batter and coat them evenly.",
+        "phrase": "You're doing great, every piece looks well dressed."
+      },
+      {
+        "instruction": "Heat oil in a deep pan until hot.",
+        "phrase": "Take your time, steady heat means even frying."
+      },
+      {
+        "instruction": "Drop spoonfuls of the mix into the oil and fry until golden.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Lift out and drain on paper.",
+        "phrase": "Almost there, the pakoras look crisp and golden."
+      },
+      {
+        "instruction": "Serve hot with chutney or ketchup.",
+        "phrase": "Beautifully done, enjoy your crunchy pakoras."
+      }
+    ]
+  },
+  {
+    "name": "Sikarni",
+    "description": "A rich, sweetened yogurt dessert flavoured with cardamom, saffron, and nuts. A creamy Newari treat for celebrations.",
+    "image": "https://source.unsplash.com/600x400/?sweet-yogurt",
+    "cuisine": "Nepali",
+    "tags": [
+      "dessert",
+      "vegetarian",
+      "no-cook",
+      "festival",
+      "creamy"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Hang plain yogurt in a cloth for a few hours to drain the water.",
+        "phrase": "Great start, thick yogurt makes a luscious dessert."
+      },
+      {
+        "instruction": "Transfer the thick yogurt into a bowl and whisk until smooth.",
+        "phrase": "Nicely done, a smooth base feels wonderfully creamy."
+      },
+      {
+        "instruction": "Add sugar and whisk until fully dissolved.",
+        "phrase": "You're doing great, taste for the sweetness you like."
+      },
+      {
+        "instruction": "Stir in cardamom powder and a pinch of saffron.",
+        "phrase": "Your kitchen is starting to smell wonderfully fragrant."
+      },
+      {
+        "instruction": "Fold in chopped almonds, cashews, and pistachios.",
+        "phrase": "Almost there, the dessert is coming together beautifully."
+      },
+      {
+        "instruction": "Chill for an hour and serve cold.",
+        "phrase": "Beautifully done, enjoy your cooling sikarni."
+      }
+    ]
+  },
+  {
+    "name": "Vegetable Pulao",
+    "description": "Fragrant rice cooked with mixed vegetables and gentle spices. A wholesome one-pot meal that comes together with ease.",
+    "image": "https://source.unsplash.com/600x400/?pulao",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegetarian",
+      "rice",
+      "one-pot",
+      "comfort-food",
+      "everyday"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Rinse 1 cup of rice and soak it for 15 minutes, then drain.",
+        "phrase": "Great start, soaked rice cooks light and fluffy."
+      },
+      {
+        "instruction": "Heat oil or ghee and fry cumin, bay leaf, and a cinnamon stick.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add chopped onion and saute until soft and golden.",
+        "phrase": "Nicely done, golden onions add gentle sweetness."
+      },
+      {
+        "instruction": "Stir in mixed vegetables like peas, carrot, and beans.",
+        "phrase": "You're doing great, the colours look lovely."
+      },
+      {
+        "instruction": "Add the rice, salt, and 2 cups of water and bring to a boil.",
+        "phrase": "Take your time, let it reach a gentle bubble."
+      },
+      {
+        "instruction": "Cover and cook on low heat until the rice is fluffy.",
+        "phrase": "Almost there, the pulao is coming together beautifully."
+      },
+      {
+        "instruction": "Fluff gently and serve warm.",
+        "phrase": "Wonderful work, enjoy your fragrant pulao."
+      }
+    ]
+  },
+  {
+    "name": "Sukuti Sadeko",
+    "description": "Spicy dried-meat salad tossed with onion, chili, and mustard oil. A chewy, flavour-packed snack to share.",
+    "image": "https://source.unsplash.com/600x400/?dried-meat",
+    "cuisine": "Nepali",
+    "tags": [
+      "meat",
+      "snack",
+      "spicy",
+      "appetizer",
+      "traditional"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Roast or fry the dried meat until crisp, then cut into small pieces.",
+        "phrase": "Great start, crisp sukuti carries bold flavour."
+      },
+      {
+        "instruction": "Let the meat cool slightly in a mixing bowl.",
+        "phrase": "Take your time, cooling keeps the texture pleasant."
+      },
+      {
+        "instruction": "Add chopped onion, tomato, green chili, and coriander.",
+        "phrase": "Nicely done, fresh add-ins balance the richness."
+      },
+      {
+        "instruction": "Season with chili powder, salt, and a squeeze of lemon.",
+        "phrase": "You're doing great, that tang brings it alive."
+      },
+      {
+        "instruction": "Drizzle warm mustard oil and toss everything together.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Serve right away as a spicy snack.",
+        "phrase": "Beautifully done, enjoy your sukuti sadeko."
+      }
+    ]
+  },
+  {
+    "name": "Mixed Vegetable Tarkari",
+    "description": "A simple home-style curry of seasonal vegetables in a light spiced gravy. Wholesome, colourful, and easy to make.",
+    "image": "https://source.unsplash.com/600x400/?vegetable-curry",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "curry",
+      "everyday",
+      "healthy",
+      "beginner"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Chop a mix of potato, cauliflower, beans, and carrot into even pieces.",
+        "phrase": "Great start, even pieces cook at the same pace."
+      },
+      {
+        "instruction": "Heat oil and fry cumin seeds, onion, garlic, and ginger.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add turmeric, chili powder, and chopped tomato and cook into a masala.",
+        "phrase": "Nicely done, the base is looking rich."
+      },
+      {
+        "instruction": "Stir in the vegetables and coat them in the spices.",
+        "phrase": "You're doing great, everything looks colourful."
+      },
+      {
+        "instruction": "Add a little water, cover, and simmer until tender.",
+        "phrase": "Take your time, soft veggies make a lovely curry."
+      },
+      {
+        "instruction": "Season with salt and finish with coriander.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Serve hot with rice or roti.",
+        "phrase": "Wonderful, enjoy your homely vegetable tarkari."
+      }
+    ]
+  },
+  {
+    "name": "Makai ko Roti",
+    "description": "A rustic cornmeal flatbread with a lovely golden crust. Simple, hearty, and naturally gluten-free.",
+    "image": "https://source.unsplash.com/600x400/?cornbread",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "bread",
+      "gluten-free",
+      "rustic",
+      "traditional"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Mix cornmeal with a pinch of salt and warm water into a soft dough.",
+        "phrase": "Great start, warm water makes the dough easy to shape."
+      },
+      {
+        "instruction": "Knead gently until the dough holds together.",
+        "phrase": "Take your time, cornmeal dough is a little delicate."
+      },
+      {
+        "instruction": "Divide into balls and pat each into a flat round with your hands.",
+        "phrase": "You're doing great, your rounds look lovely."
+      },
+      {
+        "instruction": "Heat a flat pan over medium heat.",
+        "phrase": "Nicely done, steady heat gives a golden crust."
+      },
+      {
+        "instruction": "Cook each roti, pressing gently, until both sides are browned.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Serve warm with greens, curry, or pickle.",
+        "phrase": "Beautifully done, enjoy your makai ko roti."
+      }
+    ]
+  },
+  {
+    "name": "Mula ko Achar",
+    "description": "A crunchy, tangy radish pickle with mustard and fenugreek. A refreshing condiment that wakes up any plate.",
+    "image": "https://source.unsplash.com/600x400/?radish-pickle",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "pickle",
+      "tangy",
+      "condiment",
+      "quick"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Grate or thinly slice fresh radish and sprinkle with a little salt.",
+        "phrase": "Great start, salt draws out extra moisture."
+      },
+      {
+        "instruction": "Let the radish sit for 10 minutes, then gently squeeze it.",
+        "phrase": "Take your time, this keeps the pickle nice and crisp."
+      },
+      {
+        "instruction": "Dry-roast and grind fenugreek seeds into a fine powder.",
+        "phrase": "Nicely done, fenugreek adds a warm aroma."
+      },
+      {
+        "instruction": "Mix the radish with turmeric, chili powder, and the fenugreek.",
+        "phrase": "You're doing great, the colours look bright."
+      },
+      {
+        "instruction": "Add lemon juice and a drizzle of warm mustard oil.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Toss well and let it rest before serving.",
+        "phrase": "Beautifully done, enjoy your crunchy radish achar."
+      }
+    ]
+  },
+  {
+    "name": "Masala Bhuteko Aloo",
+    "description": "Spiced stir-fried potatoes with cumin and turmeric, crisp at the edges and soft inside. A quick everyday favourite.",
+    "image": "https://source.unsplash.com/600x400/?fried-potatoes",
+    "cuisine": "Nepali",
+    "tags": [
+      "vegan",
+      "side-dish",
+      "quick",
+      "everyday",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil potatoes until just tender, peel, and cut into cubes.",
+        "phrase": "Great start, par-boiled potatoes fry up beautifully."
+      },
+      {
+        "instruction": "Heat oil and crackle cumin seeds and a dried chili.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add the potatoes and toss to coat them in the oil.",
+        "phrase": "You're doing great, they are starting to sizzle."
+      },
+      {
+        "instruction": "Sprinkle turmeric, chili powder, and salt over the potatoes.",
+        "phrase": "Nicely done, the spices are clinging on lovely."
+      },
+      {
+        "instruction": "Stir-fry until the edges turn golden and crisp.",
+        "phrase": "Take your time, crispy edges are worth the wait."
+      },
+      {
+        "instruction": "Finish with coriander and serve hot.",
+        "phrase": "Beautifully done, enjoy your spiced potatoes."
+      }
+    ]
+  },
+  {
+    "name": "Luchi",
+    "description": "Soft, puffy deep-fried flatbreads made from white flour. A festive Bengali breakfast favourite, light and pillowy.",
+    "image": "https://source.unsplash.com/600x400/?puri",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegetarian",
+      "bread",
+      "fried",
+      "festival",
+      "breakfast"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Mix flour with a pinch of salt and a spoon of oil, then knead with water into a soft dough.",
+        "phrase": "Great start, a smooth dough makes pillowy luchis."
+      },
+      {
+        "instruction": "Cover the dough and let it rest for 15 minutes.",
+        "phrase": "Take your time, resting relaxes the dough."
+      },
+      {
+        "instruction": "Divide into small balls and roll each into a thin round.",
+        "phrase": "You're doing great, even rounds puff up best."
+      },
+      {
+        "instruction": "Heat oil in a deep pan until hot.",
+        "phrase": "Nicely done, hot oil helps them balloon."
+      },
+      {
+        "instruction": "Slide a luchi in and gently press until it puffs.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Flip once and fry until pale golden, then drain.",
+        "phrase": "Almost there, look at those lovely puffs."
+      },
+      {
+        "instruction": "Serve warm with aloo dum or a curry.",
+        "phrase": "Beautifully done, enjoy your fluffy luchis."
+      }
+    ]
+  },
+  {
+    "name": "Bengali Aloo Dum",
+    "description": "Baby potatoes simmered in a rich, lightly sweet-spiced tomato gravy. The classic partner for luchi.",
+    "image": "https://source.unsplash.com/600x400/?potato-curry",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegetarian",
+      "curry",
+      "comfort-food",
+      "festival",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil baby potatoes until tender, peel, and prick them gently.",
+        "phrase": "Great start, pricked potatoes drink up the gravy."
+      },
+      {
+        "instruction": "Heat oil and lightly fry the potatoes until golden, then set aside.",
+        "phrase": "Nicely done, golden potatoes add lovely depth."
+      },
+      {
+        "instruction": "In the same oil, fry cumin, bay leaf, and ginger paste.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add tomato puree, turmeric, chili, and a pinch of sugar.",
+        "phrase": "You're doing great, the gravy is turning rich."
+      },
+      {
+        "instruction": "Return the potatoes and add a little water.",
+        "phrase": "Take your time, let them soak up the spices."
+      },
+      {
+        "instruction": "Simmer until the gravy thickens and coats the potatoes.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Garnish with coriander and serve hot.",
+        "phrase": "Wonderful, enjoy your cozy aloo dum."
+      }
+    ]
+  },
+  {
+    "name": "Chingri Malai Curry",
+    "description": "Plump prawns simmered in a fragrant coconut-milk gravy. A creamy, festive Bengali delicacy fit for celebrations.",
+    "image": "https://source.unsplash.com/600x400/?prawn-curry",
+    "cuisine": "Bengali",
+    "tags": [
+      "seafood",
+      "curry",
+      "festival",
+      "creamy",
+      "special"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Clean and devein the prawns, then toss with turmeric and salt.",
+        "phrase": "Great start, well-cleaned prawns taste sweet and fresh."
+      },
+      {
+        "instruction": "Lightly fry the prawns until they just turn pink, then set aside.",
+        "phrase": "Nicely done, do not overcook so they stay tender."
+      },
+      {
+        "instruction": "In the same pan, fry bay leaf, cardamom, and ginger paste.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add onion paste and cook until soft and pale golden.",
+        "phrase": "You're doing great, a smooth base makes a creamy curry."
+      },
+      {
+        "instruction": "Pour in coconut milk with a pinch of sugar and salt.",
+        "phrase": "Take your time, gentle heat keeps the coconut silky."
+      },
+      {
+        "instruction": "Return the prawns and simmer for a few minutes.",
+        "phrase": "Almost there, the curry is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm with steamed rice.",
+        "phrase": "Beautifully done, enjoy your creamy chingri malai."
+      }
+    ]
+  },
+  {
+    "name": "Shorshe Ilish",
+    "description": "Hilsa fish bathed in a pungent mustard-seed gravy. An iconic Bengali dish celebrating the beloved monsoon fish.",
+    "image": "https://source.unsplash.com/600x400/?fish-curry",
+    "cuisine": "Bengali",
+    "tags": [
+      "seafood",
+      "curry",
+      "traditional",
+      "spicy",
+      "special"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak mustard seeds for 15 minutes, then grind with green chili into a paste.",
+        "phrase": "Great start, fresh mustard paste is the soul of this dish."
+      },
+      {
+        "instruction": "Marinate the hilsa pieces with turmeric and salt.",
+        "phrase": "Take your time, gentle handling keeps the fish whole."
+      },
+      {
+        "instruction": "Heat mustard oil and add nigella seeds and slit green chilies.",
+        "phrase": "Your kitchen is starting to smell wonderfully sharp."
+      },
+      {
+        "instruction": "Mix the mustard paste with turmeric and a little water.",
+        "phrase": "Nicely done, the gravy is taking on a golden hue."
+      },
+      {
+        "instruction": "Add the fish and pour the mustard gravy over it.",
+        "phrase": "You're doing great, the fish looks beautifully coated."
+      },
+      {
+        "instruction": "Simmer gently for 8 to 10 minutes.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Drizzle a little raw mustard oil and serve with rice.",
+        "phrase": "Wonderful, enjoy your classic shorshe ilish."
+      }
+    ]
+  },
+  {
+    "name": "Mishti Doi",
+    "description": "Sweet, caramel-toned set yogurt with a smooth, custard-like texture. A beloved Bengali dessert in earthen pots.",
+    "image": "https://source.unsplash.com/600x400/?sweet-yogurt",
+    "cuisine": "Bengali",
+    "tags": [
+      "dessert",
+      "vegetarian",
+      "sweet",
+      "traditional",
+      "creamy"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Gently heat milk and reduce it slightly until thickened.",
+        "phrase": "Great start, reducing milk builds a rich body."
+      },
+      {
+        "instruction": "In another pan, melt sugar until it turns golden caramel.",
+        "phrase": "Take your time, slow caramel gives the lovely colour."
+      },
+      {
+        "instruction": "Stir the caramel into the warm milk until dissolved.",
+        "phrase": "Nicely done, the milk is taking on a warm hue."
+      },
+      {
+        "instruction": "Let the milk cool until just warm to the touch.",
+        "phrase": "You're doing great, the right warmth helps it set."
+      },
+      {
+        "instruction": "Whisk in a few spoons of yogurt as a starter.",
+        "phrase": "Your kitchen is starting to feel like a sweet shop."
+      },
+      {
+        "instruction": "Pour into pots, cover, and keep in a warm place to set.",
+        "phrase": "Almost there, it just needs patience to firm up."
+      },
+      {
+        "instruction": "Chill before serving.",
+        "phrase": "Beautifully done, enjoy your silky mishti doi."
+      }
+    ]
+  },
+  {
+    "name": "Sandesh",
+    "description": "Delicate fresh-cheese sweets flavoured with cardamom. A refined Bengali dessert that melts in the mouth.",
+    "image": "https://source.unsplash.com/600x400/?milk-sweet",
+    "cuisine": "Bengali",
+    "tags": [
+      "dessert",
+      "vegetarian",
+      "sweet",
+      "traditional",
+      "festival"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil milk and add lemon juice to curdle it into soft chenna.",
+        "phrase": "Great start, gentle curdling gives soft cheese."
+      },
+      {
+        "instruction": "Strain the chenna in a cloth and rinse to remove sourness.",
+        "phrase": "Take your time, rinsing keeps the flavour clean."
+      },
+      {
+        "instruction": "Knead the chenna with your palm until smooth and lump-free.",
+        "phrase": "You're doing great, smooth chenna makes silky sandesh."
+      },
+      {
+        "instruction": "Cook the chenna with sugar on low heat for a few minutes.",
+        "phrase": "Your kitchen is starting to smell sweet and lovely."
+      },
+      {
+        "instruction": "Mix in cardamom and let the mixture cool a little.",
+        "phrase": "Nicely done, the fragrance is wonderful."
+      },
+      {
+        "instruction": "Shape into small rounds or press into moulds.",
+        "phrase": "Almost there, your sweets are taking pretty shapes."
+      },
+      {
+        "instruction": "Garnish with a pistachio and serve.",
+        "phrase": "Beautifully done, enjoy your delicate sandesh."
+      }
+    ]
+  },
+  {
+    "name": "Rasgulla",
+    "description": "Spongy chenna balls simmered in light sugar syrup. A juicy, melt-in-the-mouth Bengali classic.",
+    "image": "https://source.unsplash.com/600x400/?rasgulla",
+    "cuisine": "Bengali",
+    "tags": [
+      "dessert",
+      "vegetarian",
+      "sweet",
+      "traditional",
+      "festival"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil milk and curdle it with lemon juice to make chenna.",
+        "phrase": "Great start, fresh chenna is the secret to softness."
+      },
+      {
+        "instruction": "Strain and rinse the chenna, then squeeze out extra water.",
+        "phrase": "Take your time, the right moisture matters here."
+      },
+      {
+        "instruction": "Knead the chenna until smooth, then roll into small balls.",
+        "phrase": "You're doing great, smooth balls puff up beautifully."
+      },
+      {
+        "instruction": "Boil sugar with water to make a light syrup.",
+        "phrase": "Nicely done, a thin syrup lets them swell."
+      },
+      {
+        "instruction": "Gently drop the balls into the boiling syrup.",
+        "phrase": "Your kitchen is starting to smell sweet."
+      },
+      {
+        "instruction": "Cover and cook until the balls double in size.",
+        "phrase": "Almost there, watch them grow soft and spongy."
+      },
+      {
+        "instruction": "Cool in the syrup and serve chilled.",
+        "phrase": "Beautifully done, enjoy your juicy rasgullas."
+      }
+    ]
+  },
+  {
+    "name": "Kosha Mangsho",
+    "description": "Slow-cooked mutton in a deeply spiced, glossy onion gravy. A rich Bengali Sunday-special loved with luchi or rice.",
+    "image": "https://source.unsplash.com/600x400/?mutton-curry",
+    "cuisine": "Bengali",
+    "tags": [
+      "meat",
+      "curry",
+      "spicy",
+      "special",
+      "traditional"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Marinate mutton with yogurt, turmeric, ginger-garlic, and salt for an hour.",
+        "phrase": "Great start, a good marinade tenderises the meat."
+      },
+      {
+        "instruction": "Heat mustard oil and fry sliced onion until deep golden.",
+        "phrase": "Take your time, golden onions build deep flavour."
+      },
+      {
+        "instruction": "Add the marinated mutton and sear on high heat.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Stir in chili, cumin, coriander, and a pinch of sugar.",
+        "phrase": "Nicely done, the masala is turning rich and dark."
+      },
+      {
+        "instruction": "Cover and cook slowly, stirring often, with little water.",
+        "phrase": "You're doing great, low and slow is the key."
+      },
+      {
+        "instruction": "Cook until the meat is tender and the gravy clings to it.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Finish with garam masala and serve hot.",
+        "phrase": "Wonderful work, enjoy your rich kosha mangsho."
+      }
+    ]
+  },
+  {
+    "name": "Cholar Dal",
+    "description": "Bengal gram cooked into a mildly sweet, fragrant lentil dish with coconut and warm spices. A festive comfort dish.",
+    "image": "https://source.unsplash.com/600x400/?lentils",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegetarian",
+      "dal",
+      "festival",
+      "comfort-food",
+      "mildly-sweet"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Rinse chana dal and boil with turmeric until soft but not mushy.",
+        "phrase": "Great start, tender dal makes a lovely texture."
+      },
+      {
+        "instruction": "Heat ghee and fry cumin, bay leaf, and a cinnamon stick.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add small coconut pieces and fry until lightly golden.",
+        "phrase": "Nicely done, the coconut adds a sweet crunch."
+      },
+      {
+        "instruction": "Pour in the cooked dal with a pinch of sugar and salt.",
+        "phrase": "You're doing great, the dish is balancing sweet and savoury."
+      },
+      {
+        "instruction": "Simmer gently until the flavours blend together.",
+        "phrase": "Take your time, slow simmering deepens the taste."
+      },
+      {
+        "instruction": "Finish with a sprinkle of garam masala.",
+        "phrase": "Almost there, the dal is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm with luchi or rice.",
+        "phrase": "Beautifully done, enjoy your fragrant cholar dal."
+      }
+    ]
+  },
+  {
+    "name": "Beguni",
+    "description": "Thinly sliced eggplant dipped in spiced gram-flour batter and fried crisp. A favourite Bengali tea-time fritter.",
+    "image": "https://source.unsplash.com/600x400/?eggplant-fritters",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegan",
+      "snack",
+      "fried",
+      "tea-time",
+      "quick"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Slice the eggplant into thin long pieces.",
+        "phrase": "Great start, thin slices fry up wonderfully crisp."
+      },
+      {
+        "instruction": "Mix gram flour with turmeric, chili, salt, and water into a smooth batter.",
+        "phrase": "Nicely done, a smooth batter coats evenly."
+      },
+      {
+        "instruction": "Heat oil in a deep pan until hot.",
+        "phrase": "Take your time, the right heat gives a golden crust."
+      },
+      {
+        "instruction": "Dip each eggplant slice into the batter to coat it.",
+        "phrase": "You're doing great, every slice looks well dressed."
+      },
+      {
+        "instruction": "Fry the slices until crisp and golden on both sides.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Drain on paper and serve hot.",
+        "phrase": "Beautifully done, enjoy your crunchy beguni."
+      }
+    ]
+  },
+  {
+    "name": "Bhetki Paturi",
+    "description": "Fish fillets coated in mustard-coconut paste, wrapped in banana leaf, and steamed. A fragrant Bengali delicacy.",
+    "image": "https://source.unsplash.com/600x400/?steamed-fish",
+    "cuisine": "Bengali",
+    "tags": [
+      "seafood",
+      "steamed",
+      "traditional",
+      "special",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Marinate the fish fillets with turmeric and salt.",
+        "phrase": "Great start, a gentle marinade keeps the fish moist."
+      },
+      {
+        "instruction": "Grind mustard seeds, coconut, and green chili into a smooth paste.",
+        "phrase": "Nicely done, this paste gives a wonderful aroma."
+      },
+      {
+        "instruction": "Coat the fish thoroughly with the mustard-coconut paste.",
+        "phrase": "You're doing great, the fish is beautifully dressed."
+      },
+      {
+        "instruction": "Place each piece on a banana leaf and wrap into a parcel.",
+        "phrase": "Take your time, neat parcels hold the flavour in."
+      },
+      {
+        "instruction": "Steam the parcels for 12 to 15 minutes.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Unwrap carefully and serve with rice.",
+        "phrase": "Beautifully done, enjoy your fragrant paturi."
+      }
+    ]
+  },
+  {
+    "name": "Labra",
+    "description": "A mixed seasonal vegetable medley gently spiced and slow-cooked. A wholesome Bengali dish often made during festivals.",
+    "image": "https://source.unsplash.com/600x400/?mixed-vegetables",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegan",
+      "curry",
+      "festival",
+      "healthy",
+      "comfort-food"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Chop a mix of pumpkin, potato, radish, and beans into chunks.",
+        "phrase": "Great start, a colourful mix makes a hearty dish."
+      },
+      {
+        "instruction": "Heat oil and crackle panch phoron and a dried red chili.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add the vegetables and toss them in the spices.",
+        "phrase": "You're doing great, everything is sizzling nicely."
+      },
+      {
+        "instruction": "Sprinkle turmeric, salt, and a little sugar over the mix.",
+        "phrase": "Nicely done, that balance is classic Bengali."
+      },
+      {
+        "instruction": "Cover and cook on low heat until the vegetables turn soft.",
+        "phrase": "Take your time, slow cooking blends the flavours."
+      },
+      {
+        "instruction": "Mash lightly so it holds together.",
+        "phrase": "Almost there, the labra is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm with rice or khichuri.",
+        "phrase": "Wonderful, enjoy your homely labra."
+      }
+    ]
+  },
+  {
+    "name": "Payesh",
+    "description": "A creamy Bengali rice pudding slow-cooked in milk with jaggery or sugar and cardamom. A sweet for birthdays and festivals.",
+    "image": "https://source.unsplash.com/600x400/?rice-pudding",
+    "cuisine": "Bengali",
+    "tags": [
+      "dessert",
+      "vegetarian",
+      "festival",
+      "sweet",
+      "creamy"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Rinse a handful of rice and soak it for 15 minutes.",
+        "phrase": "Great start, soaked rice turns soft and creamy."
+      },
+      {
+        "instruction": "Bring milk to a gentle boil in a heavy-bottomed pot.",
+        "phrase": "Take your time, slow heat keeps milk from sticking."
+      },
+      {
+        "instruction": "Add the rice and simmer on low, stirring often.",
+        "phrase": "You're doing great, keep that gentle stir going."
+      },
+      {
+        "instruction": "Cook until the rice is soft and the milk thickens.",
+        "phrase": "Your kitchen is starting to smell wonderfully sweet."
+      },
+      {
+        "instruction": "Stir in jaggery or sugar and cardamom.",
+        "phrase": "Nicely done, the payesh is turning rich."
+      },
+      {
+        "instruction": "Simmer a few more minutes and add nuts.",
+        "phrase": "Almost there, the dessert is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm or chilled.",
+        "phrase": "Beautifully done, enjoy your creamy payesh."
+      }
+    ]
+  },
+  {
+    "name": "Macher Jhol",
+    "description": "A light, soupy fish curry with potatoes and gentle spices. An everyday Bengali staple, comforting and clean-tasting.",
+    "image": "https://source.unsplash.com/600x400/?fish-soup",
+    "cuisine": "Bengali",
+    "tags": [
+      "seafood",
+      "curry",
+      "everyday",
+      "comfort-food",
+      "light"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Marinate fish pieces with turmeric and salt, then lightly fry them.",
+        "phrase": "Great start, a light fry helps the fish hold shape."
+      },
+      {
+        "instruction": "In the same oil, fry nigella seeds and green chilies.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add potato wedges, turmeric, and a little cumin.",
+        "phrase": "Nicely done, the base is building gently."
+      },
+      {
+        "instruction": "Pour in water and bring to a simmer until the potatoes soften.",
+        "phrase": "You're doing great, the broth is coming together."
+      },
+      {
+        "instruction": "Slide in the fried fish and simmer for a few minutes.",
+        "phrase": "Take your time, gentle cooking keeps fish tender."
+      },
+      {
+        "instruction": "Finish with coriander and serve with rice.",
+        "phrase": "Beautifully done, enjoy your comforting macher jhol."
+      }
+    ]
+  },
+  {
+    "name": "Aloo Posto",
+    "description": "Potatoes cooked in a creamy poppy-seed paste with green chilies. A simple, soul-soothing Bengali classic.",
+    "image": "https://source.unsplash.com/600x400/?potato-poppy",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegan",
+      "side-dish",
+      "comfort-food",
+      "everyday",
+      "gluten-free"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak poppy seeds in warm water, then grind into a smooth paste.",
+        "phrase": "Great start, a fine paste makes a creamy dish."
+      },
+      {
+        "instruction": "Heat oil and add nigella seeds and a green chili.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add cubed potatoes and saute for a few minutes.",
+        "phrase": "You're doing great, the potatoes are softening nicely."
+      },
+      {
+        "instruction": "Stir in the poppy-seed paste with a little turmeric and salt.",
+        "phrase": "Nicely done, the paste coats everything beautifully."
+      },
+      {
+        "instruction": "Add a splash of water, cover, and cook until tender.",
+        "phrase": "Take your time, low heat keeps the paste smooth."
+      },
+      {
+        "instruction": "Drizzle a little mustard oil and serve with rice.",
+        "phrase": "Beautifully done, enjoy your creamy aloo posto."
+      }
+    ]
+  },
+  {
+    "name": "Shukto",
+    "description": "A gently bitter-sweet mixed vegetable stew with milk and a hint of mustard. A traditional Bengali starter for the meal.",
+    "image": "https://source.unsplash.com/600x400/?vegetable-stew",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegetarian",
+      "curry",
+      "traditional",
+      "healthy",
+      "mild"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Chop bitter gourd, drumstick, eggplant, and potato into pieces.",
+        "phrase": "Great start, a balanced mix is key to shukto."
+      },
+      {
+        "instruction": "Lightly fry the bitter gourd until golden and set aside.",
+        "phrase": "Nicely done, frying softens its bitterness."
+      },
+      {
+        "instruction": "Heat oil and crackle panch phoron and a bay leaf.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add the remaining vegetables and saute gently.",
+        "phrase": "You're doing great, the veggies look lovely."
+      },
+      {
+        "instruction": "Pour in a little milk with ginger paste and a pinch of sugar.",
+        "phrase": "Take your time, the milk gives a gentle creaminess."
+      },
+      {
+        "instruction": "Simmer until the vegetables are soft, then return the gourd.",
+        "phrase": "Almost there, the stew is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm at the start of a meal with rice.",
+        "phrase": "Wonderful, enjoy your delicate shukto."
+      }
+    ]
+  },
+  {
+    "name": "Begun Bhaja",
+    "description": "Eggplant rounds dusted with turmeric and chili, then shallow-fried until soft and golden. A simple, beloved side.",
+    "image": "https://source.unsplash.com/600x400/?fried-eggplant",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegan",
+      "side-dish",
+      "fried",
+      "quick",
+      "everyday"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Slice the eggplant into round pieces.",
+        "phrase": "Great start, even rounds fry up beautifully."
+      },
+      {
+        "instruction": "Rub the slices with turmeric, chili powder, and salt.",
+        "phrase": "Nicely done, the spices add lovely colour."
+      },
+      {
+        "instruction": "Heat oil in a flat pan over medium heat.",
+        "phrase": "Take your time, steady heat avoids burning."
+      },
+      {
+        "instruction": "Place the slices in the pan and fry until golden.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Flip carefully and cook the other side.",
+        "phrase": "You're doing great, they look soft and golden."
+      },
+      {
+        "instruction": "Drain and serve hot with rice and dal.",
+        "phrase": "Beautifully done, enjoy your begun bhaja."
+      }
+    ]
+  },
+  {
+    "name": "Dhokar Dalna",
+    "description": "Spiced lentil cakes fried and simmered in a light gravy. A cherished vegetarian Bengali main, hearty and flavourful.",
+    "image": "https://source.unsplash.com/600x400/?lentil-cake-curry",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegan",
+      "curry",
+      "traditional",
+      "protein-rich",
+      "special"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak chana dal, then grind into a thick paste with ginger and chili.",
+        "phrase": "Great start, a firm paste sets into neat cakes."
+      },
+      {
+        "instruction": "Cook the paste with spices until it thickens, then spread on a tray.",
+        "phrase": "Take your time, let it cool and firm up well."
+      },
+      {
+        "instruction": "Cut into diamond shapes and fry until golden, then set aside.",
+        "phrase": "Nicely done, those little cakes look lovely."
+      },
+      {
+        "instruction": "Heat oil and fry cumin, bay leaf, and ginger paste.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add tomato, turmeric, and chili and cook into a gravy.",
+        "phrase": "You're doing great, the gravy is building nicely."
+      },
+      {
+        "instruction": "Add water, simmer, then gently add the fried cakes.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Simmer briefly and serve with rice.",
+        "phrase": "Wonderful work, enjoy your dhokar dalna."
+      }
+    ]
+  },
+  {
+    "name": "Basanti Pulao",
+    "description": "A fragrant golden sweet pulao with raisins, nuts, and saffron. A festive Bengali rice dish for special occasions.",
+    "image": "https://source.unsplash.com/600x400/?sweet-rice",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegetarian",
+      "rice",
+      "festival",
+      "sweet",
+      "special"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Rinse basmati rice and soak it for 20 minutes, then drain.",
+        "phrase": "Great start, soaked rice cooks light and separate."
+      },
+      {
+        "instruction": "Mix the rice with turmeric, a little ghee, and salt, and rest it.",
+        "phrase": "Take your time, this gives the lovely golden colour."
+      },
+      {
+        "instruction": "Heat ghee and fry cardamom, cinnamon, and bay leaf.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add cashews and raisins and fry until lightly golden.",
+        "phrase": "Nicely done, the nuts add a festive touch."
+      },
+      {
+        "instruction": "Stir in the rice and add measured warm water with a little sugar.",
+        "phrase": "You're doing great, the balance of sweet is gentle."
+      },
+      {
+        "instruction": "Cover and cook on low heat until the rice is fluffy.",
+        "phrase": "Almost there, the pulao is coming together beautifully."
+      },
+      {
+        "instruction": "Fluff gently and serve warm.",
+        "phrase": "Beautifully done, enjoy your golden basanti pulao."
+      }
+    ]
+  },
+  {
+    "name": "Bengali Chicken Curry",
+    "description": "A homely chicken curry in a spiced onion-tomato gravy with potatoes. Comforting, everyday goodness on the dinner table.",
+    "image": "https://source.unsplash.com/600x400/?chicken-curry",
+    "cuisine": "Bengali",
+    "tags": [
+      "meat",
+      "curry",
+      "everyday",
+      "comfort-food",
+      "beginner"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Marinate chicken pieces with yogurt, turmeric, and salt.",
+        "phrase": "Great start, marinating keeps the chicken juicy."
+      },
+      {
+        "instruction": "Heat oil and fry potato chunks until golden, then set aside.",
+        "phrase": "Nicely done, fried potatoes add a lovely touch."
+      },
+      {
+        "instruction": "Fry sliced onion until soft, then add ginger-garlic paste.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add chili, cumin, coriander, and chopped tomato and cook into a masala.",
+        "phrase": "You're doing great, the gravy is turning rich."
+      },
+      {
+        "instruction": "Add the chicken and sear, then add water and the potatoes.",
+        "phrase": "Take your time, let it all simmer together."
+      },
+      {
+        "instruction": "Cook until the chicken is tender and the gravy thickens.",
+        "phrase": "Almost there, the curry is coming together beautifully."
+      },
+      {
+        "instruction": "Finish with garam masala and serve with rice.",
+        "phrase": "Wonderful, enjoy your homely chicken curry."
+      }
+    ]
+  },
+  {
+    "name": "Doi Maach",
+    "description": "Fish simmered in a smooth, lightly spiced yogurt gravy. A delicate, tangy Bengali curry with gentle warmth.",
+    "image": "https://source.unsplash.com/600x400/?yogurt-fish",
+    "cuisine": "Bengali",
+    "tags": [
+      "seafood",
+      "curry",
+      "traditional",
+      "tangy",
+      "special"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Marinate fish with turmeric and salt, then lightly fry it.",
+        "phrase": "Great start, a gentle fry keeps the fish firm."
+      },
+      {
+        "instruction": "Whisk yogurt until smooth and lump-free.",
+        "phrase": "Nicely done, smooth yogurt makes a silky gravy."
+      },
+      {
+        "instruction": "Heat oil and fry cardamom, cinnamon, and ginger paste.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Lower the heat and stir in the whisked yogurt slowly.",
+        "phrase": "Take your time, low heat keeps the yogurt from splitting."
+      },
+      {
+        "instruction": "Add a pinch of sugar, salt, and a little water.",
+        "phrase": "You're doing great, the gravy is coming together."
+      },
+      {
+        "instruction": "Slide in the fried fish and simmer gently.",
+        "phrase": "Almost there, the curry is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm with steamed rice.",
+        "phrase": "Beautifully done, enjoy your tangy doi maach."
+      }
+    ]
+  },
+  {
+    "name": "Ghugni",
+    "description": "Yellow peas simmered in a spiced gravy and topped with onion and coriander. A popular Bengali street snack.",
+    "image": "https://source.unsplash.com/600x400/?yellow-peas",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegan",
+      "snack",
+      "street-food",
+      "protein-rich",
+      "comfort-food"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak dried yellow peas overnight, then boil until soft.",
+        "phrase": "Great start, well-soaked peas cook up tender."
+      },
+      {
+        "instruction": "Heat oil and fry cumin, bay leaf, and chopped onion.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add ginger, turmeric, chili, and chopped tomato and cook into a masala.",
+        "phrase": "Nicely done, the base is looking rich."
+      },
+      {
+        "instruction": "Stir in the boiled peas with a little of their water.",
+        "phrase": "You're doing great, everything is blending nicely."
+      },
+      {
+        "instruction": "Simmer until the gravy thickens and coats the peas.",
+        "phrase": "Take your time, a thick gravy is just right."
+      },
+      {
+        "instruction": "Sprinkle roasted cumin, chopped onion, and coriander.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm as a snack.",
+        "phrase": "Wonderful, enjoy your hearty ghugni."
+      }
+    ]
+  },
+  {
+    "name": "Mochar Ghonto",
+    "description": "A spiced, dry banana-flower preparation with coconut and gentle warmth. A traditional, nutritious Bengali dish.",
+    "image": "https://source.unsplash.com/600x400/?banana-flower",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegan",
+      "side-dish",
+      "traditional",
+      "healthy",
+      "festival"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Clean and finely chop the banana flower, then boil it until soft.",
+        "phrase": "Great start, soft florets are easy to cook with."
+      },
+      {
+        "instruction": "Heat oil and crackle cumin, bay leaf, and dried chili.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add ginger paste, turmeric, and a little cumin powder.",
+        "phrase": "Nicely done, the spices are blooming nicely."
+      },
+      {
+        "instruction": "Stir in the boiled banana flower and mix well.",
+        "phrase": "You're doing great, everything is coming together."
+      },
+      {
+        "instruction": "Add grated coconut, a pinch of sugar, and salt.",
+        "phrase": "Take your time, the coconut adds lovely sweetness."
+      },
+      {
+        "instruction": "Cook on low heat until dry and fragrant.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Serve warm with rice.",
+        "phrase": "Beautifully done, enjoy your mochar ghonto."
+      }
+    ]
+  },
+  {
+    "name": "Aloo Phulkopir Dalna",
+    "description": "Potatoes and cauliflower in a comforting spiced gravy. A simple, warming Bengali winter favourite.",
+    "image": "https://source.unsplash.com/600x400/?cauliflower-curry",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegan",
+      "curry",
+      "comfort-food",
+      "winter",
+      "everyday"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Cut cauliflower into florets and potatoes into chunks.",
+        "phrase": "Great start, even pieces cook at the same pace."
+      },
+      {
+        "instruction": "Lightly fry the florets and potatoes until golden, then set aside.",
+        "phrase": "Nicely done, frying adds a lovely depth."
+      },
+      {
+        "instruction": "Heat oil and fry cumin, bay leaf, and ginger paste.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add turmeric, chili, and chopped tomato and cook into a masala.",
+        "phrase": "You're doing great, the gravy is building nicely."
+      },
+      {
+        "instruction": "Return the vegetables and add a little water.",
+        "phrase": "Take your time, let them soak up the spices."
+      },
+      {
+        "instruction": "Simmer until the vegetables are tender and the gravy thickens.",
+        "phrase": "Almost there, the dish is coming together beautifully."
+      },
+      {
+        "instruction": "Finish with garam masala and serve with rice or luchi.",
+        "phrase": "Wonderful, enjoy your cozy dalna."
+      }
+    ]
+  },
+  {
+    "name": "Narkel Naru",
+    "description": "Sweet coconut laddus bound with jaggery or sugar. A simple, traditional Bengali festive treat.",
+    "image": "https://source.unsplash.com/600x400/?coconut-laddu",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegetarian",
+      "dessert",
+      "festival",
+      "sweet",
+      "quick"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Grate fresh coconut finely.",
+        "phrase": "Great start, fresh coconut gives the best flavour."
+      },
+      {
+        "instruction": "Melt jaggery or sugar gently in a pan.",
+        "phrase": "Take your time, slow melting avoids burning."
+      },
+      {
+        "instruction": "Add the grated coconut and stir continuously.",
+        "phrase": "Your kitchen is starting to smell wonderfully sweet."
+      },
+      {
+        "instruction": "Cook until the mixture thickens and pulls together.",
+        "phrase": "You're doing great, watch it come together."
+      },
+      {
+        "instruction": "Add a pinch of cardamom and let it cool slightly.",
+        "phrase": "Nicely done, that aroma is lovely."
+      },
+      {
+        "instruction": "Roll the warm mixture into small round balls.",
+        "phrase": "Almost there, your naru are taking shape."
+      },
+      {
+        "instruction": "Cool fully and serve.",
+        "phrase": "Beautifully done, enjoy your coconut naru."
+      }
+    ]
+  },
+  {
+    "name": "Patishapta",
+    "description": "Thin crepes rolled around a sweet coconut or khoya filling. A beloved Bengali treat made during the Poush Sankranti festival.",
+    "image": "https://source.unsplash.com/600x400/?sweet-crepe",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegetarian",
+      "dessert",
+      "festival",
+      "sweet",
+      "crepe"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Mix rice flour, flour, and a little semolina with milk into a thin batter.",
+        "phrase": "Great start, a thin batter makes delicate crepes."
+      },
+      {
+        "instruction": "Cook grated coconut with jaggery until thick to make the filling.",
+        "phrase": "Your kitchen is starting to smell wonderfully sweet."
+      },
+      {
+        "instruction": "Heat a flat pan and lightly grease it.",
+        "phrase": "Nicely done, a warm pan is ready."
+      },
+      {
+        "instruction": "Pour a ladle of batter and spread it into a thin oval.",
+        "phrase": "You're doing great, gentle spreading keeps it even."
+      },
+      {
+        "instruction": "Place a line of filling on one side and roll the crepe.",
+        "phrase": "Take your time, careful rolling keeps it neat."
+      },
+      {
+        "instruction": "Cook until set, then lift out gently.",
+        "phrase": "Almost there, the crepes look lovely."
+      },
+      {
+        "instruction": "Serve warm.",
+        "phrase": "Beautifully done, enjoy your festive patishapta."
+      }
+    ]
+  },
+  {
+    "name": "Tomato Khejur Chutney",
+    "description": "A sweet-tangy tomato chutney with dates and raisins. A festive Bengali condiment served at the end of a meal.",
+    "image": "https://source.unsplash.com/600x400/?tomato-chutney",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegan",
+      "chutney",
+      "sweet",
+      "festival",
+      "condiment"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Chop the tomatoes and soak a few dates and raisins.",
+        "phrase": "Great start, soaked fruit turns soft and sweet."
+      },
+      {
+        "instruction": "Heat a little oil and crackle panch phoron and a dried chili.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add the tomatoes with turmeric and a pinch of salt.",
+        "phrase": "Nicely done, the tomatoes will soon turn jammy."
+      },
+      {
+        "instruction": "Cook until the tomatoes soften and break down.",
+        "phrase": "You're doing great, keep stirring gently."
+      },
+      {
+        "instruction": "Add sugar, dates, and raisins and simmer.",
+        "phrase": "Take your time, the sweetness develops slowly."
+      },
+      {
+        "instruction": "Cook until thick and glossy.",
+        "phrase": "Almost there, the chutney is coming together beautifully."
+      },
+      {
+        "instruction": "Cool and serve as a sweet side.",
+        "phrase": "Beautifully done, enjoy your tangy-sweet chutney."
+      }
+    ]
+  },
+  {
+    "name": "Dimer Dalna",
+    "description": "Boiled eggs fried golden and simmered in a spiced potato gravy. A homely, satisfying Bengali egg curry.",
+    "image": "https://source.unsplash.com/600x400/?egg-curry",
+    "cuisine": "Bengali",
+    "tags": [
+      "egg",
+      "curry",
+      "everyday",
+      "comfort-food",
+      "beginner"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Boil the eggs, peel them, and prick the surface gently.",
+        "phrase": "Great start, little pricks help them soak up gravy."
+      },
+      {
+        "instruction": "Fry the eggs with a little turmeric until golden, then set aside.",
+        "phrase": "Nicely done, golden eggs look and taste lovely."
+      },
+      {
+        "instruction": "Fry potato chunks until golden in the same oil.",
+        "phrase": "You're doing great, the potatoes add heartiness."
+      },
+      {
+        "instruction": "Add onion, ginger, turmeric, chili, and tomato and cook into a masala.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add water and the potatoes, then simmer until tender.",
+        "phrase": "Take your time, let the gravy develop."
+      },
+      {
+        "instruction": "Return the eggs and simmer for a few minutes.",
+        "phrase": "Almost there, the curry is coming together beautifully."
+      },
+      {
+        "instruction": "Finish with garam masala and serve with rice.",
+        "phrase": "Wonderful, enjoy your dimer dalna."
+      }
+    ]
+  },
+  {
+    "name": "Radhaballavi",
+    "description": "Soft fried breads stuffed with a spiced lentil filling. A festive Bengali favourite, best paired with aloo dum.",
+    "image": "https://source.unsplash.com/600x400/?stuffed-bread",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegetarian",
+      "bread",
+      "fried",
+      "festival",
+      "special"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Soak urad dal, then grind into a coarse paste with ginger and chili.",
+        "phrase": "Great start, a coarse paste makes a tasty filling."
+      },
+      {
+        "instruction": "Cook the dal paste with spices until dry and crumbly, then cool.",
+        "phrase": "Take your time, a dry filling stuffs more easily."
+      },
+      {
+        "instruction": "Knead flour with a little oil and water into a soft dough.",
+        "phrase": "Nicely done, a soft dough rolls out smoothly."
+      },
+      {
+        "instruction": "Stuff a ball of dough with the filling and seal it well.",
+        "phrase": "You're doing great, gentle sealing prevents leaks."
+      },
+      {
+        "instruction": "Roll out gently into a small round.",
+        "phrase": "Your kitchen is getting ready for a treat."
+      },
+      {
+        "instruction": "Deep-fry until puffed and golden on both sides.",
+        "phrase": "Almost there, look at those lovely puffs."
+      },
+      {
+        "instruction": "Serve hot with aloo dum.",
+        "phrase": "Beautifully done, enjoy your radhaballavi."
+      }
+    ]
+  },
+  {
+    "name": "Chanar Dalna",
+    "description": "Fresh paneer-style cheese cubes simmered in a fragrant potato gravy. A festive vegetarian Bengali main.",
+    "image": "https://source.unsplash.com/600x400/?paneer-curry",
+    "cuisine": "Bengali",
+    "tags": [
+      "vegetarian",
+      "curry",
+      "festival",
+      "protein-rich",
+      "special"
+    ],
+    "progress": 0,
+    "progress_label": "Not started",
+    "steps": [
+      {
+        "instruction": "Curdle milk to make chenna, press it firm, and cut into cubes.",
+        "phrase": "Great start, firm chenna holds its shape in the gravy."
+      },
+      {
+        "instruction": "Lightly fry the chenna cubes until golden, then set aside.",
+        "phrase": "Nicely done, golden cubes add a lovely bite."
+      },
+      {
+        "instruction": "Fry potato chunks until golden in the same oil.",
+        "phrase": "You're doing great, the potatoes will enrich the dish."
+      },
+      {
+        "instruction": "Add cumin, ginger, turmeric, chili, and tomato and cook into a masala.",
+        "phrase": "Your kitchen is starting to smell amazing."
+      },
+      {
+        "instruction": "Add water and the potatoes, then simmer until tender.",
+        "phrase": "Take your time, let the gravy come together."
+      },
+      {
+        "instruction": "Gently add the chenna cubes and simmer briefly.",
+        "phrase": "Almost there, the curry is coming together beautifully."
+      },
+      {
+        "instruction": "Finish with garam masala and serve with rice or luchi.",
+        "phrase": "Wonderful, enjoy your chanar dalna."
+      }
+    ]
+  }
+]

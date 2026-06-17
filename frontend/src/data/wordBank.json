@@ -1,0 +1,16 @@
+{
+  "words": [
+    { "term": "Simmer", "definition": "To cook food in a low temperature just below the boiling point." },
+    { "term": "Mince", "definition": "To cut or chop something into very small, fine pieces." },
+    { "term": "Grease", "definition": "To coat a pan with fat (like oil or butter) so food won't stick." },
+    { "term": "Drain", "definition": "To remove liquid from something (like draining water from rice)." },
+    { "term": "Season", "definition": "To add salt, pepper, or spices to something." },
+    { "term": "Serve", "definition": "To present food to eat." },
+    { "term": "Spatula", "definition": "Used for flipping or scraping food." }
+  ],
+  "phrases": [
+    { "term": "A pinch of salt", "definition": "A very small amount of salt." },
+    { "term": "Dash of pepper", "definition": "A small, quick sprinkle of pepper." },
+    { "term": "Can you set the table?", "definition": "To arrange tableware on a dining table so it is ready for a meal." }
+  ]
+}

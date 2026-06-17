@@ -1,16 +1,15 @@
 import { Outlet } from "react-router-dom";
+import { Globe } from "lucide-react";
 import BottomNavigation from "./BottomNavigation.jsx";
 
 export default function AppShell() {
   return (
     <div className="app-shell">
-      <aside className="desktop-brand">
-        <div className="brand-mark">EP</div>
-        <div>
-          <strong>EasyPeasy</strong>
-          <span>Practice English gently</span>
-        </div>
-      </aside>
+      <div className="floral-top" aria-hidden="true" />
+      <button className="lang-pill" type="button">
+        <Globe size={14} aria-hidden="true" />
+        English
+      </button>
       <main className="app-content">
         <Outlet />
       </main>

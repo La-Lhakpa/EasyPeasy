@@ -3,14 +3,14 @@ import { ArrowRight, Languages, MessageCircle, Mic, Volume2 } from "lucide-react
 import ActionButton from "../components/ActionButton.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
-import recipes from "../data/recipes.json";
+import recipes from "../data/easypeasy_recipes.json";
 
 export default function CookingSession() {
   const { recipeId } = useParams();
-  const recipe = recipes.find((item) => item.id === recipeId) || recipes[0];
-  const stepIndex = recipe.id === "making-dal" ? 0 : 0;
-  const step = recipe.steps[stepIndex];
-  const totalSteps = recipe.id === "making-dal" ? 8 : recipe.steps.length;
+  const recipe = recipes.find((item) => item.name && item.name.toLowerCase().replace(/\s+/g, "-") === recipeId) || recipes[0];
+  const stepIndex = 0;
+  const step = recipe.steps?.[stepIndex];
+  const totalSteps = recipe.steps?.length || 0;
 
   return (
     <div className="page-stack">
@@ -37,15 +37,10 @@ export default function CookingSession() {
         </div>
       </article>
 
-      <div className="split-actions">
-        <Link className="secondary-link" to={`/cooking/${recipe.id}/conversation`}>
-          <MessageCircle size={18} aria-hidden="true" />
-          Conversation Practice
-        </Link>
-        <Link className="primary-link" to={`/cooking/${recipe.id}/conversation`}>
-          Next Step <ArrowRight size={18} aria-hidden="true" />
-        </Link>
-      </div>
+      <Link className="primary-link full" to={`/cooking/${recipe.name.toLowerCase().replace(/\s+/g, "-")}/conversation`}>
+        <MessageCircle size={18} aria-hidden="true" />
+        Talk to NaanSense <ArrowRight size={18} aria-hidden="true" />
+      </Link>
     </div>
   );
 }

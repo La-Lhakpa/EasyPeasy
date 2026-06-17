@@ -14,8 +14,8 @@ export default function RecipeCard({ recipe }) {
         <div className="meter" aria-label={recipe.progressLabel}>
           <span style={{ width: `${recipe.progress}%` }} />
         </div>
-        <Link className="text-link-button" to={`/cooking/${recipe.id}`}>
-          Continue <ArrowRight size={18} aria-hidden="true" />
+        <Link className="text-link-button" to={`/cooking/${recipe.name.toLowerCase().replace(/\s+/g, "-")}`}>
+          Cook <ArrowRight size={18} aria-hidden="true" />
         </Link>
       </div>
     </article>

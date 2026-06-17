@@ -32,7 +32,6 @@ export default function Home() {
       <PageHeader
         eyebrow="Welcome back"
         title={`Hello, ${userProgress.name}`}
-        subtitle="Let's practice together."
       />
 
       <ProgressCard
@@ -40,9 +39,7 @@ export default function Home() {
         subtitle={userProgress.continuePractice.step}
         progress={userProgress.continuePractice.progress}
         to="/cooking/making-dal"
-        image={continueRecipe?.image}
       />
-
       <section>
         <SectionHeader title="Quick Start" subtitle="Choose a familiar moment." />
         <div className="quick-grid">
@@ -59,7 +56,6 @@ export default function Home() {
         <div>
           <p className="eyebrow">Today's Phrase</p>
           <h2>"I am washing the lentils."</h2>
-          <p>Practice it while making dal or rice.</p>
         </div>
         <div className="button-row">
           <ActionButton icon={Volume2} variant="soft">Hear It</ActionButton>
