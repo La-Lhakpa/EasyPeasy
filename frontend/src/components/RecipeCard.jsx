@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
+const PLACEHOLDER = "/recipe-images/_placeholder.svg";
+
 export default function RecipeCard({ recipe }) {
   return (
     <article className="recipe-card">
-      <img src={recipe.image} alt={recipe.name} />
+      <img
+        src={recipe.image || PLACEHOLDER}
+        alt={recipe.name}
+        loading="lazy"
+        onError={(e) => {
+          if (!e.currentTarget.src.endsWith(PLACEHOLDER)) {
+            e.currentTarget.src = PLACEHOLDER;
+          }
+        }}
+      />
       <div className="card-body">
         <div className="card-title-row">
           <h3>{recipe.name}</h3>

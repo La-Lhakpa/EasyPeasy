@@ -2,7 +2,7 @@
   {
     "name": "Dal Bhat",
     "description": "The heart of every Nepali kitchen: warm lentil soup served over steamed rice. Comforting, wholesome, and made fresh almost every day.",
-    "image": "https://source.unsplash.com/600x400/?dal",
+    "image": "/recipe-images/dal-bhat.jpg",
     "cuisine": "Nepali",
     "tags": [
       "beginner",
@@ -43,7 +43,7 @@
   {
     "name": "Vegetable Momo",
     "description": "Soft steamed dumplings filled with spiced cabbage and carrots, a beloved Nepali street snack you can make at home.",
-    "image": "https://source.unsplash.com/600x400/?dumpling",
+    "image": "/recipe-images/vegetable-momo.jpg",
     "cuisine": "Nepali",
     "tags": [
       "snack",
@@ -88,7 +88,7 @@
   {
     "name": "Chicken Momo",
     "description": "Juicy minced chicken dumplings flavoured with ginger, garlic, and coriander. A festive favourite in Nepali homes.",
-    "image": "https://source.unsplash.com/600x400/?momo",
+    "image": "/recipe-images/chicken-momo.jpg",
     "cuisine": "Nepali",
     "tags": [
       "snack",
@@ -133,7 +133,7 @@
   {
     "name": "Thukpa",
     "description": "A hearty Himalayan noodle soup loaded with vegetables and warm spices, perfect for chilly evenings.",
-    "image": "https://source.unsplash.com/600x400/?noodle-soup",
+    "image": "/recipe-images/thukpa.jpg",
     "cuisine": "Nepali",
     "tags": [
       "soup",
@@ -178,7 +178,7 @@
   {
     "name": "Sel Roti",
     "description": "A sweet, ring-shaped rice bread fried until golden and crispy. A must-have during Tihar and other Nepali festivals.",
-    "image": "https://source.unsplash.com/600x400/?fried-bread",
+    "image": "/recipe-images/sel-roti.jpg",
     "cuisine": "Nepali",
     "tags": [
       "bread",
@@ -223,7 +223,7 @@
   {
     "name": "Aloo Tama",
     "description": "A tangy, comforting curry of potatoes and fermented bamboo shoots with black-eyed peas. Hearty and full of flavour.",
-    "image": "https://source.unsplash.com/600x400/?potato-curry",
+    "image": "/recipe-images/aloo-tama.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -268,7 +268,7 @@
   {
     "name": "Gundruk ko Jhol",
     "description": "A tangy, soulful soup made from fermented leafy greens. A traditional Nepali comfort dish full of probiotic goodness.",
-    "image": "https://source.unsplash.com/600x400/?green-soup",
+    "image": "/recipe-images/gundruk-ko-jhol.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -313,7 +313,7 @@
   {
     "name": "Chatamari",
     "description": "Often called the Newari pizza, this thin rice-flour crepe is topped with egg, minced meat, or vegetables.",
-    "image": "https://source.unsplash.com/600x400/?rice-crepe",
+    "image": "/recipe-images/chatamari.jpg",
     "cuisine": "Nepali",
     "tags": [
       "snack",
@@ -358,7 +358,7 @@
   {
     "name": "Chicken Choila",
     "description": "Smoky, spicy grilled chicken tossed with mustard oil, garlic, and fiery spices. A celebrated Newari favourite.",
-    "image": "https://source.unsplash.com/600x400/?grilled-chicken",
+    "image": "/recipe-images/chicken-choila.jpg",
     "cuisine": "Nepali",
     "tags": [
       "meat",
@@ -403,7 +403,7 @@
   {
     "name": "Chicken Sekuwa",
     "description": "Marinated chicken skewers grilled to smoky perfection, bursting with Himalayan spices. A popular street-style favourite.",
-    "image": "https://source.unsplash.com/600x400/?grilled-skewers",
+    "image": "/recipe-images/chicken-sekuwa.jpg",
     "cuisine": "Nepali",
     "tags": [
       "meat",
@@ -448,7 +448,7 @@
   {
     "name": "Kwati",
     "description": "A nourishing soup of nine sprouted beans, traditionally eaten during the Janai Purnima festival for strength and health.",
-    "image": "https://source.unsplash.com/600x400/?bean-soup",
+    "image": "/recipe-images/kwati.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -493,7 +493,7 @@
   {
     "name": "Dhido",
     "description": "A traditional thick porridge made from buckwheat or millet flour, served with curry and greens. Simple, rustic, and filling.",
-    "image": "https://source.unsplash.com/600x400/?porridge",
+    "image": "/recipe-images/dhido.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -534,7 +534,7 @@
   {
     "name": "Kheer",
     "description": "A creamy rice pudding gently simmered with milk, sugar, and cardamom, finished with nuts. A festive Nepali sweet.",
-    "image": "https://source.unsplash.com/600x400/?rice-pudding",
+    "image": "/recipe-images/kheer.jpg",
     "cuisine": "Nepali",
     "tags": [
       "dessert",
@@ -579,7 +579,7 @@
   {
     "name": "Chicken Chowmein",
     "description": "Stir-fried noodles with chicken and crunchy vegetables in savoury sauces. A beloved everyday Nepali favourite.",
-    "image": "https://source.unsplash.com/600x400/?chow-mein",
+    "image": "/recipe-images/chicken-chowmein.jpg",
     "cuisine": "Nepali",
     "tags": [
       "meat",
@@ -624,7 +624,7 @@
   {
     "name": "Aloo ko Achar",
     "description": "A zesty potato salad tossed with sesame, lemon, and spices. A refreshing side that brightens any Nepali meal.",
-    "image": "https://source.unsplash.com/600x400/?potato-salad",
+    "image": "/recipe-images/aloo-ko-achar.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -669,7 +669,7 @@
   {
     "name": "Bhatmas Sadeko",
     "description": "Crunchy fried soybeans tossed with onion, chili, and spices. A protein-rich snack often served with drinks or tea.",
-    "image": "https://source.unsplash.com/600x400/?roasted-soybeans",
+    "image": "/recipe-images/bhatmas-sadeko.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -710,7 +710,7 @@
   {
     "name": "Rayo ko Saag",
     "description": "Tender mustard greens stir-fried with garlic and a hint of chili. A simple, healthy side loved in Nepali homes.",
-    "image": "https://source.unsplash.com/600x400/?mustard-greens",
+    "image": "/recipe-images/rayo-ko-saag.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -751,7 +751,7 @@
   {
     "name": "Khasi ko Masu",
     "description": "A rich, slow-cooked goat curry simmered with onions and warm Himalayan spices. A celebratory dish for special occasions.",
-    "image": "https://source.unsplash.com/600x400/?goat-curry",
+    "image": "/recipe-images/khasi-ko-masu.jpg",
     "cuisine": "Nepali",
     "tags": [
       "meat",
@@ -796,7 +796,7 @@
   {
     "name": "Bara",
     "description": "Savoury lentil patties pan-fried until golden, a cherished Newari snack often topped with egg or minced meat.",
-    "image": "https://source.unsplash.com/600x400/?lentil-patty",
+    "image": "/recipe-images/bara.jpg",
     "cuisine": "Nepali",
     "tags": [
       "snack",
@@ -841,7 +841,7 @@
   {
     "name": "Yomari",
     "description": "A steamed sweet dumpling shaped like a fig and filled with molasses and sesame. A festive Newari treat for Yomari Punhi.",
-    "image": "https://source.unsplash.com/600x400/?sweet-dumpling",
+    "image": "/recipe-images/yomari.jpg",
     "cuisine": "Nepali",
     "tags": [
       "dessert",
@@ -886,7 +886,7 @@
   {
     "name": "Anda ko Tarkari",
     "description": "A comforting egg curry simmered in a spiced onion-tomato gravy. Quick, satisfying, and perfect with rice or roti.",
-    "image": "https://source.unsplash.com/600x400/?egg-curry",
+    "image": "/recipe-images/anda-ko-tarkari.jpg",
     "cuisine": "Nepali",
     "tags": [
       "egg",
@@ -931,7 +931,7 @@
   {
     "name": "Golbheda ko Achar",
     "description": "A smoky-sweet tomato pickle blended with sesame and spices. A tangy condiment that pairs perfectly with momos and rice.",
-    "image": "https://source.unsplash.com/600x400/?tomato-chutney",
+    "image": "/recipe-images/golbheda-ko-achar.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -976,7 +976,7 @@
   {
     "name": "Vegetable Pakora",
     "description": "Crispy fritters of mixed vegetables coated in spiced gram-flour batter. A favourite rainy-day tea-time snack.",
-    "image": "https://source.unsplash.com/600x400/?fritters",
+    "image": "/recipe-images/vegetable-pakora.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegetarian",
@@ -1021,7 +1021,7 @@
   {
     "name": "Sikarni",
     "description": "A rich, sweetened yogurt dessert flavoured with cardamom, saffron, and nuts. A creamy Newari treat for celebrations.",
-    "image": "https://source.unsplash.com/600x400/?sweet-yogurt",
+    "image": "/recipe-images/sikarni.jpg",
     "cuisine": "Nepali",
     "tags": [
       "dessert",
@@ -1062,7 +1062,7 @@
   {
     "name": "Vegetable Pulao",
     "description": "Fragrant rice cooked with mixed vegetables and gentle spices. A wholesome one-pot meal that comes together with ease.",
-    "image": "https://source.unsplash.com/600x400/?pulao",
+    "image": "/recipe-images/vegetable-pulao.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegetarian",
@@ -1107,7 +1107,7 @@
   {
     "name": "Sukuti Sadeko",
     "description": "Spicy dried-meat salad tossed with onion, chili, and mustard oil. A chewy, flavour-packed snack to share.",
-    "image": "https://source.unsplash.com/600x400/?dried-meat",
+    "image": "/recipe-images/sukuti-sadeko.jpg",
     "cuisine": "Nepali",
     "tags": [
       "meat",
@@ -1148,7 +1148,7 @@
   {
     "name": "Mixed Vegetable Tarkari",
     "description": "A simple home-style curry of seasonal vegetables in a light spiced gravy. Wholesome, colourful, and easy to make.",
-    "image": "https://source.unsplash.com/600x400/?vegetable-curry",
+    "image": "/recipe-images/mixed-vegetable-tarkari.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -1193,7 +1193,7 @@
   {
     "name": "Makai ko Roti",
     "description": "A rustic cornmeal flatbread with a lovely golden crust. Simple, hearty, and naturally gluten-free.",
-    "image": "https://source.unsplash.com/600x400/?cornbread",
+    "image": "/recipe-images/makai-ko-roti.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -1234,7 +1234,7 @@
   {
     "name": "Mula ko Achar",
     "description": "A crunchy, tangy radish pickle with mustard and fenugreek. A refreshing condiment that wakes up any plate.",
-    "image": "https://source.unsplash.com/600x400/?radish-pickle",
+    "image": "/recipe-images/mula-ko-achar.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -1275,7 +1275,7 @@
   {
     "name": "Masala Bhuteko Aloo",
     "description": "Spiced stir-fried potatoes with cumin and turmeric, crisp at the edges and soft inside. A quick everyday favourite.",
-    "image": "https://source.unsplash.com/600x400/?fried-potatoes",
+    "image": "/recipe-images/masala-bhuteko-aloo.jpg",
     "cuisine": "Nepali",
     "tags": [
       "vegan",
@@ -1316,7 +1316,7 @@
   {
     "name": "Luchi",
     "description": "Soft, puffy deep-fried flatbreads made from white flour. A festive Bengali breakfast favourite, light and pillowy.",
-    "image": "https://source.unsplash.com/600x400/?puri",
+    "image": "/recipe-images/luchi.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegetarian",
@@ -1361,7 +1361,7 @@
   {
     "name": "Bengali Aloo Dum",
     "description": "Baby potatoes simmered in a rich, lightly sweet-spiced tomato gravy. The classic partner for luchi.",
-    "image": "https://source.unsplash.com/600x400/?potato-curry",
+    "image": "/recipe-images/bengali-aloo-dum.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegetarian",
@@ -1406,7 +1406,7 @@
   {
     "name": "Chingri Malai Curry",
     "description": "Plump prawns simmered in a fragrant coconut-milk gravy. A creamy, festive Bengali delicacy fit for celebrations.",
-    "image": "https://source.unsplash.com/600x400/?prawn-curry",
+    "image": "/recipe-images/chingri-malai-curry.jpg",
     "cuisine": "Bengali",
     "tags": [
       "seafood",
@@ -1451,7 +1451,7 @@
   {
     "name": "Shorshe Ilish",
     "description": "Hilsa fish bathed in a pungent mustard-seed gravy. An iconic Bengali dish celebrating the beloved monsoon fish.",
-    "image": "https://source.unsplash.com/600x400/?fish-curry",
+    "image": "/recipe-images/shorshe-ilish.jpg",
     "cuisine": "Bengali",
     "tags": [
       "seafood",
@@ -1496,7 +1496,7 @@
   {
     "name": "Mishti Doi",
     "description": "Sweet, caramel-toned set yogurt with a smooth, custard-like texture. A beloved Bengali dessert in earthen pots.",
-    "image": "https://source.unsplash.com/600x400/?sweet-yogurt",
+    "image": "/recipe-images/mishti-doi.jpg",
     "cuisine": "Bengali",
     "tags": [
       "dessert",
@@ -1541,7 +1541,7 @@
   {
     "name": "Sandesh",
     "description": "Delicate fresh-cheese sweets flavoured with cardamom. A refined Bengali dessert that melts in the mouth.",
-    "image": "https://source.unsplash.com/600x400/?milk-sweet",
+    "image": "/recipe-images/sandesh.jpg",
     "cuisine": "Bengali",
     "tags": [
       "dessert",
@@ -1586,7 +1586,7 @@
   {
     "name": "Rasgulla",
     "description": "Spongy chenna balls simmered in light sugar syrup. A juicy, melt-in-the-mouth Bengali classic.",
-    "image": "https://source.unsplash.com/600x400/?rasgulla",
+    "image": "/recipe-images/rasgulla.jpg",
     "cuisine": "Bengali",
     "tags": [
       "dessert",
@@ -1631,7 +1631,7 @@
   {
     "name": "Kosha Mangsho",
     "description": "Slow-cooked mutton in a deeply spiced, glossy onion gravy. A rich Bengali Sunday-special loved with luchi or rice.",
-    "image": "https://source.unsplash.com/600x400/?mutton-curry",
+    "image": "/recipe-images/kosha-mangsho.jpg",
     "cuisine": "Bengali",
     "tags": [
       "meat",
@@ -1676,7 +1676,7 @@
   {
     "name": "Cholar Dal",
     "description": "Bengal gram cooked into a mildly sweet, fragrant lentil dish with coconut and warm spices. A festive comfort dish.",
-    "image": "https://source.unsplash.com/600x400/?lentils",
+    "image": "/recipe-images/cholar-dal.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegetarian",
@@ -1721,7 +1721,7 @@
   {
     "name": "Beguni",
     "description": "Thinly sliced eggplant dipped in spiced gram-flour batter and fried crisp. A favourite Bengali tea-time fritter.",
-    "image": "https://source.unsplash.com/600x400/?eggplant-fritters",
+    "image": "/recipe-images/beguni.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegan",
@@ -1762,7 +1762,7 @@
   {
     "name": "Bhetki Paturi",
     "description": "Fish fillets coated in mustard-coconut paste, wrapped in banana leaf, and steamed. A fragrant Bengali delicacy.",
-    "image": "https://source.unsplash.com/600x400/?steamed-fish",
+    "image": "/recipe-images/bhetki-paturi.jpg",
     "cuisine": "Bengali",
     "tags": [
       "seafood",
@@ -1803,7 +1803,7 @@
   {
     "name": "Labra",
     "description": "A mixed seasonal vegetable medley gently spiced and slow-cooked. A wholesome Bengali dish often made during festivals.",
-    "image": "https://source.unsplash.com/600x400/?mixed-vegetables",
+    "image": "/recipe-images/labra.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegan",
@@ -1848,7 +1848,7 @@
   {
     "name": "Payesh",
     "description": "A creamy Bengali rice pudding slow-cooked in milk with jaggery or sugar and cardamom. A sweet for birthdays and festivals.",
-    "image": "https://source.unsplash.com/600x400/?rice-pudding",
+    "image": "/recipe-images/payesh.jpg",
     "cuisine": "Bengali",
     "tags": [
       "dessert",
@@ -1893,7 +1893,7 @@
   {
     "name": "Macher Jhol",
     "description": "A light, soupy fish curry with potatoes and gentle spices. An everyday Bengali staple, comforting and clean-tasting.",
-    "image": "https://source.unsplash.com/600x400/?fish-soup",
+    "image": "/recipe-images/macher-jhol.jpg",
     "cuisine": "Bengali",
     "tags": [
       "seafood",
@@ -1934,7 +1934,7 @@
   {
     "name": "Aloo Posto",
     "description": "Potatoes cooked in a creamy poppy-seed paste with green chilies. A simple, soul-soothing Bengali classic.",
-    "image": "https://source.unsplash.com/600x400/?potato-poppy",
+    "image": "/recipe-images/aloo-posto.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegan",
@@ -1975,7 +1975,7 @@
   {
     "name": "Shukto",
     "description": "A gently bitter-sweet mixed vegetable stew with milk and a hint of mustard. A traditional Bengali starter for the meal.",
-    "image": "https://source.unsplash.com/600x400/?vegetable-stew",
+    "image": "/recipe-images/shukto.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegetarian",
@@ -2020,7 +2020,7 @@
   {
     "name": "Begun Bhaja",
     "description": "Eggplant rounds dusted with turmeric and chili, then shallow-fried until soft and golden. A simple, beloved side.",
-    "image": "https://source.unsplash.com/600x400/?fried-eggplant",
+    "image": "/recipe-images/begun-bhaja.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegan",
@@ -2061,7 +2061,7 @@
   {
     "name": "Dhokar Dalna",
     "description": "Spiced lentil cakes fried and simmered in a light gravy. A cherished vegetarian Bengali main, hearty and flavourful.",
-    "image": "https://source.unsplash.com/600x400/?lentil-cake-curry",
+    "image": "/recipe-images/dhokar-dalna.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegan",
@@ -2106,7 +2106,7 @@
   {
     "name": "Basanti Pulao",
     "description": "A fragrant golden sweet pulao with raisins, nuts, and saffron. A festive Bengali rice dish for special occasions.",
-    "image": "https://source.unsplash.com/600x400/?sweet-rice",
+    "image": "/recipe-images/basanti-pulao.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegetarian",
@@ -2151,7 +2151,7 @@
   {
     "name": "Bengali Chicken Curry",
     "description": "A homely chicken curry in a spiced onion-tomato gravy with potatoes. Comforting, everyday goodness on the dinner table.",
-    "image": "https://source.unsplash.com/600x400/?chicken-curry",
+    "image": "/recipe-images/bengali-chicken-curry.jpg",
     "cuisine": "Bengali",
     "tags": [
       "meat",
@@ -2196,7 +2196,7 @@
   {
     "name": "Doi Maach",
     "description": "Fish simmered in a smooth, lightly spiced yogurt gravy. A delicate, tangy Bengali curry with gentle warmth.",
-    "image": "https://source.unsplash.com/600x400/?yogurt-fish",
+    "image": "/recipe-images/doi-maach.jpg",
     "cuisine": "Bengali",
     "tags": [
       "seafood",
@@ -2241,7 +2241,7 @@
   {
     "name": "Ghugni",
     "description": "Yellow peas simmered in a spiced gravy and topped with onion and coriander. A popular Bengali street snack.",
-    "image": "https://source.unsplash.com/600x400/?yellow-peas",
+    "image": "/recipe-images/ghugni.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegan",
@@ -2286,7 +2286,7 @@
   {
     "name": "Mochar Ghonto",
     "description": "A spiced, dry banana-flower preparation with coconut and gentle warmth. A traditional, nutritious Bengali dish.",
-    "image": "https://source.unsplash.com/600x400/?banana-flower",
+    "image": "/recipe-images/mochar-ghonto.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegan",
@@ -2331,7 +2331,7 @@
   {
     "name": "Aloo Phulkopir Dalna",
     "description": "Potatoes and cauliflower in a comforting spiced gravy. A simple, warming Bengali winter favourite.",
-    "image": "https://source.unsplash.com/600x400/?cauliflower-curry",
+    "image": "/recipe-images/aloo-phulkopir-dalna.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegan",
@@ -2376,7 +2376,7 @@
   {
     "name": "Narkel Naru",
     "description": "Sweet coconut laddus bound with jaggery or sugar. A simple, traditional Bengali festive treat.",
-    "image": "https://source.unsplash.com/600x400/?coconut-laddu",
+    "image": "/recipe-images/narkel-naru.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegetarian",
@@ -2421,7 +2421,7 @@
   {
     "name": "Patishapta",
     "description": "Thin crepes rolled around a sweet coconut or khoya filling. A beloved Bengali treat made during the Poush Sankranti festival.",
-    "image": "https://source.unsplash.com/600x400/?sweet-crepe",
+    "image": "/recipe-images/patishapta.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegetarian",
@@ -2466,7 +2466,7 @@
   {
     "name": "Tomato Khejur Chutney",
     "description": "A sweet-tangy tomato chutney with dates and raisins. A festive Bengali condiment served at the end of a meal.",
-    "image": "https://source.unsplash.com/600x400/?tomato-chutney",
+    "image": "/recipe-images/tomato-khejur-chutney.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegan",
@@ -2511,7 +2511,7 @@
   {
     "name": "Dimer Dalna",
     "description": "Boiled eggs fried golden and simmered in a spiced potato gravy. A homely, satisfying Bengali egg curry.",
-    "image": "https://source.unsplash.com/600x400/?egg-curry",
+    "image": "/recipe-images/dimer-dalna.jpg",
     "cuisine": "Bengali",
     "tags": [
       "egg",
@@ -2556,7 +2556,7 @@
   {
     "name": "Radhaballavi",
     "description": "Soft fried breads stuffed with a spiced lentil filling. A festive Bengali favourite, best paired with aloo dum.",
-    "image": "https://source.unsplash.com/600x400/?stuffed-bread",
+    "image": "/recipe-images/radhaballavi.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegetarian",
@@ -2601,7 +2601,7 @@
   {
     "name": "Chanar Dalna",
     "description": "Fresh paneer-style cheese cubes simmered in a fragrant potato gravy. A festive vegetarian Bengali main.",
-    "image": "https://source.unsplash.com/600x400/?paneer-curry",
+    "image": "/recipe-images/chanar-dalna.jpg",
     "cuisine": "Bengali",
     "tags": [
       "vegetarian",

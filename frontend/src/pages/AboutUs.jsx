@@ -12,6 +12,14 @@ export default function AboutUs() {
         <h2>Our Mission</h2>
         <p>Helping immigrant women navigate everyday American life independently through voice-first English support.</p>
       </div>
+
+      <p className="about-credit">
+        Photos provided by{" "}
+        <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer">
+          Pexels
+        </a>
+        .
+      </p>
     </div>
   );
 }

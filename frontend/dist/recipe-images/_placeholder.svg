@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Recipe photo coming soon">
+  <rect width="600" height="400" fill="#fbf3e6"/>
+  <rect x="8" y="8" width="584" height="384" rx="14" fill="none" stroke="#eadbc3" stroke-width="2"/>
+  <!-- steam -->
+  <g fill="none" stroke="#d8a86a" stroke-width="6" stroke-linecap="round" opacity="0.55">
+    <path d="M268 132 q-14 -22 0 -44 q14 -22 0 -44"/>
+    <path d="M300 124 q-14 -22 0 -44 q14 -22 0 -44"/>
+    <path d="M332 132 q-14 -22 0 -44 q14 -22 0 -44"/>
+  </g>
+  <!-- bowl -->
+  <path d="M186 196 h228 a114 114 0 0 1 -228 0 z" fill="#e9c27e"/>
+  <path d="M186 196 h228 a114 114 0 0 1 -228 0 z" fill="none" stroke="#c79a4e" stroke-width="4"/>
+  <ellipse cx="300" cy="196" rx="114" ry="22" fill="#f3d79a" stroke="#c79a4e" stroke-width="4"/>
+  <ellipse cx="300" cy="194" rx="92" ry="16" fill="#caa05a" opacity="0.45"/>
+  <text x="300" y="320" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#8a641f" font-weight="700">Recipe photo coming soon</text>
+  <text x="300" y="352" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#b08a4e">EasyPeasy</text>
+</svg>

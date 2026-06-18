@@ -1500,6 +1500,18 @@ a.daily-card:hover {
   font-weight: 800;
 }
 
+.about-credit {
+  margin: 8px 4px 0;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.about-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* Search Box */
 .search-box {
   position: relative;
