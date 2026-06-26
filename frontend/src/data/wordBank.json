@@ -1,16 +1,86 @@
 {
   "words": [
-    { "term": "Simmer", "definition": "To cook food in a low temperature just below the boiling point." },
-    { "term": "Mince", "definition": "To cut or chop something into very small, fine pieces." },
-    { "term": "Grease", "definition": "To coat a pan with fat (like oil or butter) so food won't stick." },
-    { "term": "Drain", "definition": "To remove liquid from something (like draining water from rice)." },
-    { "term": "Season", "definition": "To add salt, pepper, or spices to something." },
-    { "term": "Serve", "definition": "To present food to eat." },
-    { "term": "Spatula", "definition": "Used for flipping or scraping food." }
+    {
+      "term": "Simmer",
+      "meaning": {
+        "en": "To cook food in a low temperature just below the boiling point.",
+        "ne": "उमाल्ने बिन्दु भन्दा अलि कम तापक्रममा खाना पकाउनु।",
+        "bn": "ফুটন্ত বিন্দুর ঠিক নিচে কম তাপে খাবার রান্না করা।"
+      }
+    },
+    {
+      "term": "Mince",
+      "meaning": {
+        "en": "To cut or chop something into very small, fine pieces.",
+        "ne": "केही कुरालाई धेरै साना, मसिना टुक्रामा काट्नु।",
+        "bn": "কোনো কিছু খুব ছোট, মিহি টুকরো করে কাটা।"
+      }
+    },
+    {
+      "term": "Grease",
+      "meaning": {
+        "en": "To coat a pan with fat (like oil or butter) so food won't stick.",
+        "ne": "खाना नटाँसियोस् भनेर ताप्केमा तेल वा बटर दल्नु।",
+        "bn": "খাবার যাতে লেগে না যায় তার জন্য প্যানে তেল বা মাখন মাখানো।"
+      }
+    },
+    {
+      "term": "Drain",
+      "meaning": {
+        "en": "To remove liquid from something (like draining water from rice).",
+        "ne": "कुनै कुराबाट पानी वा झोल निकाल्नु (जस्तै भातबाट पानी निथार्नु)।",
+        "bn": "কোনো কিছু থেকে তরল বের করে ফেলা (যেমন ভাত থেকে জল ঝরানো)।"
+      }
+    },
+    {
+      "term": "Season",
+      "meaning": {
+        "en": "To add salt, pepper, or spices to something.",
+        "ne": "केही कुरामा नुन, मरिच वा मसला हाल्नु।",
+        "bn": "কোনো কিছুতে লবণ, মরিচ বা মশলা যোগ করা।"
+      }
+    },
+    {
+      "term": "Serve",
+      "meaning": {
+        "en": "To present food to eat.",
+        "ne": "खानको लागि खाना पस्किनु।",
+        "bn": "খাওয়ার জন্য খাবার পরিবেশন করা।"
+      }
+    },
+    {
+      "term": "Spatula",
+      "meaning": {
+        "en": "Used for flipping or scraping food.",
+        "ne": "खाना पल्टाउन वा खुर्किन प्रयोग गरिने भाँडो।",
+        "bn": "খাবার উল্টানো বা চাঁছার জন্য ব্যবহৃত হয়।"
+      }
+    }
   ],
   "phrases": [
-    { "term": "A pinch of salt", "definition": "A very small amount of salt." },
-    { "term": "Dash of pepper", "definition": "A small, quick sprinkle of pepper." },
-    { "term": "Can you set the table?", "definition": "To arrange tableware on a dining table so it is ready for a meal." }
+    {
+      "term": "A pinch of salt",
+      "meaning": {
+        "en": "A very small amount of salt.",
+        "ne": "अलिकति नुन।",
+        "bn": "এক চিমটি লবণ।"
+      }
+    },
+    {
+      "term": "Dash of pepper",
+      "meaning": {
+        "en": "A small, quick sprinkle of pepper.",
+        "ne": "थोरै मरिच छर्किनु।",
+        "bn": "অল্প একটু মরিচ ছিটানো।"
+      }
+    },
+    {
+      "term": "Can you set the table?",
+      "meaning": {
+        "en": "To arrange tableware on a dining table so it is ready for a meal.",
+        "ne": "खाना खानको लागि टेबलमा भाँडाकुँडा मिलाउनु।",
+        "bn": "খাবারের জন্য টেবিলে বাসনপত্র সাজিয়ে রাখা।"
+      }
+    }
   ]
 }

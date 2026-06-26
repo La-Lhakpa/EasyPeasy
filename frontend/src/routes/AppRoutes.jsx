@@ -1,7 +1,10 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { Loader2 } from "lucide-react";
+import { useAuth } from "../lib/auth.jsx";
 import AppShell from "../components/AppShell.jsx";
 import Welcome from "../pages/Welcome.jsx";
 import SignIn from "../pages/SignIn.jsx";
+import SignUp from "../pages/SignUp.jsx";
 import Home from "../pages/Home.jsx";
 import CookingHub from "../pages/CookingHub.jsx";
 import CookingSession from "../pages/CookingSession.jsx";
@@ -15,13 +18,21 @@ import Transportation from "../pages/Transportation.jsx";
 import Emergency from "../pages/Emergency.jsx";
 import Profile from "../pages/Profile.jsx";
 import WordBank from "../pages/WordBank.jsx";
+import Review from "../pages/Review.jsx";
 import AboutUs from "../pages/AboutUs.jsx";
 
-// Until real auth lands, gate the app behind a flag the SignIn page sets.
-// First launch has no flag, so the app opens on /welcome.
+// Gate the app behind the auth session. While the session is still resolving
+// (Supabase is async), show a brief loader instead of flashing the Welcome page.
 function RequireAuth({ children }) {
-  const signedIn = localStorage.getItem("easypeasy:signedIn") === "true";
-  return signedIn ? children : <Navigate to="/welcome" replace />;
+  const { loading, isSignedIn } = useAuth();
+  if (loading) {
+    return (
+      <div className="auth-loading">
+        <Loader2 size={28} className="spin" aria-hidden="true" />
+      </div>
+    );
+  }
+  return isSignedIn ? children : <Navigate to="/welcome" replace />;
 }
 
 export default function AppRoutes() {
@@ -30,6 +41,7 @@ export default function AppRoutes() {
       {/* Unauthenticated routes (no AppShell, full screen) */}
       <Route path="/welcome" element={<Welcome />} />
       <Route path="/sign-in" element={<SignIn />} />
+      <Route path="/sign-up" element={<SignUp />} />
 
       {/* Authenticated routes with AppShell (nav bar, floral border, etc.) */}
       <Route element={<RequireAuth><AppShell /></RequireAuth>}>
@@ -39,6 +51,7 @@ export default function AppRoutes() {
         <Route path="/cooking/:recipeId/conversation" element={<CookingConversation />} />
         <Route path="/daily-life" element={<DailyLifeHub />} />
         <Route path="/word-bank" element={<WordBank />} />
+        <Route path="/review" element={<Review />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<Profile />} />
       </Route>

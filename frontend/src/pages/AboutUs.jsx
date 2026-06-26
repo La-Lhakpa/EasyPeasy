@@ -1,20 +1,24 @@
+import { useTranslation } from "react-i18next";
+
 export default function AboutUs() {
+  const { t } = useTranslation();
+
   return (
     <div className="page-stack about-page">
-      <h1 className="about-title">About Us</h1>
+      <h1 className="about-title">{t("about.title")}</h1>
 
       <div className="about-card">
-        <h2>Founded in NYC</h2>
-        <p>Home to the <strong>largest</strong> South Asian immigrant population in the US.</p>
-        <p><strong>Nearly half</strong> face English language barrier.</p>
-        <p><strong>Majority</strong> are women homecooks suffering from dependency, lack of confidence, and isolation.</p>
+        <h2>{t("about.foundedTitle")}</h2>
+        <p>{t("about.founded1")}</p>
+        <p>{t("about.founded2")}</p>
+        <p>{t("about.founded3")}</p>
 
-        <h2>Our Mission</h2>
-        <p>Helping immigrant women navigate everyday American life independently through voice-first English support.</p>
+        <h2>{t("about.missionTitle")}</h2>
+        <p>{t("about.mission")}</p>
       </div>
 
       <p className="about-credit">
-        Photos provided by{" "}
+        {t("about.credit")}{" "}
         <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer">
           Pexels
         </a>

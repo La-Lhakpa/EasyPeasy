@@ -159,43 +159,20 @@ ${stepLines}`;
   }
 });
 
+// Standalone "Hear It" voice: speaks any phrase aloud using the same
+// Sarvam (Indian-accent) → Google fallback chain as the cooking conversation.
+// Returns base64 MP3 so the frontend can play it; on failure the frontend
+// gracefully falls back to the browser's built-in speech synthesis.
 app.post("/api/tts", async (req, res) => {
   const text = (req.body?.text || "").toString().trim();
   if (!text) return res.status(400).json({ error: "No text to speak." });
 
-  if (!ELEVEN_KEY || !ELEVEN_VOICE) {
-    return res.status(503).json({ error: "ElevenLabs voice is not configured." });
-  }
-
   try {
-    const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${ELEVEN_VOICE}`, {
-      method: "POST",
-      headers: {
-        "xi-api-key": ELEVEN_KEY,
-        "Content-Type": "application/json",
-        Accept: "audio/mpeg",
-      },
-      body: JSON.stringify({
-        text,
-        model_id: ELEVEN_MODEL,
-        voice_settings: { stability: 0.5, similarity_boost: 0.8 },
-      }),
-    });
-
-    if (!r.ok) {
-      const detail = await r.text().catch(() => "");
-      console.error("elevenlabs tts failed:", r.status, detail.slice(0, 200));
-
-      if ([401, 402, 403, 429, 503].includes(r.status)) {
-        return res.status(503).json({ error: "ElevenLabs voice unavailable. Falling back to browser speech." });
-      }
-
-      return res.status(502).json({ error: "Voice generation failed." });
+    const audioBase64 = (await sarvamTts(text)) ?? (await googleTts(text, "en-IN"));
+    if (!audioBase64) {
+      return res.status(503).json({ error: "Voice unavailable. Falling back to browser speech." });
     }
-
-    const audio = Buffer.from(await r.arrayBuffer());
-    res.set("Content-Type", "audio/mpeg");
-    res.send(audio);
+    res.json({ audioBase64 });
   } catch (err) {
     console.error("tts error:", err.message);
     res.status(502).json({ error: "Voice generation failed." });
