@@ -1292,11 +1292,22 @@ a.daily-card:hover {
 }
 
 .profile2-name {
-  margin: 0 0 20px;
+  margin: 0 0 6px;
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--heading-ink);
+}
+
+.profile2-level {
+  margin: 0 0 20px;
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--sage-soft);
+  color: var(--sage);
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .profile2-menu {
@@ -2091,4 +2102,169 @@ a.daily-card:hover {
 
 .spin {
   animation: spin 0.9s linear infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Onboarding assessment
+   --------------------------------------------------------------------------- */
+.assess-progress {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.assess-subtitle {
+  margin: 6px 0 18px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.assess-listen {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.assess-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.assess-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: var(--small-shadow);
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+
+.assess-option:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--sage);
+  background: var(--sage-soft);
+}
+
+.assess-option:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.assess-reassure {
+  margin: 20px 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------------
+   Pre-voice vocabulary preview
+   --------------------------------------------------------------------------- */
+.vocab-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--teal-soft), var(--card));
+  box-shadow: var(--small-shadow);
+}
+
+.vocab-preview.loading {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.vocab-preview-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--teal);
+}
+
+.vocab-preview-head strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.vocab-preview-head p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.vocab-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vocab-words li {
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  font-size: 0.98rem;
+}
+
+.vocab-word {
+  font-weight: 700;
+}
+
+.vocab-hint {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.vocab-phrase {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px dashed var(--line);
+}
+
+.vocab-phrase > span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.vocab-phrase strong {
+  flex: 1 1 auto;
+  font-size: 1.05rem;
+}
+
+.vocab-supportive {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }

@@ -41,7 +41,9 @@ export default function SignUp() {
       setError(errorText(code));
       return;
     }
-    navigate("/");
+    // New accounts go through the one-time onboarding assessment, which builds
+    // the learner profile used to personalise the rest of the app.
+    navigate("/assessment");
   };
 
   return (

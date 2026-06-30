@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ChevronDown, CircleHelp, Flame, Info, LogOut, NotebookText, Pencil, Soup, UserRound } from "lucide-react";
 import userProgress from "../data/userProgress.json";
 import { getStats, useProgress } from "../lib/progress.js";
+import { useProfile } from "../lib/profile.js";
 import { useAuth } from "../lib/auth.jsx";
 
 // The languages EasyPeasy is fully translated into, shown in their native script.
@@ -19,6 +20,7 @@ export default function Profile() {
   const { user, signOut } = useAuth();
   const [langOpen, setLangOpen] = useState(false);
   const progress = useProgress();
+  const profile = useProfile();
   const stats = getStats(progress);
 
   const changeLanguage = (code) => {
@@ -42,6 +44,12 @@ export default function Profile() {
         <UserRound size={64} strokeWidth={2} />
       </div>
       <p className="profile2-name">{displayName}</p>
+      {profile.completed && (
+        <p className="profile2-level">
+          {t(`profile.level.${profile.level}`)}
+          {profile.home_language ? ` · ${profile.home_language}` : ""}
+        </p>
+      )}
 
       <section className="stat-row">
         <div className="stat-chip">
@@ -62,7 +70,7 @@ export default function Profile() {
       </section>
 
       <nav className="profile2-menu">
-        <button className="profile2-row" type="button" onClick={() => {/* TODO: Edit Profile screen */}}>
+        <button className="profile2-row" type="button" onClick={() => navigate("/assessment")}>
           <span>{t("profile.editProfile")}</span>
           <Pencil size={20} aria-hidden="true" />
         </button>

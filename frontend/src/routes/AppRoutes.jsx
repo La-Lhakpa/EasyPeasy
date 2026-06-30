@@ -1,10 +1,12 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useAuth } from "../lib/auth.jsx";
+import { useProfile } from "../lib/profile.js";
 import AppShell from "../components/AppShell.jsx";
 import Welcome from "../pages/Welcome.jsx";
 import SignIn from "../pages/SignIn.jsx";
 import SignUp from "../pages/SignUp.jsx";
+import Assessment from "../pages/Assessment.jsx";
 import Home from "../pages/Home.jsx";
 import CookingHub from "../pages/CookingHub.jsx";
 import CookingSession from "../pages/CookingSession.jsx";
@@ -35,6 +37,14 @@ function RequireAuth({ children }) {
   return isSignedIn ? children : <Navigate to="/welcome" replace />;
 }
 
+// Gate the main app behind a completed onboarding assessment. A signed-in user
+// who hasn't finished it (e.g. navigated straight to "/") is sent to take it
+// first, so every learner reaches the app with a profile in place.
+function RequireAssessment({ children }) {
+  const profile = useProfile();
+  return profile.completed ? children : <Navigate to="/assessment" replace />;
+}
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -43,8 +53,27 @@ export default function AppRoutes() {
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/sign-up" element={<SignUp />} />
 
-      {/* Authenticated routes with AppShell (nav bar, floral border, etc.) */}
-      <Route element={<RequireAuth><AppShell /></RequireAuth>}>
+      {/* One-time onboarding assessment: signed in, but full-screen (no shell). */}
+      <Route
+        path="/assessment"
+        element={
+          <RequireAuth>
+            <Assessment />
+          </RequireAuth>
+        }
+      />
+
+      {/* Authenticated routes with AppShell (nav bar, floral border, etc.).
+          Also gated on a completed assessment so every learner has a profile. */}
+      <Route
+        element={
+          <RequireAuth>
+            <RequireAssessment>
+              <AppShell />
+            </RequireAssessment>
+          </RequireAuth>
+        }
+      >
         <Route path="/" element={<Home />} />
         <Route path="/cooking" element={<CookingHub />} />
         <Route path="/cooking/:recipeId" element={<CookingSession />} />

@@ -14,8 +14,10 @@ import {
 import ActionButton from "../components/ActionButton.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
+import VocabPreview from "../components/VocabPreview.jsx";
 import recipes from "../data/easypeasy_recipes.json";
 import { useSpeak } from "../lib/speech.js";
+import { applySignals, useProfile } from "../lib/profile.js";
 import {
   addPhrase,
   completeRecipe,
@@ -41,6 +43,7 @@ export default function CookingSession() {
   const totalSteps = steps.length;
 
   const progress = useProgress();
+  const profile = useProfile();
   const { speak, speaking, activeText } = useSpeak();
 
   const [stepIndex, setStepIndex] = useState(
@@ -89,6 +92,17 @@ export default function CookingSession() {
           <span key={i} className={i <= stepIndex ? "filled" : ""} />
         ))}
       </div>
+
+      {/* Pre-voice vocabulary preview: a few words the learner will hear or say
+          in this step, tuned to their assessed profile, before they practise. */}
+      {!completed && (
+        <VocabPreview
+          recipe={recipe}
+          stepIndex={stepIndex}
+          profile={profile}
+          onPracticeSpoken={() => applySignals({ phraseReplayed: 3 })}
+        />
+      )}
 
       <article className="session-card">
         <img src={recipe.image} alt={recipe.name} />
