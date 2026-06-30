@@ -56,6 +56,10 @@ Your job:
   praise them, then say the natural version ("You can say: 'I am cutting the onions.'").
 - Encourage them to say the phrase out loud.
 - Stay tied to the specific recipe and its steps that you are given.
+- If the learner ASKS what a word means (e.g. "what is chawal in English?", "what do you
+  mean by chawal?"), answer the question directly with the clear English word and a short
+  meaning — do not treat the word as a practice attempt and never just repeat it back.
+  Always pair a native-language word with its English word so the English is unmistakable.
 
 Style rules (important — your replies are read aloud by a voice):
 - Reply in 1-3 short sentences. No markdown, no lists, no emoji.
@@ -94,6 +98,94 @@ async function geminiGenerate({ system, contents, generationConfig }) {
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: "25mb" }));
+
+// Pre-voice vocabulary preview. Before the learner speaks during a recipe step,
+// we surface 3–5 words they'll hear or say plus one short phrase to practise —
+// tuned to their assessed level, confidence, and home language. Returns JSON so
+// the frontend can render a warm, scannable card (not a quiz).
+const VOCAB_PREVIEW_SYSTEM = `You generate a pre-voice vocabulary preview for a cooking lesson.
+
+You receive: the learner's home language, English level (beginner | intermediate | advanced),
+a confidence score (0–1), any weak skills, the recipe name, and the exact instruction for the
+step they are about to do.
+
+Your task:
+- Choose 3–5 practical cooking words or tool names that appear in (or are clearly needed for)
+  this step — words the learner will hear or say in the next few minutes.
+- Provide ONE short phrase from this step for them to practise aloud (keep it under 8 words).
+
+Rules for the home-language hint on each word:
+- beginner: ALWAYS include a short home-language hint.
+- intermediate: include a hint ONLY for unusual or tool words; leave it empty otherwise.
+- advanced: no hints (leave every hint empty).
+If confidence is below 0.4, make the supportive line warmer and simpler.
+If "speaking" is among the weak skills, make the supportive line gently encourage saying it out loud.
+
+Hard rules: only practical cooking words; beginner-friendly; never more than 5 words;
+no grammar explanations; never make it feel like a quiz; keep everything easy to scan.
+
+Return ONLY valid JSON in exactly this shape (no markdown, no extra text):
+{
+  "title": "short encouraging title",
+  "subtitle": "one short line",
+  "words": [ { "word": "english word", "hint": "home-language hint or empty string" } ],
+  "phrase": "one short phrase to say aloud",
+  "supportive": "one warm, encouraging instruction"
+}`;
+
+app.post("/api/vocab-preview", async (req, res) => {
+  if (!API_KEY) return res.status(503).json({ error: "Vocabulary preview is not configured (missing GEMINI_API_KEY)." });
+
+  const { recipe, stepIndex, profile } = req.body || {};
+  const steps = Array.isArray(recipe?.steps) ? recipe.steps : [];
+  const index = Math.min(Math.max(Number(stepIndex) || 0, 0), Math.max(steps.length - 1, 0));
+  const step = steps[index];
+  if (!step?.instruction) return res.status(400).json({ error: "No recipe step provided." });
+
+  const p = profile || {};
+  const userContext =
+    `Home language: ${p.home_language || "their first language"}\n` +
+    `English level: ${p.level || "beginner"}\n` +
+    `Confidence (0-1): ${typeof p.confidence === "number" ? p.confidence.toFixed(2) : "0.4"}\n` +
+    `Weak skills: ${Array.isArray(p.weak_skills) && p.weak_skills.length ? p.weak_skills.join(", ") : "none noted"}\n` +
+    `Recipe: ${recipe?.name || "a dish"}\n` +
+    `Step ${index + 1} of ${steps.length}\n` +
+    `Step instruction: "${step.instruction}"`;
+
+  try {
+    const reply = await geminiGenerate({
+      system: VOCAB_PREVIEW_SYSTEM,
+      contents: [{ role: "user", parts: [{ text: userContext }] }],
+      generationConfig: {
+        maxOutputTokens: 600,
+        temperature: 0.6,
+        responseMimeType: "application/json",
+      },
+    });
+
+    const data = JSON.parse(reply);
+    const words = Array.isArray(data.words)
+      ? data.words
+          .slice(0, 5)
+          .map((w) => ({
+            word: String(w?.word || "").trim(),
+            hint: String(w?.hint || "").trim(),
+          }))
+          .filter((w) => w.word)
+      : [];
+
+    res.json({
+      title: String(data.title || "Ready for the next step?").trim(),
+      subtitle: String(data.subtitle || "A few words you'll hear right now.").trim(),
+      words,
+      phrase: String(data.phrase || step.phrase || "").trim(),
+      supportive: String(data.supportive || "Take your time — you've got this.").trim(),
+    });
+  } catch (err) {
+    console.error("vocab preview failed:", err.message);
+    res.status(502).json({ error: "Could not prepare the words right now. Please try again." });
+  }
+});
 
 app.post("/api/recipes/search", async (req, res) => {
   if (!API_KEY) return res.status(503).json({ error: "Recipe search is not configured (missing GEMINI_API_KEY)." });
@@ -159,43 +251,20 @@ ${stepLines}`;
   }
 });
 
+// Standalone "Hear It" voice: speaks any phrase aloud using the same
+// Sarvam (Indian-accent) → Google fallback chain as the cooking conversation.
+// Returns base64 MP3 so the frontend can play it; on failure the frontend
+// gracefully falls back to the browser's built-in speech synthesis.
 app.post("/api/tts", async (req, res) => {
   const text = (req.body?.text || "").toString().trim();
   if (!text) return res.status(400).json({ error: "No text to speak." });
 
-  if (!ELEVEN_KEY || !ELEVEN_VOICE) {
-    return res.status(503).json({ error: "ElevenLabs voice is not configured." });
-  }
-
   try {
-    const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${ELEVEN_VOICE}`, {
-      method: "POST",
-      headers: {
-        "xi-api-key": ELEVEN_KEY,
-        "Content-Type": "application/json",
-        Accept: "audio/mpeg",
-      },
-      body: JSON.stringify({
-        text,
-        model_id: ELEVEN_MODEL,
-        voice_settings: { stability: 0.5, similarity_boost: 0.8 },
-      }),
-    });
-
-    if (!r.ok) {
-      const detail = await r.text().catch(() => "");
-      console.error("elevenlabs tts failed:", r.status, detail.slice(0, 200));
-
-      if ([401, 402, 403, 429, 503].includes(r.status)) {
-        return res.status(503).json({ error: "ElevenLabs voice unavailable. Falling back to browser speech." });
-      }
-
-      return res.status(502).json({ error: "Voice generation failed." });
+    const audioBase64 = (await sarvamTts(text)) ?? (await googleTts(text, "en-IN"));
+    if (!audioBase64) {
+      return res.status(503).json({ error: "Voice unavailable. Falling back to browser speech." });
     }
-
-    const audio = Buffer.from(await r.arrayBuffer());
-    res.set("Content-Type", "audio/mpeg");
-    res.send(audio);
+    res.json({ audioBase64 });
   } catch (err) {
     console.error("tts error:", err.message);
     res.status(502).json({ error: "Voice generation failed." });

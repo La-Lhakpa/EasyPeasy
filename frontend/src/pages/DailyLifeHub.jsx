@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { GraduationCap, Lock, ShoppingCart, Soup, Sparkles, Stethoscope } from "lucide-react";
 
 const tiles = [
-  { label: "Cooking", icon: Soup, to: "/cooking", locked: false },
-  { label: "Doctor Visit", icon: Stethoscope, to: "/daily-life/doctor-visit", locked: true },
-  { label: "Grocery", icon: ShoppingCart, to: "/daily-life/grocery-store", locked: true },
-  { label: "School Visit", icon: GraduationCap, to: "/daily-life/parent-teacher-meeting", locked: true }
+  { label: "daily.cooking", icon: Soup, to: "/cooking", locked: false },
+  { label: "daily.doctor", icon: Stethoscope, to: "/daily-life/doctor-visit", locked: true },
+  { label: "daily.grocery", icon: ShoppingCart, to: "/daily-life/grocery-store", locked: true },
+  { label: "daily.school", icon: GraduationCap, to: "/daily-life/parent-teacher-meeting", locked: true }
 ];
 
 export default function DailyLifeHub() {
+  const { t } = useTranslation();
+
   return (
     <div className="page-stack daily-page">
-      <h1 className="daily-title">Daily Life</h1>
+      <h1 className="daily-title">{t("daily.title")}</h1>
 
       <div className="daily-grid">
         {tiles.map(({ label, icon: Icon, to, locked }) => {
@@ -24,19 +27,19 @@ export default function DailyLifeHub() {
               >
                 <Icon size={52} strokeWidth={1.5} aria-hidden="true" />
                 {locked && (
-                  <span className="daily-lock" aria-label="Premium">
+                  <span className="daily-lock" aria-label={t("daily.premium")}>
                     <Lock size={16} aria-hidden="true" />
                   </span>
                 )}
               </Card>
-              <span className="daily-label">{label}</span>
+              <span className="daily-label">{t(label)}</span>
             </div>
           );
         })}
       </div>
 
       <button className="upgrade-button" type="button">
-        Upgrade to Premium <Sparkles size={18} aria-hidden="true" />
+        {t("daily.upgrade")} <Sparkles size={18} aria-hidden="true" />
       </button>
     </div>
   );

@@ -29,3 +29,15 @@ export function chatNaanSense(recipe, messages) {
 export function searchRecipe(query) {
   return postJson("/api/recipes/search", { query });
 }
+
+// Pre-voice vocabulary preview for a recipe step, tuned to the learner profile.
+// Returns { title, subtitle, words: [{word, hint}], phrase, supportive }.
+export function vocabPreview({ recipe, stepIndex, profile }) {
+  return postJson("/api/vocab-preview", { recipe, stepIndex, profile });
+}
+
+// "Hear It" — server-side TTS (Sarvam Indian voice → Google fallback).
+// Returns { audioBase64 } or throws so the caller can fall back to browser speech.
+export function tts(text) {
+  return postJson("/api/tts", { text });
+}

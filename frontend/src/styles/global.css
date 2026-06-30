@@ -1292,11 +1292,22 @@ a.daily-card:hover {
 }
 
 .profile2-name {
-  margin: 0 0 20px;
+  margin: 0 0 6px;
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--heading-ink);
+}
+
+.profile2-level {
+  margin: 0 0 20px;
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--sage-soft);
+  color: var(--sage);
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .profile2-menu {
@@ -1581,4 +1592,679 @@ a.daily-card:hover {
   color: var(--ink);
   font-size: 1rem;
   margin: 0;
+}
+
+/* Language Switcher Modal */
+.language-switcher-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.language-switcher-modal {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(74, 46, 20, 0.25);
+  max-width: 320px;
+  width: 100%;
+  overflow: hidden;
+  animation: slideUp 200ms ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.language-switcher-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.language-switcher-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading-ink);
+}
+
+.close-button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.close-button:hover {
+  background: var(--olive-soft);
+  color: var(--olive-ink);
+}
+
+.language-options {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: background 160ms ease;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.language-option:hover {
+  background: var(--olive-soft);
+}
+
+.language-option.active {
+  background: var(--olive-soft);
+  color: var(--olive-ink);
+}
+
+.language-label {
+  font-weight: 700;
+}
+
+.language-native {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.language-option.active .language-native {
+  color: var(--olive);
+}
+
+.checkmark {
+  color: var(--olive);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-left: 12px;
+}
+
+/* ============================================================
+   Progress system — stats, streaks, review, difficulty, flashcards
+   ============================================================ */
+
+/* Stat chips (Home + Profile) */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stat-chip {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 14px 8px;
+  border: 1px solid rgba(234, 219, 195, 0.88);
+  border-radius: 14px;
+  background: rgba(255, 253, 247, 0.92);
+  box-shadow: var(--small-shadow);
+  text-align: center;
+}
+
+.stat-chip svg {
+  color: var(--primary);
+}
+
+.stat-chip strong {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--heading-ink);
+  line-height: 1.1;
+}
+
+.stat-chip span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* Review nudge + start card */
+.review-card,
+.start-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  box-shadow: var(--small-shadow);
+  text-align: left;
+}
+
+.review-card {
+  border: 1px solid rgba(150, 37, 33, 0.22);
+  background: linear-gradient(135deg, #fff6f5, #f7dfd4);
+  color: var(--ink);
+}
+
+.review-card.compact {
+  padding: 13px 15px;
+}
+
+.start-card {
+  border: 1px solid rgba(93, 125, 93, 0.28);
+  background: linear-gradient(135deg, #fffdf7, var(--olive-soft));
+  color: var(--ink);
+}
+
+.review-card svg {
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.start-card svg {
+  flex: 0 0 auto;
+  color: var(--olive-ink);
+}
+
+.review-card strong,
+.start-card strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--heading-ink);
+}
+
+.review-card p,
+.start-card p {
+  margin: 2px 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+@media (hover: hover) {
+  .review-card:hover,
+  .start-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+}
+
+/* Step progress meter (dots) */
+.step-meter {
+  display: flex;
+  gap: 6px;
+}
+
+.step-meter span {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: #e7d8c0;
+  transition: background 200ms ease;
+}
+
+.step-meter span.filled {
+  background: linear-gradient(90deg, var(--olive), var(--primary));
+}
+
+/* Difficulty badges on recipe cards */
+.difficulty-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.difficulty-badge.beginner {
+  background: var(--olive-soft);
+  color: var(--olive-ink);
+}
+
+.difficulty-badge.intermediate {
+  background: #f8ebc6;
+  color: #8a641f;
+}
+
+.difficulty-badge.advanced {
+  background: var(--coral-soft);
+  color: var(--primary);
+}
+
+.recipe-card.is-complete {
+  border-color: rgba(93, 125, 93, 0.45);
+}
+
+/* Locked recipe cards + level banners */
+.recipe-card.locked {
+  opacity: 0.72;
+  filter: grayscale(0.3);
+}
+
+.recipe-card.locked img {
+  filter: grayscale(0.6) brightness(0.95);
+}
+
+.locked-row,
+.level-lock-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.locked-row svg,
+.level-lock-banner svg {
+  color: var(--primary);
+  flex: 0 0 auto;
+}
+
+.level-lock-banner {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border: 1px dashed rgba(150, 37, 33, 0.3);
+  border-radius: 12px;
+  background: #fff6f5;
+}
+
+/* Completion celebration */
+.celebrate-card {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  padding: 18px 20px;
+  border: 1px solid rgba(93, 125, 93, 0.35);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #fffdf7, var(--olive-soft));
+  box-shadow: var(--small-shadow);
+}
+
+.celebrate-card svg {
+  color: var(--olive-ink);
+}
+
+.celebrate-card strong {
+  font-size: 1.05rem;
+  color: var(--heading-ink);
+}
+
+.celebrate-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Review flashcards */
+.flashcard {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 36px 24px;
+  border: 1px solid rgba(234, 219, 195, 0.88);
+  border-radius: 18px;
+  background: rgba(255, 253, 247, 0.95);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.flashcard-phrase {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--heading-ink);
+  line-height: 1.3;
+}
+
+.flashcard-source {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.review-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.review-hint svg {
+  flex: 0 0 auto;
+}
+
+/* Shared helpers used by cooking + review action rows */
+.action-button.full {
+  width: 100%;
+}
+
+.chat-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ============================================================
+   Auth — login & signup (name + 4-digit PIN)
+   ============================================================ */
+
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-field {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+}
+
+.auth-field > span {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--heading-ink);
+}
+
+.auth-text-input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: #fffdf7;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.auth-text-input:focus {
+  outline: none;
+  border-color: var(--olive);
+}
+
+/* PIN entry — four square boxes */
+.pin-input {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.pin-box {
+  width: 56px;
+  height: 64px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: #fffdf7;
+  color: var(--ink);
+  font-size: 1.7rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.pin-box:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(150, 37, 33, 0.12);
+}
+
+.auth-error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fbe9e7;
+  color: var(--primary-deep);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.auth-switch {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: var(--primary);
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.auth-button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+/* Full-screen loader while the auth session resolves */
+.auth-loading {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: var(--primary);
+}
+
+/* Sign-out row sits apart from the dark-red action rows */
+.profile2-row.signout {
+  background: #fffaf1;
+  color: var(--primary);
+  border: 1px solid rgba(150, 37, 33, 0.3);
+}
+
+.profile2-row.signout:hover {
+  background: #fbe9e7;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Onboarding assessment
+   --------------------------------------------------------------------------- */
+.assess-progress {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.assess-subtitle {
+  margin: 6px 0 18px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.assess-listen {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.assess-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.assess-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: var(--small-shadow);
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+
+.assess-option:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--sage);
+  background: var(--sage-soft);
+}
+
+.assess-option:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.assess-reassure {
+  margin: 20px 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------------
+   Pre-voice vocabulary preview
+   --------------------------------------------------------------------------- */
+.vocab-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--teal-soft), var(--card));
+  box-shadow: var(--small-shadow);
+}
+
+.vocab-preview.loading {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.vocab-preview-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--teal);
+}
+
+.vocab-preview-head strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.vocab-preview-head p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.vocab-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vocab-words li {
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  font-size: 0.98rem;
+}
+
+.vocab-word {
+  font-weight: 700;
+}
+
+.vocab-hint {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.vocab-phrase {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px dashed var(--line);
+}
+
+.vocab-phrase > span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.vocab-phrase strong {
+  flex: 1 1 auto;
+  font-size: 1.05rem;
+}
+
+.vocab-supportive {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }

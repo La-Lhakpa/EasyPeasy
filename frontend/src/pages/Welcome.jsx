@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import illustration from "../assets/images/welcome-illustration.png";
 
 export default function Welcome() {
+  const { t } = useTranslation();
+
   return (
     <div className="welcome-page">
       <div className="welcome-content">
-        <p className="welcome-eyebrow">Welcome to</p>
+        <p className="welcome-eyebrow">{t("welcome.welcomeTo")}</p>
 
         <img
           src={illustration}
@@ -18,13 +21,13 @@ export default function Welcome() {
         </h1>
 
         <ul className="welcome-bullets">
-          <li>zero judgement</li>
-          <li>boost confidence</li>
-          <li>gain fluency</li>
+          <li>{t("welcome.bullet1")}</li>
+          <li>{t("welcome.bullet2")}</li>
+          <li>{t("welcome.bullet3")}</li>
         </ul>
 
-        <Link to="/sign-in" className="welcome-button">
-          Start Learning Free
+        <Link to="/sign-up" className="welcome-button">
+          {t("welcome.startFree")}
         </Link>
       </div>
     </div>
