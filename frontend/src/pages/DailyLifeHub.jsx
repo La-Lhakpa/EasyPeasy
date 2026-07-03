@@ -4,9 +4,9 @@ import { GraduationCap, Lock, ShoppingCart, Soup, Sparkles, Stethoscope } from "
 
 const tiles = [
   { label: "daily.cooking", icon: Soup, to: "/cooking", locked: false },
-  { label: "daily.doctor", icon: Stethoscope, to: "/daily-life/doctor-visit", locked: true },
-  { label: "daily.grocery", icon: ShoppingCart, to: "/daily-life/grocery-store", locked: true },
-  { label: "daily.school", icon: GraduationCap, to: "/daily-life/parent-teacher-meeting", locked: true }
+  { label: "daily.doctor", icon: Stethoscope, to: "/daily-life/doctor-visit", locked: false },
+  { label: "daily.grocery", icon: ShoppingCart, to: "/daily-life/grocery-store", locked: false },
+  { label: "daily.school", icon: GraduationCap, to: "/daily-life/parent-teacher-meeting", locked: false }
 ];
 
 export default function DailyLifeHub() {
