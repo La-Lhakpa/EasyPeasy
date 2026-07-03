@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Loader2, Mic, RotateCcw, Volume2 } from "lucide-react";
 import ConversationBubble from "../components/ConversationBubble.jsx";
 import PageHeader from "../components/PageHeader.jsx";
+import SavePhraseButton from "../components/SavePhraseButton.jsx"; // New import
 import recipes from "../data/easypeasy_recipes.json";
 import userProgress from "../data/userProgress.json";
 import { cook } from "../lib/api.js";
@@ -238,7 +239,15 @@ export default function CookingConversation() {
         <section className="conversation-panel">
           <div className="speaker">Step {stepIndex + 1} of {totalSteps}</div>
           <p className="bubble">{currentStep.instruction}</p>
-          {currentStep.phrase && <p className="form-hint">Try saying: "{currentStep.phrase}"</p>}
+          {currentStep.phrase && (
+            <p className="form-hint">
+              Try saying: "{currentStep.phrase}"
+              <SavePhraseButton
+                phraseText={currentStep.phrase}
+                contextSentence={currentStep.instruction}
+              />
+            </p>
+          )}
           <div className="chat-input">
             <button
               type="button"

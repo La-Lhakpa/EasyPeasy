@@ -20,6 +20,7 @@ import Transportation from "../pages/Transportation.jsx";
 import Emergency from "../pages/Emergency.jsx";
 import Profile from "../pages/Profile.jsx";
 import WordBank from "../pages/WordBank.jsx";
+import PhraseBank from "../pages/PhraseBank.jsx"; // New import
 import Review from "../pages/Review.jsx";
 import AboutUs from "../pages/AboutUs.jsx";
 
@@ -80,6 +81,7 @@ export default function AppRoutes() {
         <Route path="/cooking/:recipeId/conversation" element={<CookingConversation />} />
         <Route path="/daily-life" element={<DailyLifeHub />} />
         <Route path="/word-bank" element={<WordBank />} />
+        <Route path="/phrase-bank" element={<PhraseBank />} />
         <Route path="/review" element={<Review />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<Profile />} />
