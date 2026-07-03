@@ -41,3 +41,9 @@ export function vocabPreview({ recipe, stepIndex, profile }) {
 export function tts(text) {
   return postJson("/api/tts", { text });
 }
+
+// Translates one saved practice phrase into the learner's UI language (ne/bn).
+// Called once per phrase per language, then cached — see lib/progress.js.
+export function translatePhrase(text, lang) {
+  return postJson("/api/translate-phrase", { text, lang });
+}

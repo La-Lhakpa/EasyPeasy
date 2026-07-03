@@ -163,6 +163,7 @@ export function addPhrase(text, { recipeName } = {}) {
         reps: 0,
         lapses: 0,
         lastReviewedAt: null,
+        translations: {}, // lang code -> translated text, filled in lazily
       };
       draft.stats.phrasesPracticed += 1;
       pushRecent(draft, `Saved: ${clean}`);
@@ -170,6 +171,19 @@ export function addPhrase(text, { recipeName } = {}) {
     return draft;
   });
   recordActivity();
+}
+
+// Caches a translation on an already-saved phrase so it's only fetched once
+// per phrase per language. No-op if the phrase was removed in the meantime.
+export function setPhraseTranslation(text, lang, translation) {
+  const clean = (text || "").trim();
+  if (!clean || !lang || !translation) return;
+  commit((draft) => {
+    const p = draft.phrases[clean];
+    if (!p) return draft;
+    p.translations = { ...(p.translations || {}), [lang]: translation };
+    return draft;
+  });
 }
 
 // Grade a review. `remembered === true` promotes the phrase to the next interval;
