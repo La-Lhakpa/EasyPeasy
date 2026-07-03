@@ -20,7 +20,6 @@ import Transportation from "../pages/Transportation.jsx";
 import Emergency from "../pages/Emergency.jsx";
 import Profile from "../pages/Profile.jsx";
 import WordBank from "../pages/WordBank.jsx";
-import PhraseBank from "../pages/PhraseBank.jsx";
 import Review from "../pages/Review.jsx";
 import AboutUs from "../pages/AboutUs.jsx";
 
@@ -87,7 +86,9 @@ export default function AppRoutes() {
         <Route path="/daily-life/transportation" element={<Transportation />} />
         <Route path="/daily-life/emergency" element={<Emergency />} />
         <Route path="/word-bank" element={<WordBank />} />
-        <Route path="/phrase-bank" element={<PhraseBank />} />
+        {/* Legacy link from the Supabase-backed Phrase Bank experiment — both
+            save flows now write to the same local store, so send it home. */}
+        <Route path="/phrase-bank" element={<Navigate to="/word-bank" replace />} />
         <Route path="/review" element={<Review />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<Profile />} />

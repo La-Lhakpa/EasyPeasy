@@ -599,6 +599,18 @@ img {
   color: var(--ink);
 }
 
+.save-phrase-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.save-phrase-button:disabled {
+  background-color: var(--sage-soft);
+  color: var(--sage);
+  cursor: default;
+}
+
 .phrase-bank-container {
   padding: 20px;
   background-color: var(--card);
