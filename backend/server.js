@@ -206,6 +206,39 @@ app.post("/api/vocab-preview", async (req, res) => {
   }
 });
 
+// Names of the app's UI languages, used to prompt Gemini clearly. Only these
+// three have full translations elsewhere in the app (see frontend/src/locales).
+const TRANSLATE_LANGUAGES = { ne: "Nepali", bn: "Bengali" };
+
+// Translates one saved practice phrase into the learner's UI language, once.
+// The frontend caches the result on the phrase record (lib/progress.js) so
+// this is called at most once per phrase per language, not on every render.
+app.post("/api/translate-phrase", async (req, res) => {
+  if (!API_KEY) return res.status(503).json({ error: "Translation is not configured (missing GEMINI_API_KEY)." });
+
+  const { text, lang } = req.body || {};
+  const clean = (text || "").toString().trim();
+  const languageName = TRANSLATE_LANGUAGES[lang];
+  if (!clean) return res.status(400).json({ error: "No phrase provided." });
+  if (!languageName) return res.status(400).json({ error: "Unsupported language." });
+
+  try {
+    const reply = await geminiGenerate({
+      system:
+        `Translate the given English cooking-related sentence into natural, everyday ${languageName}, ` +
+        `as spoken by a home cook. Return ONLY the translation — no quotes, no English, no explanation.`,
+      contents: [{ role: "user", parts: [{ text: clean }] }],
+      generationConfig: { maxOutputTokens: 120, temperature: 0.3 },
+    });
+    const translation = reply.trim();
+    if (!translation) throw new Error("Empty translation");
+    res.json({ translation });
+  } catch (err) {
+    console.error("phrase translation failed:", err.message);
+    res.status(502).json({ error: "Could not translate this phrase right now." });
+  }
+});
+
 app.post("/api/recipes/search", async (req, res) => {
   if (!GEMINI_API_KEY) return res.status(503).json({ error: "Recipe search is not configured (missing GEMINI_API_KEY)." });
 

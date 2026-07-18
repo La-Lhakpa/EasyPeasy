@@ -42,6 +42,13 @@ export function tts(text) {
   return postJson("/api/tts", { text });
 }
 
+import { createClient } from "@supabase/supabase-js";
+
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 // Supabase: Get all words for the current user.
 export async function getWords(userId) {
   const { data, error } = await supabase
@@ -81,9 +88,8 @@ export async function deleteWord(userId, wordId) {
   return true;
 }
 
-import { createClient } from "@supabase/supabase-js";
-
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Translates one saved practice phrase into the learner's UI language (ne/bn).
+// Called once per phrase per language, then cached — see lib/progress.js.
+export function translatePhrase(text, lang) {
+  return postJson("/api/translate-phrase", { text, lang });
+}

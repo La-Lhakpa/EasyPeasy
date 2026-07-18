@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Loader2, Mic, RotateCcw, Volume2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Loader2, Mic, Plus, RotateCcw, Volume2 } from "lucide-react";
 import ConversationBubble from "../components/ConversationBubble.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import SavePhraseButton from "../components/SavePhraseButton.jsx";
@@ -9,12 +9,14 @@ import userProgress from "../data/userProgress.json";
 import { cook } from "../lib/api.js";
 import { useAuth } from "../lib/auth.jsx";
 import { useProfile } from "../lib/profile.jsx";
+import { addPhrase, useProgress } from "../lib/progress.js";
 
 // Accidental taps produce a near-empty blob (~1 KB of header) that chokes the
 // voice worker and 502s. Anything below this is treated as "didn\'t catch that".
 const MIN_AUDIO_BYTES = 4000;
 
-const blobToBase64 = (blob) =>
+const blobToBase64 = (
+  blob) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onloadend = () => resolve(String(reader.result).split(",")[1]);
@@ -33,6 +35,7 @@ export default function CookingConversation() {
   const [error, setError] = useState("");
   const [messages, setMessages] = useState([]);
   const [recording, setRecording] = useState(false);
+  const progress = useProgress();
 
   const recorderRef = useRef(null);
   const streamRef = useRef(null);
@@ -256,10 +259,19 @@ export default function CookingConversation() {
           {currentStep.phrase && (
             <p className="form-hint">
               Try saying: "{currentStep.phrase}"
-              <SavePhraseButton
-                phraseText={currentStep.phrase}
-                contextSentence={currentStep.instruction}
-              />
+              <button
+                type="button"
+                className="save-phrase-button"
+                onClick={() => addPhrase(currentStep.phrase, { recipeName: recipe.name })}
+                disabled={Boolean(progress.phrases[currentStep.phrase?.trim()])}
+              >
+                {progress.phrases[currentStep.phrase?.trim()] ? (
+                  <Check size={16} aria-hidden="true" />
+                ) : (
+                  <Plus size={16} aria-hidden="true" />
+                )}
+                {progress.phrases[currentStep.phrase?.trim()] ? "Saved" : "Save Phrase"}
+              </button>
             </p>
           )}
           <div className="chat-input">

@@ -3,10 +3,19 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { RotateCcw, Volume2, Trash2 } from "lucide-react";
 import { useAuth } from "../lib/auth.jsx";
-import { getWords, deleteWord } from "../lib/api.js";
+import { getWords, deleteWord, translatePhrase } from "../lib/api.js";
 import { useSpeak } from "../lib/speech.js";
-import { getDuePhrases, getLearnedPhrases, useProgress } from "../lib/progress.js";
+import {
+  getDuePhrases,
+  getLearnedPhrases,
+  setPhraseTranslation,
+  useProgress,
+} from "../lib/progress.js";
 import wordBank from "../data/wordBank.json";
+
+// Only these UI languages have a translation backend (see server.js
+// TRANSLATE_LANGUAGES) — English needs no translation of itself.
+const TRANSLATABLE_LANGS = new Set(["ne", "bn"]);
 
 export default function WordBank() {
   const { t, i18n } = useTranslation();
@@ -16,9 +25,12 @@ export default function WordBank() {
   const progress = useProgress();
   const { speak, speaking, activeText } = useSpeak();
   const { user } = useAuth();
+  // Phrases whose translation request failed (e.g. no GEMINI_API_KEY set) —
+  // so we can fall back instead of showing "Translating…" forever.
+  const [failedTranslations, setFailedTranslations] = useState(() => new Set());
 
   const lang = i18n.language;
-  // The term is always shown in English (that\'s what they\'re learning to say);
+  // The term is always shown in English (that\`s what they\`re learning to say);
   // only the meaning follows the chosen language.
   const localizedMeaning = (meaning) => meaning?.[lang] || meaning?.en || "";
 
@@ -50,14 +62,54 @@ export default function WordBank() {
   const learned = getLearnedPhrases(progress);
   const due = getDuePhrases(progress).length;
 
-  // Phrases tab = phrases earned by cooking (term English, meaning is a
-  // localized helper line), plus the curated seed phrases.
-  const learnedItems = learned.map((p) => ({
-    term: p.text,
-    meaning: p.recipeName
+  // Fetch a real translation for any learned phrase that\`s missing one in the
+  // current language, once, then cache it on the phrase record so this only
+  // runs again if the learner switches to a different language.
+  useEffect(() => {
+    if (!TRANSLATABLE_LANGS.has(lang)) return;
+    let cancelled = false;
+    learned.forEach((p) => {
+      const key = `${lang}:${p.text}`;
+      if (p.translations?.[lang] || failedTranslations.has(key)) return;
+      translatePhrase(p.text, lang)
+        .then(({ translation }) => {
+          if (!cancelled && translation) setPhraseTranslation(p.text, lang, translation);
+        })
+        .catch(() => {
+          // Backend isn\`t configured (e.g. missing GEMINI_API_KEY set) or the call
+          // failed — stop retrying and fall back to the provenance line.
+          if (!cancelled) {
+            setFailedTranslations((prev) => new Set(prev).add(key));
+          }
+        });
+    });
+    return () => {
+      cancelled = true;
+    };
+    // Re-run when the set of learned phrases or the language changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang, learned.length]);
+
+  // Phrases tab = phrases earned by cooking (term stays English; meaning is a
+  // real translation once fetched, falling back to a provenance line while it
+  // loads or if translation isn\`t available), plus the curated seed phrases.
+  const learnedItems = learned.map((p) => {
+    const translated = p.translations?.[lang];
+    const fallback = p.recipeName
       ? t("wordbank.learnedWhile", { recipe: p.recipeName })
-      : t("wordbank.savedFromPractice"),
-  }));
+      : t("wordbank.savedFromPractice");
+    let meaning;
+    if (lang === "en" || !TRANSLATABLE_LANGS.has(lang)) {
+      meaning = fallback;
+    } else if (translated) {
+      meaning = translated;
+    } else if (failedTranslations.has(`${lang}:${p.text}`)) {
+      meaning = fallback;
+    } else {
+      meaning = t("wordbank.translating");
+    }
+    return { term: p.text, meaning };
+  });
   const seedPhraseItems = wordBank.phrases.map((p) => ({
     term: p.term,
     meaning: localizedMeaning(p.meaning),
