@@ -3,13 +3,15 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Loader2, Mic, RotateCcw, Volume2 } from "lucide-react";
 import ConversationBubble from "../components/ConversationBubble.jsx";
 import PageHeader from "../components/PageHeader.jsx";
-import SavePhraseButton from "../components/SavePhraseButton.jsx"; // New import
+import SavePhraseButton from "../components/SavePhraseButton.jsx";
 import recipes from "../data/easypeasy_recipes.json";
 import userProgress from "../data/userProgress.json";
 import { cook } from "../lib/api.js";
+import { useAuth } from "../lib/auth.jsx";
+import { useProfile } from "../lib/profile.jsx";
 
 // Accidental taps produce a near-empty blob (~1 KB of header) that chokes the
-// voice worker and 502s. Anything below this is treated as "didn't catch that".
+// voice worker and 502s. Anything below this is treated as "didn\'t catch that".
 const MIN_AUDIO_BYTES = 4000;
 
 const blobToBase64 = (blob) =>
@@ -23,6 +25,8 @@ const blobToBase64 = (blob) =>
 export default function CookingConversation() {
   const { recipeId } = useParams();
   const recipe = recipes.find((item) => item.name && item.name.toLowerCase().replace(/\s+/g, "-") === recipeId) || recipes[0];
+  const { user } = useAuth();
+  const { profile } = useProfile();
 
   const [stepIndex, setStepIndex] = useState(0);
   const [status, setStatus] = useState("idle");
@@ -83,14 +87,24 @@ export default function CookingConversation() {
       console.log(`[Cook] Audio blob: ${blob.size} bytes, type: ${blob.type || "unknown"}`);
       const audio = await blobToBase64(blob);
       console.log(`[Cook] Sending base64 audio: ${audio?.length || 0} chars, MIME: ${blob.type}`);
+
+      if (!user?.id) {
+        setError("You must be logged in to use NaanSense and save phrases.");
+        setStatus("idle");
+        return;
+      }
+
       const data = await cook({
         audio,
         mimeType: blob.type,
         recipe: { name: recipe.name, steps: recipe.steps },
         stepIndex,
         messages: messages.slice(-8),
-        nativeLanguage: userProgress.language,
+        nativeLanguage: profile?.native_language || userProgress.language,
+        userId: user.id,
       });
+
+      console.log("[Cook] API response data:", data);
 
       const next = [...messages];
       if (data.transcribed) next.push({ role: "user", content: data.transcribed });
@@ -143,7 +157,7 @@ export default function CookingConversation() {
           sendTurn(blob);
         } else {
           setStatus("idle");
-          setError("I didn't quite catch that — hold the button and speak a little longer.");
+          setError("I didn\'t quite catch that — hold the button and speak a little longer.");
         }
       };
 
@@ -201,7 +215,7 @@ export default function CookingConversation() {
           <div className="conversation-row assistant">
             <div className="speaker">NaanSense</div>
             <div className="bubble">
-              When you're ready, hold the button and say hello. We'll cook {recipe.name} together — there's no rush, and no test. Just us talking.
+              When you\'re ready, hold the button and say hello. We\'ll cook {recipe.name} together — there\'s no rush, and no test. Just us talking.
             </div>
           </div>
         ) : (
