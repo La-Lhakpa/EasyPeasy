@@ -99,6 +99,23 @@ if (!GEMINI_API_KEY) {
 
 const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
 
+async function geminiGenerate({ system, contents, generationConfig }) {
+  const response = await fetch(`${ENDPOINT}?key=${GEMINI_API_KEY}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents,
+      generationConfig,
+      systemInstruction: { parts: [{ text: system }] },
+    }),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error?.message || "Gemini API error");
+  }
+  return data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+}
+
 async function groqGenerate({ system, contents, generationConfig }) {
   const messages = [
     { role: "system", content: system },
@@ -214,7 +231,7 @@ const TRANSLATE_LANGUAGES = { ne: "Nepali", bn: "Bengali" };
 // The frontend caches the result on the phrase record (lib/progress.js) so
 // this is called at most once per phrase per language, not on every render.
 app.post("/api/translate-phrase", async (req, res) => {
-  if (!API_KEY) return res.status(503).json({ error: "Translation is not configured (missing GEMINI_API_KEY)." });
+  if (!GEMINI_API_KEY) return res.status(503).json({ error: "Translation is not configured (missing GEMINI_API_KEY)." });
 
   const { text, lang } = req.body || {};
   const clean = (text || "").toString().trim();
