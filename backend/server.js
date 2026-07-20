@@ -240,14 +240,16 @@ app.post("/api/translate-phrase", async (req, res) => {
   if (!languageName) return res.status(400).json({ error: "Unsupported language." });
 
   try {
-    const reply = await geminiGenerate({
-      system:
-        `Translate the given English cooking-related sentence into natural, everyday ${languageName}, ` +
-        `as spoken by a home cook. Return ONLY the translation — no quotes, no English, no explanation.`,
-      contents: [{ role: "user", parts: [{ text: clean }] }],
-      generationConfig: { maxOutputTokens: 120, temperature: 0.3 },
+    const reply = await groq.chat.completions.create({
+      model: GROQ_CHAT_MODEL,
+      messages: [
+        { role: "system", content: `Translate the given English cooking-related sentence into natural, everyday ${languageName}, as spoken by a home cook. Return ONLY the translation — no quotes, no English, no explanation.` },
+        { role: "user", content: clean },
+      ],
+      max_tokens: 120,
+      temperature: 0.3,
     });
-    const translation = reply.trim();
+    const translation = reply.choices?.[0]?.message?.content || "";
     if (!translation) throw new Error("Empty translation");
     res.json({ translation });
   } catch (err) {
@@ -257,19 +259,23 @@ app.post("/api/translate-phrase", async (req, res) => {
 });
 
 app.post("/api/recipes/search", async (req, res) => {
-  if (!GEMINI_API_KEY) return res.status(503).json({ error: "Recipe search is not configured (missing GEMINI_API_KEY)." });
+  if (!GROQ_API_KEY) return res.status(503).json({ error: "Recipe search is not configured (missing GROQ_API_KEY)." });
 
   const { query } = req.body || {};
   if (!query) return res.status(400).json({ error: "No search query provided." });
 
   try {
-    const reply = await geminiGenerate({
-      system: "You are a helpful recipe finder. Search results should be JSON with name, description, ingredients, and steps.",
-      contents: [{ role: "user", parts: [{ text: `Find a recipe for: ${query}` }] }],
-      generationConfig: { maxOutputTokens: 1000, temperature: 0.7 },
+    const reply = await groq.chat.completions.create({
+      model: GROQ_CHAT_MODEL,
+      messages: [
+        { role: "system", content: "You are a helpful recipe finder. Search results should be JSON with name, description, ingredients, and steps." },
+        { role: "user", content: `Find a recipe for: ${query}` },
+      ],
+      max_tokens: 1000,
+      temperature: 0.7,
     });
 
-    const data = JSON.parse(reply);
+    const data = JSON.parse(reply.choices?.[0]?.message?.content || "");
     res.json({
       name: data.name || query,
       description: data.description || "",
@@ -283,7 +289,7 @@ app.post("/api/recipes/search", async (req, res) => {
 });
 
 app.post("/api/naansense", async (req, res) => {
-  if (!GEMINI_API_KEY) return res.status(503).json({ error: "NaanSense text chat is not configured (missing GEMINI_API_KEY)." });
+  if (!GROQ_API_KEY) return res.status(503).json({ error: "NaanSense text chat is not configured (missing GROQ_API_KEY)." });
 
   const { recipe, messages } = req.body || {};
   if (!Array.isArray(messages) || messages.length === 0) {
@@ -308,17 +314,22 @@ ${stepLines}`;
     }));
 
   try {
-    const reply = await geminiGenerate({
-      system,
-      contents,
-      generationConfig: { maxOutputTokens: 400, temperature: 0.8 },
+    const chatCompletion = await groq.chat.completions.create({
+      model: GROQ_CHAT_MODEL,
+      max_tokens: 400,
+      temperature: 0.8,
+      messages: [
+        { role: "system", content: system },
+        ...contents,
+      ],
     });
-    res.json({ reply });
+    res.json({ reply: chatCompletion.choices?.[0]?.message?.content || "" });
   } catch (err) {
     console.error("naansense chat failed:", err.message);
     res.status(502).json({ error: "NaanSense is having trouble right now. Please try again." });
   }
 });
+
 
 const VOCAB_EXTRACTION_SYSTEM = `You are a helpful assistant that extracts important vocabulary from a conversation turn. 
 Your task is to identify single words or short phrases (1-3 words) that a language learner should save to their word bank. For each extracted phrase, also provide the full sentence from the conversation where it appeared. Only extract genuinely useful vocabulary. Avoid common filler words or phrases.
