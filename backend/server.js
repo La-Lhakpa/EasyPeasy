@@ -5,10 +5,35 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import Groq, { toFile } from "groq-sdk";
+import { createClient } from "@supabase/supabase-js"; // New import for Supabase
 
 const PORT = process.env.PORT || 8787;
 const MODEL = "gemini-2.0-flash-lite";
-const API_KEY = process.env.GEMINI_API_KEY;
+// const API_KEY = process.env.GEMINI_API_KEY; // Comment out Gemini API key
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Original Gemini API Key
+const GROQ_API_KEY = process.env.GROQ_API_KEY;     // Groq API Key
+const SUPABASE_URL = process.env.VITE_SUPABASE_URL; // From your .env
+const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY; // From your .env
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY; // New: Service Role Key
+
+// Supabase client for frontend-facing operations (uses anon key, subject to RLS)
+const supabase = SUPABASE_URL && SUPABASE_ANON_KEY
+  ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+      auth: {
+        persistSession: false, // Server-side, no need to persist session here
+      },
+    })
+  : null;
+
+// Supabase client for backend-only operations (uses service role key, bypasses RLS)
+const supabaseAdmin = SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY
+  ? createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
+      auth: {
+        persistSession: false, // Server-side, no need to persist session here
+      },
+    })
+  : null;
+
 
 // const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY;
 // const ELEVEN_VOICE = process.env.ELEVENLABS_VOICE_ID;
@@ -65,7 +90,7 @@ Style rules (important — your replies are read aloud by a voice):
 - Reply in 1-3 short sentences. No markdown, no lists, no emoji.
 - Use simple, everyday words. Be warm and encouraging.`;
 
-if (!API_KEY) {
+if (!GEMINI_API_KEY) {
   console.warn(
     "GEMINI_API_KEY not set — recipe search and /api/naansense are disabled. " +
       "Add a free key from https://aistudio.google.com/apikey to enable them."
@@ -75,24 +100,36 @@ if (!API_KEY) {
 const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
 
 async function geminiGenerate({ system, contents, generationConfig }) {
-  const body = {
-    system_instruction: { parts: [{ text: system }] },
-    contents,
-    generation_config: generationConfig,
-  };
-
-  const res = await fetch(ENDPOINT, {
+  const response = await fetch(`${ENDPOINT}?key=${GEMINI_API_KEY}`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": API_KEY,
-    },
-    body: JSON.stringify(body),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents,
+      generationConfig,
+      systemInstruction: { parts: [{ text: system }] },
+    }),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error?.message || "Gemini API error");
+  }
+  return data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+}
+
+async function groqGenerate({ system, contents, generationConfig }) {
+  const messages = [
+    { role: "system", content: system },
+    ...contents.map(c => ({ role: c.role === "model" ? "assistant" : c.role, content: c.parts.map(p => p.text).join("\n") }))
+  ];
+
+  const chatCompletion = await groq.chat.completions.create({
+    model: GROQ_CHAT_MODEL,
+    messages,
+    max_tokens: generationConfig.maxOutputTokens,
+    temperature: generationConfig.temperature,
   });
 
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error?.message || "Gemini error");
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+  return chatCompletion.choices?.[0]?.message?.content || "";
 }
 
 const app = express();
@@ -134,7 +171,7 @@ Return ONLY valid JSON in exactly this shape (no markdown, no extra text):
 }`;
 
 app.post("/api/vocab-preview", async (req, res) => {
-  if (!API_KEY) return res.status(503).json({ error: "Vocabulary preview is not configured (missing GEMINI_API_KEY)." });
+   if (!GEMINI_API_KEY) return res.status(503).json({ error: "Vocabulary preview is not configured (missing GEMINI_API_KEY)." });
 
   const { recipe, stepIndex, profile } = req.body || {};
   const steps = Array.isArray(recipe?.steps) ? recipe.steps : [];
@@ -153,13 +190,12 @@ app.post("/api/vocab-preview", async (req, res) => {
     `Step instruction: "${step.instruction}"`;
 
   try {
-    const reply = await geminiGenerate({
+    const reply = await groqGenerate({
       system: VOCAB_PREVIEW_SYSTEM,
       contents: [{ role: "user", parts: [{ text: userContext }] }],
       generationConfig: {
         maxOutputTokens: 600,
         temperature: 0.6,
-        responseMimeType: "application/json",
       },
     });
 
@@ -187,20 +223,59 @@ app.post("/api/vocab-preview", async (req, res) => {
   }
 });
 
+// Names of the app's UI languages, used to prompt Gemini clearly. Only these
+// three have full translations elsewhere in the app (see frontend/src/locales).
+const TRANSLATE_LANGUAGES = { ne: "Nepali", bn: "Bengali" };
+
+// Translates one saved practice phrase into the learner's UI language, once.
+// The frontend caches the result on the phrase record (lib/progress.js) so
+// this is called at most once per phrase per language, not on every render.
+app.post("/api/translate-phrase", async (req, res) => {
+  if (!GEMINI_API_KEY) return res.status(503).json({ error: "Translation is not configured (missing GEMINI_API_KEY)." });
+
+  const { text, lang } = req.body || {};
+  const clean = (text || "").toString().trim();
+  const languageName = TRANSLATE_LANGUAGES[lang];
+  if (!clean) return res.status(400).json({ error: "No phrase provided." });
+  if (!languageName) return res.status(400).json({ error: "Unsupported language." });
+
+  try {
+    const reply = await groq.chat.completions.create({
+      model: GROQ_CHAT_MODEL,
+      messages: [
+        { role: "system", content: `Translate the given English cooking-related sentence into natural, everyday ${languageName}, as spoken by a home cook. Return ONLY the translation — no quotes, no English, no explanation.` },
+        { role: "user", content: clean },
+      ],
+      max_tokens: 120,
+      temperature: 0.3,
+    });
+    const translation = reply.choices?.[0]?.message?.content || "";
+    if (!translation) throw new Error("Empty translation");
+    res.json({ translation });
+  } catch (err) {
+    console.error("phrase translation failed:", err.message);
+    res.status(502).json({ error: "Could not translate this phrase right now." });
+  }
+});
+
 app.post("/api/recipes/search", async (req, res) => {
-  if (!API_KEY) return res.status(503).json({ error: "Recipe search is not configured (missing GEMINI_API_KEY)." });
+  if (!GROQ_API_KEY) return res.status(503).json({ error: "Recipe search is not configured (missing GROQ_API_KEY)." });
 
   const { query } = req.body || {};
   if (!query) return res.status(400).json({ error: "No search query provided." });
 
   try {
-    const reply = await geminiGenerate({
-      system: "You are a helpful recipe finder. Search results should be JSON with name, description, ingredients, and steps.",
-      contents: [{ role: "user", parts: [{ text: `Find a recipe for: ${query}` }] }],
-      generationConfig: { maxOutputTokens: 1000, temperature: 0.7 },
+    const reply = await groq.chat.completions.create({
+      model: GROQ_CHAT_MODEL,
+      messages: [
+        { role: "system", content: "You are a helpful recipe finder. Search results should be JSON with name, description, ingredients, and steps." },
+        { role: "user", content: `Find a recipe for: ${query}` },
+      ],
+      max_tokens: 1000,
+      temperature: 0.7,
     });
 
-    const data = JSON.parse(reply);
+    const data = JSON.parse(reply.choices?.[0]?.message?.content || "");
     res.json({
       name: data.name || query,
       description: data.description || "",
@@ -214,7 +289,7 @@ app.post("/api/recipes/search", async (req, res) => {
 });
 
 app.post("/api/naansense", async (req, res) => {
-  if (!API_KEY) return res.status(503).json({ error: "NaanSense text chat is not configured (missing GEMINI_API_KEY)." });
+  if (!GROQ_API_KEY) return res.status(503).json({ error: "NaanSense text chat is not configured (missing GROQ_API_KEY)." });
 
   const { recipe, messages } = req.body || {};
   if (!Array.isArray(messages) || messages.length === 0) {
@@ -239,17 +314,111 @@ ${stepLines}`;
     }));
 
   try {
-    const reply = await geminiGenerate({
-      system,
-      contents,
-      generationConfig: { maxOutputTokens: 400, temperature: 0.8 },
+    const chatCompletion = await groq.chat.completions.create({
+      model: GROQ_CHAT_MODEL,
+      max_tokens: 400,
+      temperature: 0.8,
+      messages: [
+        { role: "system", content: system },
+        ...contents,
+      ],
     });
-    res.json({ reply });
+    res.json({ reply: chatCompletion.choices?.[0]?.message?.content || "" });
   } catch (err) {
     console.error("naansense chat failed:", err.message);
     res.status(502).json({ error: "NaanSense is having trouble right now. Please try again." });
   }
 });
+
+
+const VOCAB_EXTRACTION_SYSTEM = `You are a helpful assistant that extracts important vocabulary from a conversation turn. 
+Your task is to identify single words or short phrases (1-3 words) that a language learner should save to their word bank. For each extracted phrase, also provide the full sentence from the conversation where it appeared. Only extract genuinely useful vocabulary. Avoid common filler words or phrases.
+Return your response as a JSON array of objects, where each object has \'phrase_text\' and \'context_sentence\'.
+Example:
+[
+  { \"phrase_text\": \"cook together\", \"context_sentence\": \"We will cook together.\" },
+  { \"phrase_text\": \"delicious\", \"context_sentence\": \"This is a delicious recipe.\" }
+]`;
+
+async function extractAndSaveVocabulary(userMessage, assistantResponse, userId) {
+  if (!GEMINI_API_KEY || !supabaseAdmin || !userId) {
+    console.warn("Cannot extract or save vocabulary: GEMINI_API_KEY, Supabase Admin client, or user ID missing.");
+    return;
+  }
+
+  const conversationContext = [
+    { role: "user", parts: [{ text: userMessage }] },
+    { role: "assistant", parts: [{ text: assistantResponse }] },
+  ];
+
+  try {
+    const reply = await groqGenerate({
+      system: VOCAB_EXTRACTION_SYSTEM,
+      contents: conversationContext,
+      generationConfig: {
+        maxOutputTokens: 500,
+        temperature: 0.4,
+      },
+    });
+
+    let extractedWords = [];
+    try {
+      const jsonMatch = reply.match(/```json\n([\s\S]*?)\n```/);
+      if (jsonMatch && jsonMatch[1]) {
+        extractedWords = JSON.parse(jsonMatch[1]);
+      } else {
+        extractedWords = JSON.parse(reply);
+      }
+    } catch (parseError) {
+      console.error("Error parsing AI response for vocabulary extraction:", parseError.message);
+      // Attempt to salvage by looking for JSON within the reply
+      const bracketMatch = reply.match(/\[[\s\S]*?\]/);
+      if (bracketMatch && bracketMatch[0]) {
+        try {
+          extractedWords = JSON.parse(bracketMatch[0]);
+        } catch (salvageError) {
+          console.error("Error salvaging JSON from AI response:", salvageError.message);
+          extractedWords = [];
+        }
+      }
+    }
+
+    if (Array.isArray(extractedWords)) {
+      for (const word of extractedWords) {
+        if (word.phrase_text && word.context_sentence) {
+          const { data: existingWords, error: selectError } = await supabaseAdmin
+            .from("words")
+            .select("id")
+            .eq("user_id", userId)
+            .eq("term", word.phrase_text);
+
+          if (selectError) {
+            console.error("Supabase error checking for existing word:", selectError.message);
+            continue;
+          }
+
+          if (existingWords && existingWords.length === 0) {
+            const { error: insertError } = await supabaseAdmin.from("words").insert({
+              user_id: userId,
+              term: word.phrase_text,
+              meaning: { en: word.context_sentence }, // Store context as English meaning
+            });
+
+            if (insertError) {
+              console.error("Supabase error saving extracted word:", insertError.message);
+            } else {
+              console.log(`Successfully saved extracted word: "${word.phrase_text}" for user ${userId}`);
+            }
+          } else {
+            console.log(`Duplicate word "${word.phrase_text}" for user ${userId} not saved.`);
+          }
+        }
+      }
+    }
+  } catch (err) {
+    console.error("AI vocabulary extraction or saving failed:", err.message);
+  }
+}
 
 // Standalone "Hear It" voice: speaks any phrase aloud using the same
 // Sarvam (Indian-accent) → Google fallback chain as the cooking conversation.
@@ -382,6 +551,7 @@ function buildNaanSenseSystem({ recipe, stepIndex = 0, nativeLanguage } = {}) {
 }
 
 app.post("/api/cook", async (req, res) => {
+  console.log("[cook] /api/cook endpoint hit"); // Add this line
   if (!groq) {
     return res.status(503).json({ error: "Voice is not configured (missing GROQ_API_KEY)." });
   }
@@ -435,6 +605,12 @@ app.post("/api/cook", async (req, res) => {
       ],
     });
     const response = (chat.choices?.[0]?.message?.content || "").trim();
+
+    const { userId } = req.body; // Receive userId directly from frontend
+
+    if (userId) {
+      await extractAndSaveVocabulary(transcribed, response, userId);
+    }
 
     const audioBase64 = (await sarvamTts(response)) ?? (await googleTts(response, "en-IN"));
 

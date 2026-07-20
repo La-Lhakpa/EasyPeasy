@@ -13,7 +13,8 @@
 // "local accounts" so signup/login still work for development and demos.
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { isSupabaseConfigured, supabase } from "./supabase.js";
+import { isSupabaseConfigured } from "./supabase.js";
+import { supabase } from "./api.js";
 
 const ACCOUNTS_KEY = "easypeasy:accounts";
 const SESSION_KEY = "easypeasy:session";

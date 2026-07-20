@@ -6,7 +6,7 @@ const navItems = [
   { to: "/", label: "nav.home", icon: Home },
   { to: "/cooking", label: "nav.cooking", icon: Soup },
   { to: "/daily-life", label: "nav.dailyLife", icon: BookOpen },
-  { to: "/phrase-bank", label: "nav.phraseBank", icon: ListTodo }, // New nav item
+  { to: "/word-bank", label: "nav.phraseBank", icon: ListTodo },
   { to: "/profile", label: "nav.profile", icon: UserRound }
 ];
 

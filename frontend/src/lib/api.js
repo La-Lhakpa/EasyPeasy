@@ -16,8 +16,8 @@ async function postJson(url, body) {
 }
 
 // Cook & Converse voice turn: STT → NaanSense chat → TTS
-export function cook({ audio, mimeType, recipe, stepIndex, messages, nativeLanguage }) {
-  return postJson("/api/cook", { audio, mimeType, recipe, stepIndex, messages, nativeLanguage });
+export function cook({ audio, mimeType, recipe, stepIndex, messages, nativeLanguage, userId }) {
+  return postJson("/api/cook", { audio, mimeType, recipe, stepIndex, messages, nativeLanguage, userId });
 }
 
 // Optional: text-only NaanSense chat (Gemini)
@@ -40,4 +40,56 @@ export function vocabPreview({ recipe, stepIndex, profile }) {
 // Returns { audioBase64 } or throws so the caller can fall back to browser speech.
 export function tts(text) {
   return postJson("/api/tts", { text });
+}
+
+import { createClient } from "@supabase/supabase-js";
+
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Supabase: Get all words for the current user.
+export async function getWords(userId) {
+  const { data, error } = await supabase
+    .from("words")
+    .select("id, term, meaning")
+    .eq("user_id", userId);
+
+  if (error) {
+    console.error("Error fetching words:", error);
+    throw error;
+  }
+  return data;
+}
+
+// Supabase: Add a word for the current user.
+export async function addWord(userId, { term, meaning }) {
+  const { data, error } = await supabase
+    .from("words")
+    .insert([{ user_id: userId, term, meaning }])
+    .select();
+
+  if (error) {
+    console.error("Error adding word:", error);
+    throw error;
+  }
+  return data[0];
+}
+
+// Supabase: Delete a word for the current user.
+export async function deleteWord(userId, wordId) {
+  const { error } = await supabase.from("words").delete().eq("id", wordId).eq("user_id", userId);
+
+  if (error) {
+    console.error("Error deleting word:", error);
+    throw error;
+  }
+  return true;
+}
+
+// Translates one saved practice phrase into the learner's UI language (ne/bn).
+// Called once per phrase per language, then cached — see lib/progress.js.
+export function translatePhrase(text, lang) {
+  return postJson("/api/translate-phrase", { text, lang });
 }

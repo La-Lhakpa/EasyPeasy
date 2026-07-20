@@ -130,6 +130,7 @@
   "wordbank.empty": "একটি রেসিপি রান্না করুন ও বাক্য সংরক্ষণ করুন — সেগুলো এখানে পর্যালোচনার জন্য দেখা যাবে।",
   "wordbank.learnedWhile": "{{recipe}} রান্নার সময় শেখা।",
   "wordbank.savedFromPractice": "আপনার অনুশীলন থেকে সংরক্ষিত।",
+  "wordbank.translating": "অনুবাদ হচ্ছে…",
 
   "about.title": "আমাদের সম্পর্কে",
   "about.foundedTitle": "NYC-তে প্রতিষ্ঠিত",
