@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Loader2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../lib/auth.jsx";
 import { useProfile } from "../lib/profile.js";
 import AppShell from "../components/AppShell.jsx";
@@ -11,13 +13,6 @@ import Home from "../pages/Home.jsx";
 import CookingHub from "../pages/CookingHub.jsx";
 import CookingSession from "../pages/CookingSession.jsx";
 import CookingConversation from "../pages/CookingConversation.jsx";
-import DailyLifeHub from "../pages/DailyLifeHub.jsx";
-import DoctorVisit from "../pages/DoctorVisit.jsx";
-import ParentTeacherMeeting from "../pages/ParentTeacherMeeting.jsx";
-import GroceryStore from "../pages/GroceryStore.jsx";
-import Pharmacy from "../pages/Pharmacy.jsx";
-import Transportation from "../pages/Transportation.jsx";
-import Emergency from "../pages/Emergency.jsx";
 import Profile from "../pages/Profile.jsx";
 import WordBank from "../pages/WordBank.jsx";
 import Review from "../pages/Review.jsx";
@@ -45,13 +40,26 @@ function RequireAssessment({ children }) {
   return profile.completed ? children : <Navigate to="/assessment" replace />;
 }
 
+// Welcome/Sign In/Sign Up always render in English, regardless of a language
+// chosen in a previous authenticated session on this device — a first-time
+// visitor shouldn't land on a login screen in whatever language someone else
+// (or a past session) last picked. AppShell restores the saved language once
+// the learner is back inside the authenticated app.
+function ForceEnglish({ children }) {
+  const { i18n } = useTranslation();
+  useEffect(() => {
+    if (i18n.language !== "en") i18n.changeLanguage("en");
+  }, [i18n]);
+  return children;
+}
+
 export default function AppRoutes() {
   return (
     <Routes>
       {/* Unauthenticated routes (no AppShell, full screen) */}
-      <Route path="/welcome" element={<Welcome />} />
-      <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/welcome" element={<ForceEnglish><Welcome /></ForceEnglish>} />
+      <Route path="/sign-in" element={<ForceEnglish><SignIn /></ForceEnglish>} />
+      <Route path="/sign-up" element={<ForceEnglish><SignUp /></ForceEnglish>} />
 
       {/* One-time onboarding assessment: signed in, but full-screen (no shell). */}
       <Route
@@ -78,13 +86,6 @@ export default function AppRoutes() {
         <Route path="/cooking" element={<CookingHub />} />
         <Route path="/cooking/:recipeId" element={<CookingSession />} />
         <Route path="/cooking/:recipeId/conversation" element={<CookingConversation />} />
-        <Route path="/daily-life" element={<DailyLifeHub />} />
-        <Route path="/daily-life/doctor-visit" element={<DoctorVisit />} />
-        <Route path="/daily-life/parent-teacher-meeting" element={<ParentTeacherMeeting />} />
-        <Route path="/daily-life/grocery-store" element={<GroceryStore />} />
-        <Route path="/daily-life/pharmacy" element={<Pharmacy />} />
-        <Route path="/daily-life/transportation" element={<Transportation />} />
-        <Route path="/daily-life/emergency" element={<Emergency />} />
         <Route path="/word-bank" element={<WordBank />} />
         {/* Legacy link from the Supabase-backed Phrase Bank experiment — both
             save flows now write to the same local store, so send it home. */}

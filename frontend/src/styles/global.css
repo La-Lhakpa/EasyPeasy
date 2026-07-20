@@ -921,6 +921,12 @@ img {
   --olive-soft: #e3ead9;
   --olive-ink: #3c5238;
   --heading-ink: #5f5346;
+  /* Accent palette used for the profile avatar ring + motifs:
+     marigold, madder red, leaf green around a solid indigo. */
+  --marigold: #d99a2b;
+  --madder: var(--primary);
+  --leaf: var(--olive);
+  --indigo: #3f3d7a;
 
   --cream-50: var(--parchment);
   --cream-100: var(--parchment-2);
@@ -991,6 +997,86 @@ body {
   z-index: 4;
 }
 
+/* ---------------- Floral frame (wraps a card on all four sides) ----------------
+   Reuses floral-border.png. Top/bottom tile it horizontally; the two sides tile
+   a rotated copy that is deliberately longer than the card and clipped by the
+   frame's overflow, so the band follows dynamic content height without
+   stretching. Corner motifs sit above the edges to hide the seams. */
+.floral-frame {
+  --ff-band: 30px; /* thickness of the decorative band on every side */
+  position: relative;
+  padding: var(--ff-band);
+  border-radius: 20px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.floral-frame .ff-content {
+  position: relative;
+  z-index: 1;
+}
+
+.floral-frame .ff-edge {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  background: url("../assets/images/floral-border.png") left top / auto var(--ff-band) repeat-x;
+}
+
+.floral-frame .ff-edge.top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--ff-band);
+}
+
+.floral-frame .ff-edge.bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--ff-band);
+  transform: rotate(180deg);
+}
+
+/* Side strips: a horizontal band 2000px long, rotated to run down the edge.
+   Overflow on .floral-frame clips the excess to the card's real height. */
+.floral-frame .ff-edge.left,
+.floral-frame .ff-edge.right {
+  top: 0;
+  height: var(--ff-band);
+  width: 2000px;
+}
+
+/* Offset each side strip inward by one band width: rotating about the top
+   corner throws the strip outside the frame, so left/right start one band in
+   and the rotation brings the band back onto the edge. */
+.floral-frame .ff-edge.left {
+  left: var(--ff-band);
+  transform-origin: top left;
+  transform: rotate(90deg);
+}
+
+.floral-frame .ff-edge.right {
+  right: var(--ff-band);
+  transform-origin: top right;
+  transform: rotate(-90deg);
+}
+
+.floral-frame .ff-corner {
+  position: absolute;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  pointer-events: none;
+  background: url("../assets/images/floral-border.png") center / 130px auto no-repeat;
+  border-radius: 12px;
+}
+
+.floral-frame .ff-corner.tl { top: 0; left: 0; }
+.floral-frame .ff-corner.tr { top: 0; right: 0; }
+.floral-frame .ff-corner.bl { bottom: 0; left: 0; }
+.floral-frame .ff-corner.br { bottom: 0; right: 0; }
+
 .lang-pill {
   position: absolute;
   top: 56px;
@@ -1034,7 +1120,7 @@ body {
   bottom: 16px;
   transform: translateX(-50%);
   width: min(calc(100% - 28px), 402px);
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 4px;
   padding: 10px 12px;
   border: 1px solid var(--line);
@@ -1394,16 +1480,37 @@ a.daily-card:hover {
   color: #f3c64a;
 }
 
-/* ---------------- Profile (avatar + dark-red rows) ---------------- */
+/* ---------------- Profile (ringed avatar + quiet list) ---------------- */
+/* Thin gradient ring (marigold → madder → leaf) around a solid indigo circle. */
 .profile2-avatar {
   display: grid;
   place-items: center;
   width: 128px;
   height: 128px;
   margin: 8px auto 4px;
+  padding: 5px;
   border-radius: 50%;
-  background: #c97a9c;
-  color: #f3c9dc;
+  background: conic-gradient(
+    from 210deg,
+    var(--marigold),
+    var(--madder),
+    var(--leaf),
+    var(--marigold)
+  );
+}
+
+.profile2-avatar-initial {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--indigo);
+  color: #f4f2ff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .profile2-name {
@@ -1426,18 +1533,33 @@ a.daily-card:hover {
 }
 
 .profile2-menu {
+  position: relative;
   display: grid;
-  gap: 16px;
+  gap: 18px;
   width: 100%;
   max-width: 420px;
   margin: 0 auto;
+}
+
+/* Single low-opacity floral motif tucked into the card's top-right corner. */
+.profile2-accent {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 74px;
+  height: 74px;
+  background: url("../assets/images/floral-border.png") center / 200px auto no-repeat;
+  opacity: 0.12;
+  border-radius: 12px;
+  pointer-events: none;
 }
 
 .profile2-row-group {
   position: relative;
 }
 
-.profile2-row {
+/* Primary action: the only solid maroon button on the screen. */
+.profile2-edit {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1449,24 +1571,82 @@ a.daily-card:hover {
   background: var(--primary);
   color: #fff7ec;
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: left;
   cursor: pointer;
   transition: background 160ms ease, transform 160ms ease;
 }
 
-.profile2-row:hover {
+.profile2-edit:hover {
   background: var(--primary-deep);
   transform: translateY(-1px);
 }
 
-.profile2-row svg {
+.profile2-edit svg {
   flex: 0 0 auto;
+}
+
+/* Secondary actions: quiet list rows, thin dividers, no background fill. */
+.profile2-list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.profile2-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 52px;
+  padding: 15px 8px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.profile2-list-row:last-child {
+  border-bottom: 0;
+}
+
+.profile2-list-row:hover {
+  color: var(--primary);
+}
+
+.profile2-list-row svg {
+  flex: 0 0 auto;
+  color: var(--muted);
   transition: transform 200ms ease;
 }
 
-.profile2-row svg.flip {
+.profile2-list-row svg.flip {
   transform: rotate(180deg);
+}
+
+/* Sign out: a plain centered text link, set apart by a divider above. */
+.profile2-signout-link {
+  width: 100%;
+  margin-top: 2px;
+  padding: 16px 8px 4px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.profile2-signout-link:hover {
+  color: var(--primary-deep);
+  text-decoration: underline;
 }
 
 .profile2-dropdown {
@@ -1848,9 +2028,9 @@ a.daily-card:hover {
   justify-items: center;
   gap: 2px;
   padding: 14px 8px;
-  border: 1px solid rgba(234, 219, 195, 0.88);
+  border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(255, 253, 247, 0.92);
+  background: linear-gradient(150deg, #fffdf7, var(--parchment-2));
   box-shadow: var(--small-shadow);
   text-align: center;
 }
@@ -2098,6 +2278,320 @@ a.daily-card:hover {
 }
 
 /* ============================================================
+   Cook & Converse — chat-style step page
+   ============================================================ */
+.cook-chat {
+  gap: 18px;
+  padding: 24px;
+  border-radius: 28px;
+  background: rgba(255, 248, 236, 0.95);
+  border: 1px solid rgba(218, 183, 126, 0.35);
+}
+
+.cook-chat-title {
+  margin: 2px 0 0;
+  font-size: clamp(1.7rem, 6vw, 2.4rem);
+  line-height: 1.05;
+}
+
+/* Quiet "← Recipe" link in the top bar (language pill floats right globally) */
+.cook-recipe-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.cook-recipe-link:hover {
+  color: var(--primary);
+}
+
+.cook-thread {
+  display: grid;
+  gap: 12px;
+}
+
+/* NaanSense's grouped opening block */
+.chat-group {
+  display: grid;
+  gap: 12px;
+  padding: 18px 0 0;
+}
+
+.chat-speaker {
+  margin-left: 42px;
+  color: var(--primary);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.chat-lead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Follow-on bubbles align under the intro bubble (past the avatar gutter) */
+.chat-indent {
+  margin-left: 42px;
+}
+
+.chat-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--olive-soft);
+  color: var(--olive-ink);
+}
+
+.chat-bubble {
+  max-width: min(84%, 580px);
+  padding: 18px 18px 16px;
+  border-radius: 22px;
+  line-height: 1.55;
+  background: var(--sage-soft);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px rgba(251, 242, 229, 0.8);
+}
+
+.chat-bubble.plain {
+  background: #fffdf7;
+  border: px solid var(--line);
+}
+
+/* Live turns */
+.chat-msg {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.chat-msg.user {
+  justify-content: flex-end;
+}
+
+.chat-msg.assistant .chat-bubble {
+  border-bottom-left-radius: 6px;
+}
+
+.chat-msg.user .chat-bubble {
+  background: var(--ink);
+  color: #fff8e8;
+  border-bottom-right-radius: 6px;
+}
+
+.chat-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+
+/* Suggested-phrase bubble: dashed frame, italic phrase, compact Save on right */
+.phrase-group {
+  display: grid;
+  gap: 10px;
+  margin-left: 42px;
+}
+
+.phrase-bubble {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  background: #fffdf7;
+  border: 1px dashed rgba(163, 143, 121, 0.4);
+  border-radius: 22px;
+}
+
+.phrase-bubble em {
+  display: block;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.phrase-save-btn {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--olive);
+  color: #fff8e8;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.phrase-save-btn:hover:not(:disabled) {
+  background: var(--olive-ink);
+}
+
+.phrase-save-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+/* Centered "Hear this phrase" link under the phrase bubble */
+.chat-hear {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 11px;
+  border: 1px solid rgba(117, 96, 74, 0.18);
+  border-radius: 999px;
+  background: #fff7ed;
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--small-shadow);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.chat-hear:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(83, 54, 28, 0.08);
+}
+
+/* Voice input dock — the single primary action (waveform + label, then mic) */
+.voice-dock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 18px;
+  border: 1px solid rgba(208, 183, 145, 0.4);
+  border-radius: 26px;
+  background: linear-gradient(150deg, #fffdf7, #f7efe1);
+  box-shadow: 0 16px 35px rgba(120, 77, 37, 0.12);
+}
+
+.voice-dock-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.voice-wave {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
+.voice-wave span {
+  width: 5px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--primary);
+  opacity: 0.55;
+}
+
+.voice-dock.recording .voice-wave span {
+  animation: voiceWave 850ms ease-in-out infinite;
+  opacity: 1;
+}
+
+@keyframes voiceWave {
+  0%, 100% { height: 8px; }
+  50% { height: 26px; }
+}
+
+.voice-label {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.voice-mic {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 62px;
+  height: 62px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff8e8;
+  cursor: pointer;
+  box-shadow: 0 16px 30px rgba(150, 37, 33, 0.27);
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.voice-mic:hover:not(:disabled) {
+  transform: scale(1.04);
+  background: var(--primary-deep);
+  box-shadow: 0 20px 38px rgba(150, 37, 33, 0.26);
+}
+
+.voice-mic.recording {
+  transform: scale(1.08);
+  background: var(--primary-deep);
+}
+
+.voice-mic:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+/* Quiet step navigation under the dock */
+.cook-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cook-nav-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 6px;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cook-nav-text:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.cook-startover {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cook-startover:hover {
+  color: var(--primary);
+}
+
+/* ============================================================
    Auth — login & signup (name + 4-digit PIN)
    ============================================================ */
 
@@ -2196,17 +2690,6 @@ a.daily-card:hover {
   min-height: 100vh;
   min-height: 100dvh;
   color: var(--primary);
-}
-
-/* Sign-out row sits apart from the dark-red action rows */
-.profile2-row.signout {
-  background: #fffaf1;
-  color: var(--primary);
-  border: 1px solid rgba(150, 37, 33, 0.3);
-}
-
-.profile2-row.signout:hover {
-  background: #fbe9e7;
 }
 
 @keyframes spin {

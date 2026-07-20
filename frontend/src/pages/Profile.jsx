@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ChevronDown, CircleHelp, Flame, Info, LogOut, NotebookText, Pencil, Soup, UserRound } from "lucide-react";
+import { ChevronDown, ChevronRight, CircleHelp, Flame, NotebookText, Pencil, Soup, Sparkles } from "lucide-react";
 import userProgress from "../data/userProgress.json";
 import { getStats, useProgress } from "../lib/progress.js";
 import { useProfile } from "../lib/profile.js";
@@ -13,6 +13,16 @@ const LANGUAGES = [
   { code: "ne", label: "नेपाली" },
   { code: "bn", label: "বাংলা" },
 ];
+
+// The single character shown inside the avatar ring. If the name already
+// contains Devanagari (e.g. "रितिका"), keep that script's first letter;
+// otherwise fall back to the first Latin initial, uppercased.
+function avatarInitial(name) {
+  const clean = (name || "").trim();
+  if (!clean) return "?";
+  const devanagari = clean.match(/[ऀ-ॿ]/);
+  return devanagari ? devanagari[0] : clean[0].toUpperCase();
+}
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -41,7 +51,7 @@ export default function Profile() {
       <h1 className="profile2-title">{t("profile.title")}</h1>
 
       <div className="profile2-avatar" aria-hidden="true">
-        <UserRound size={64} strokeWidth={2} />
+        <span className="profile2-avatar-initial">{avatarInitial(displayName)}</span>
       </div>
       <p className="profile2-name">{displayName}</p>
       {profile.completed && (
@@ -70,56 +80,67 @@ export default function Profile() {
       </section>
 
       <nav className="profile2-menu">
-        <button className="profile2-row" type="button" onClick={() => navigate("/assessment")}>
+        <span className="profile2-accent" aria-hidden="true" />
+
+        {/* The one primary action keeps the solid maroon button treatment. */}
+        <button className="profile2-edit" type="button" onClick={() => navigate("/assessment")}>
           <span>{t("profile.editProfile")}</span>
           <Pencil size={20} aria-hidden="true" />
         </button>
 
-        <div className="profile2-row-group">
-          <button
-            className="profile2-row"
-            type="button"
-            aria-expanded={langOpen}
-            onClick={() => setLangOpen((open) => !open)}
-          >
-            <span>{t("profile.changeLanguage")}</span>
-            <ChevronDown size={20} aria-hidden="true" className={langOpen ? "flip" : ""} />
+        {/* Everything else is a plain, equally-quiet list row with a divider. */}
+        <div className="profile2-list">
+          <div className="profile2-row-group">
+            <button
+              className="profile2-list-row"
+              type="button"
+              aria-expanded={langOpen}
+              onClick={() => setLangOpen((open) => !open)}
+            >
+              <span>{t("profile.changeLanguage")}</span>
+              <ChevronDown size={20} aria-hidden="true" className={langOpen ? "flip" : ""} />
+            </button>
+            {langOpen && (
+              <ul className="profile2-dropdown">
+                {LANGUAGES.map(({ code, label }) => (
+                  <li key={code}>
+                    <button
+                      type="button"
+                      className={i18n.language === code ? "selected" : ""}
+                      onClick={() => changeLanguage(code)}
+                    >
+                      {label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <button className="profile2-list-row" type="button" onClick={() => navigate("/word-bank")}>
+            <span>{t("profile.wordBank")}</span>
+            <NotebookText size={20} aria-hidden="true" />
           </button>
-          {langOpen && (
-            <ul className="profile2-dropdown">
-              {LANGUAGES.map(({ code, label }) => (
-                <li key={code}>
-                  <button
-                    type="button"
-                    className={i18n.language === code ? "selected" : ""}
-                    onClick={() => changeLanguage(code)}
-                  >
-                    {label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
+
+          <button className="profile2-list-row" type="button" onClick={() => {/* TODO: Help screen */}}>
+            <span>{t("profile.help")}</span>
+            <CircleHelp size={20} aria-hidden="true" />
+          </button>
+
+          <button className="profile2-list-row" type="button" onClick={() => navigate("/about")}>
+            <span>{t("profile.about")}</span>
+            <ChevronRight size={20} aria-hidden="true" />
+          </button>
         </div>
 
-        <button className="profile2-row" type="button" onClick={() => navigate("/word-bank")}>
-          <span>{t("profile.wordBank")}</span>
-          <NotebookText size={20} aria-hidden="true" />
+        <button className="upgrade-button" type="button">
+          {t("daily.upgrade")} <Sparkles size={18} aria-hidden="true" />
         </button>
-
-        <button className="profile2-row" type="button" onClick={() => {/* TODO: Help screen */}}>
-          <span>{t("profile.help")}</span>
-          <CircleHelp size={20} aria-hidden="true" />
-        </button>
-
-        <button className="profile2-row" type="button" onClick={() => navigate("/about")}>
-          <span>{t("profile.about")}</span>
-          <Info size={20} aria-hidden="true" />
-        </button>
-
-        <button className="profile2-row signout" type="button" onClick={handleSignOut}>
-          <span>{t("profile.signOut")}</span>
-          <LogOut size={20} aria-hidden="true" />
+        
+        {/* Sign out is demoted to a plain text link so it can't read as a peer
+            of the actions above. */}
+        <button className="profile2-signout-link" type="button" onClick={handleSignOut}>
+          {t("profile.signOut")}
         </button>
       </nav>
     </div>

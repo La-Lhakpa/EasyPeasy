@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BookOpen, Home, Soup, UserRound, ListTodo } from "lucide-react";
+import { Home, Soup, UserRound, ListTodo } from "lucide-react";
 
 const navItems = [
   { to: "/", label: "nav.home", icon: Home },
   { to: "/cooking", label: "nav.cooking", icon: Soup },
-  { to: "/daily-life", label: "nav.dailyLife", icon: BookOpen },
   { to: "/word-bank", label: "nav.phraseBank", icon: ListTodo },
   { to: "/profile", label: "nav.profile", icon: UserRound }
 ];

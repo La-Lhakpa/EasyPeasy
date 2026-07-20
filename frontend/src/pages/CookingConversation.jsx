@@ -1,22 +1,34 @@
 import { useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Check, Loader2, Mic, Plus, RotateCcw, Volume2 } from "lucide-react";
-import ConversationBubble from "../components/ConversationBubble.jsx";
-import PageHeader from "../components/PageHeader.jsx";
-import SavePhraseButton from "../components/SavePhraseButton.jsx";
+import { ArrowLeft, ArrowRight, Check, ChefHat, Loader2, Mic, Plus, RotateCcw, Volume2 } from "lucide-react";
 import recipes from "../data/easypeasy_recipes.json";
 import userProgress from "../data/userProgress.json";
 import { cook } from "../lib/api.js";
 import { useAuth } from "../lib/auth.jsx";
 import { useProfile } from "../lib/profile.jsx";
+import { useSpeak } from "../lib/speech.js";
 import { addPhrase, useProgress } from "../lib/progress.js";
 
 // Accidental taps produce a near-empty blob (~1 KB of header) that chokes the
-// voice worker and 502s. Anything below this is treated as "didn\'t catch that".
+// voice worker and 502s. Anything below this is treated as "didn't catch that".
 const MIN_AUDIO_BYTES = 4000;
 
-const blobToBase64 = (
-  blob) =>
+// A single live chat turn: NaanSense messages get the avatar gutter; the
+// learner's replies are right-aligned with no avatar.
+function ChatMessage({ tone = "assistant", children }) {
+  return (
+    <div className={`chat-msg ${tone}`}>
+      {tone === "assistant" && (
+        <div className="chat-avatar" aria-hidden="true">
+          <ChefHat size={18} />
+        </div>
+      )}
+      <div className="chat-bubble">{children}</div>
+    </div>
+  );
+}
+
+const blobToBase64 = (blob) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onloadend = () => resolve(String(reader.result).split(",")[1]);
@@ -36,6 +48,7 @@ export default function CookingConversation() {
   const [messages, setMessages] = useState([]);
   const [recording, setRecording] = useState(false);
   const progress = useProgress();
+  const { speak: speakPhrase, speaking: phraseSpeaking } = useSpeak();
 
   const recorderRef = useRef(null);
   const streamRef = useRef(null);
@@ -160,7 +173,7 @@ export default function CookingConversation() {
           sendTurn(blob);
         } else {
           setStatus("idle");
-          setError("I didn\'t quite catch that — hold the button and speak a little longer.");
+          setError("I didn't quite catch that — hold the button and speak a little longer.");
         }
       };
 
@@ -201,110 +214,113 @@ export default function CookingConversation() {
     if (recording) stopRecording();
   };
 
-  let talkLabel = "Hold to talk";
+  let talkLabel = "Hold the mic and say it aloud";
   if (recording) talkLabel = "Listening… release when done";
   else if (status === "thinking") talkLabel = "Thinking…";
   else if (status === "speaking") talkLabel = "NaanSense is speaking…";
 
-  return (
-    <div className="page-stack">
-      <PageHeader
-        eyebrow={` Step ${stepIndex + 1} of ${totalSteps}`}
-        title={recipe.name}
-      />
+  const recipeSlug = recipe.name.toLowerCase().replace(/\s+/g, "-");
+  const phraseSaved = Boolean(currentStep?.phrase && progress.phrases[currentStep.phrase.trim()]);
 
-      <section className="conversation-panel">
-        {messages.length === 0 ? (
-          <div className="conversation-row assistant">
-            <div className="speaker">NaanSense</div>
-            <div className="bubble">
-              When you\'re ready, hold the button and say hello. We\'ll cook {recipe.name} together — there\'s no rush, and no test. Just us talking.
+  return (
+    <div className="page-stack cook-chat">
+      {/* Top bar: a quiet link back to the recipe (language pill floats right,
+          rendered globally by AppShell), then the step context + title. */}
+      <Link className="cook-recipe-link" to={`/cooking/${recipeSlug}`}>
+        <ArrowLeft size={16} aria-hidden="true" /> Recipe
+      </Link>
+      <div>
+        <p className="eyebrow">Step {stepIndex + 1} of {totalSteps}</p>
+        <h1 className="cook-chat-title">{recipe.name}</h1>
+      </div>
+
+      {/* Progress bar across the recipe's steps */}
+      <div className="step-meter" aria-label={`Step ${stepIndex + 1} of ${totalSteps}`}>
+        {steps.map((_, i) => (
+          <span key={i} className={i <= stepIndex ? "filled" : ""} />
+        ))}
+      </div>
+
+      {/* Chat thread */}
+      <section className="cook-thread">
+        {/* NaanSense's grouped opening: one avatar, then the intro, the step
+            instruction, and the suggested phrase, aligned under it. */}
+        <div className="chat-group">
+          <span className="chat-speaker">NaanSense</span>
+
+          <div className="chat-lead">
+            <div className="chat-avatar" aria-hidden="true">
+              <ChefHat size={18} />
+            </div>
+            <div className="chat-bubble">
+              When you're ready, hold the mic and say hello. We'll cook {recipe.name} together — there's no rush, and no test. Just us talking.
             </div>
           </div>
-        ) : (
-          messages.map((message, idx) => (
-            <ConversationBubble
-              key={idx}
-              speaker={message.role === "assistant" ? "NaanSense" : "You"}
-              tone={message.role === "assistant" ? "assistant" : "user"}
-            >
-              {message.content}
-            </ConversationBubble>
-          ))
-        )}
+
+          {currentStep && (
+            <div className="chat-bubble plain chat-indent">{currentStep.instruction}</div>
+          )}
+
+          {currentStep?.phrase && (
+            <div className="phrase-group chat-indent">
+              <div className="chat-bubble phrase-bubble">
+                <em>"{currentStep.phrase}"</em>
+                <button
+                  type="button"
+                  className="phrase-save-btn"
+                  onClick={() => addPhrase(currentStep.phrase, { recipeName: recipe.name })}
+                  disabled={phraseSaved}
+                >
+                  {phraseSaved ? <Check size={15} aria-hidden="true" /> : <Plus size={15} aria-hidden="true" />}
+                  {phraseSaved ? "Saved" : "Save"}
+                </button>
+              </div>
+              <button
+                type="button"
+                className="chat-hear"
+                onClick={() => speakPhrase(currentStep.phrase)}
+              >
+                <Volume2 size={16} aria-hidden="true" />
+                {phraseSpeaking ? "Playing…" : "Hear this phrase"}
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Live back-and-forth */}
+        {messages.map((message, idx) => (
+          <ChatMessage key={idx} tone={message.role === "assistant" ? "assistant" : "user"}>
+            {message.content}
+          </ChatMessage>
+        ))}
 
         {status === "thinking" && (
-          <div className="conversation-row assistant">
-            <div className="speaker">NaanSense</div>
-            <div className="bubble typing">
-              <Loader2 size={16} className="spin" aria-hidden="true" /> Thinking…
-            </div>
-          </div>
+          <ChatMessage tone="assistant">
+            <span className="chat-typing"><Loader2 size={16} className="spin" aria-hidden="true" /> Thinking…</span>
+          </ChatMessage>
         )}
-
         {status === "speaking" && (
-          <div className="conversation-row assistant">
-            <div className="speaker">NaanSense</div>
-            <div className="bubble typing">
-              <Volume2 size={16} aria-hidden="true" /> NaanSense is speaking…
-            </div>
-          </div>
+          <ChatMessage tone="assistant">
+            <span className="chat-typing"><Volume2 size={16} aria-hidden="true" /> NaanSense is speaking…</span>
+          </ChatMessage>
         )}
       </section>
 
-      {currentStep && (
-        <section className="conversation-panel">
-          <div className="speaker">Step {stepIndex + 1} of {totalSteps}</div>
-          <p className="bubble">{currentStep.instruction}</p>
-          {currentStep.phrase && (
-            <p className="form-hint">
-              Try saying: "{currentStep.phrase}"
-              <button
-                type="button"
-                className="save-phrase-button"
-                onClick={() => addPhrase(currentStep.phrase, { recipeName: recipe.name })}
-                disabled={Boolean(progress.phrases[currentStep.phrase?.trim()])}
-              >
-                {progress.phrases[currentStep.phrase?.trim()] ? (
-                  <Check size={16} aria-hidden="true" />
-                ) : (
-                  <Plus size={16} aria-hidden="true" />
-                )}
-                {progress.phrases[currentStep.phrase?.trim()] ? "Saved" : "Save Phrase"}
-              </button>
-            </p>
-          )}
-          <div className="chat-input">
-            <button
-              type="button"
-              className="action-button ghost"
-              onClick={() => setStepIndex((i) => Math.max(0, i - 1))}
-              disabled={stepIndex === 0}
-              aria-label="Previous step"
-            >
-              <ArrowLeft size={18} aria-hidden="true" />
-              Back
-            </button>
-            <button
-              type="button"
-              className="action-button ghost"
-              onClick={() => setStepIndex((i) => Math.min(totalSteps - 1, i + 1))}
-              disabled={stepIndex >= totalSteps - 1}
-              aria-label="Next step"
-            >
-              Next
-              <ArrowRight size={18} aria-hidden="true" />
-            </button>
-          </div>
-        </section>
-      )}
-
       {error && <p className="form-error">{error}</p>}
 
-      <div className="chat-input">
+      {/* Voice input dock — the single primary action */}
+      <div className={`voice-dock ${recording ? "recording" : ""}`}>
+        <div className="voice-dock-left">
+          <div className="voice-wave" aria-hidden="true">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span key={i} style={{ animationDelay: `${i * 90}ms` }} />
+            ))}
+          </div>
+          <span className="voice-label">{talkLabel}</span>
+        </div>
         <button
           type="button"
-          className={`action-button full ${recording ? "danger" : "primary"}`}
+          className={`voice-mic ${recording ? "recording" : ""}`}
           onPointerDown={handlePress}
           onPointerUp={handleRelease}
           onPointerCancel={handleRelease}
@@ -312,23 +328,38 @@ export default function CookingConversation() {
           aria-label="Hold to talk with NaanSense"
         >
           {status === "thinking" ? (
-            <Loader2 size={18} className="spin" aria-hidden="true" />
+            <Loader2 size={24} className="spin" aria-hidden="true" />
           ) : (
-            <Mic size={18} aria-hidden="true" />
+            <Mic size={24} aria-hidden="true" />
           )}
-          {talkLabel}
         </button>
       </div>
+
+      {/* Quiet step navigation */}
+      <div className="cook-nav-row">
+        <button
+          type="button"
+          className="cook-nav-text"
+          onClick={() => setStepIndex((i) => Math.max(0, i - 1))}
+          disabled={stepIndex === 0}
+        >
+          <ArrowLeft size={16} aria-hidden="true" /> Back
+        </button>
+        <button
+          type="button"
+          className="cook-nav-text"
+          onClick={() => setStepIndex((i) => Math.min(totalSteps - 1, i + 1))}
+          disabled={stepIndex >= totalSteps - 1}
+        >
+          Next step <ArrowRight size={16} aria-hidden="true" />
+        </button>
+      </div>
+
       {messages.length > 0 && (
-        <button type="button" className="action-button ghost full" onClick={reset}>
-          <RotateCcw size={18} aria-hidden="true" />
-          Start over
+        <button type="button" className="cook-startover" onClick={reset}>
+          <RotateCcw size={15} aria-hidden="true" /> Start over
         </button>
       )}
-
-      <Link className="primary-link full" to={`/cooking/${recipe.name.toLowerCase().replace(/\s+/g, "-")}`}>
-        Back to Recipe <ArrowRight size={18} aria-hidden="true" />
-      </Link>
     </div>
   );
 }

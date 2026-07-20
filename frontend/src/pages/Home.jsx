@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   AlertTriangle,
@@ -15,6 +15,7 @@ import {
   Volume2,
 } from "lucide-react";
 import ActionButton from "../components/ActionButton.jsx";
+import FloralFrame from "../components/FloralFrame.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import ProgressCard from "../components/ProgressCard.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
@@ -31,6 +32,7 @@ const TODAYS_PHRASE = "I am washing the lentils.";
 
 export default function Home() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const progress = useProgress();
   const { speak, speaking, activeText } = useSpeak();
@@ -83,12 +85,14 @@ export default function Home() {
 
       {/* Resume where they left off, or invite them to start */}
       {resume ? (
-        <ProgressCard
-          title={resume.name}
-          subtitle={t("home.stepOf", { step: resume.stepIndex + 1, total: resume.total })}
-          progress={Math.round(((resume.stepIndex + 1) / Math.max(resume.total, 1)) * 100)}
-          to={`/cooking/${resume.name.toLowerCase().replace(/\s+/g, "-")}`}
-        />
+        <FloralFrame>
+          <ProgressCard
+            title={resume.name}
+            subtitle={t("home.stepOf", { step: resume.stepIndex + 1, total: resume.total })}
+            progress={Math.round(((resume.stepIndex + 1) / Math.max(resume.total, 1)) * 100)}
+            to={`/cooking/${resume.name.toLowerCase().replace(/\s+/g, "-")}`}
+          />
+        </FloralFrame>
       ) : (
         <Link to="/cooking" className="start-card">
           <Sparkles size={22} aria-hidden="true" />
@@ -124,10 +128,9 @@ export default function Home() {
           >
             {speaking && activeText === TODAYS_PHRASE ? t("home.playing") : t("home.hearIt")}
           </ActionButton>
-          <Link className="primary-link" to="/cooking">
-            <BookOpen size={18} aria-hidden="true" />
+          <ActionButton icon={BookOpen} variant="soft" onClick={() => navigate("/cooking")}>
             {t("home.practice")}
-          </Link>
+          </ActionButton>
         </div>
       </section>
 
