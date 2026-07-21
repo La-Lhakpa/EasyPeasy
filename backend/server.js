@@ -623,6 +623,6 @@ app.post("/api/cook", async (req, res) => {
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`EasyPeasy backend listening on http://localhost:${PORT}`);
 });
